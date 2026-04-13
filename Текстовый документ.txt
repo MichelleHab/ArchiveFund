@@ -1,0 +1,1 @@
+mysqldump -u root -B ArchiveFund > "D:\УП_По_ПМ01\ArchiveFund.04.sql"
