@@ -3,11 +3,12 @@ using System.Data;
 using System.Text.RegularExpressions;
 
 namespace ArchiveFund
-{
+{ 
     public partial class MainForm : Form
     {
         private Role role;
         private string? login;
+        MainForm sda;
         public MainForm(Role? role = null, string? login = null)
         {
             InitializeComponent();
