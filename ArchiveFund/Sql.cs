@@ -4,57 +4,7 @@ using System.Data;
 namespace ArchiveFund
 {
     internal class Sql
-    {
-        /*public static object[,]? Query(string request, MySqlConnection mySqlConnection, out MySqlDataReader? reader, MySqlParameter[]? parameters = null)
-        {
-            try
-            {
-                var mySqlCommand = new MySqlCommand(request, mySqlConnection);
-                if (parameters is not null) mySqlCommand.Parameters.AddRange(parameters);
-                reader = mySqlCommand.ExecuteReader();
-                return Query(new object[0, reader.FieldCount], ref reader, mySqlConnection, false);
-            }
-            catch (Exception ex)
-            {
-                SqlRequestErrors(ex);
-                reader = null;
-                return null;
-            }
-        }
-        public static object[,] Query(object[,] output, ref MySqlDataReader reader, MySqlConnection mySqlConnection, bool auto)
-        {
-            if (!reader.Read() || reader is null)
-            {
-                if (auto)
-                    mySqlConnection.Close();
-                return output;
-            }
-            object[,] result = new object[output.GetLength(0) + 1, reader.FieldCount];
-            for (int i = 0; i < output.GetLength(0); i++)
-                for (int i1 = 0; i1 < output.GetLength(1); i1++)
-                    result[i, i1] = output[i, i1];
-            for (int i = 0; i < output.GetLength(1); i++)
-                result[result.GetLength(0) - 1, i] = reader[i];
-            return Query(result, ref reader, mySqlConnection, auto);
-        }
-        public static object[,]? Query(string request, MySqlParameter[]? parameters = null)
-        {
-            MySqlConnection mySqlConnection = new MySqlConnection(ConnectionStringBuilding.ConnectionString);
-            try
-            {
-                mySqlConnection.Open();
-                return Query(request, mySqlConnection, out var reader, parameters);
-            }
-            catch (Exception ex)
-            {
-                SqlRequestErrors(ex);
-                return null;
-            }
-            finally
-            {
-                mySqlConnection.Close();
-            }
-        }*/
+    {        
         public static DataTable? Query(string request, MySqlParameter[]? parameters = null)
         {
             MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
@@ -122,6 +72,22 @@ namespace ArchiveFund
             finally
             {
                 mySqlConnection.Close();
+            }
+        }
+        public static bool ExportToFile(string filePath)
+        {
+            var conn = new MySqlConnection(ConnectionStringBuilding.ConnectionString);
+            try
+            {
+                var mySqlBackup = new MySqlBackup(conn.CreateCommand());
+                conn.Open();
+                mySqlBackup.ExportToFile(filePath);
+                return true;
+            }
+            catch { return false; }
+            finally
+            {
+                conn.Close();
             }
         }
         public static object[,] SqlRequestErrors(Exception ex)

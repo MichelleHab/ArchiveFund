@@ -11,83 +11,80 @@ namespace ArchiveFund
             Sql.ConnectionStringBuilding.ConnectionTimeout = 1;
             if (File.Exists("config.ini"))
             {
-                string[] lines = File.ReadAllLines("config.ini");
-                Dictionary<string, string> config = [];
-                foreach (var line in lines)
+                try
                 {
-                    if (line.IndexOf('=') == -1)
-                        continue;
-                    config.Add(line.Split('=')[0].Trim(), line.Split('=')[1].Trim());
-                }
-                if (!config["user"].Any(c => !char.IsLetterOrDigit(c)) && !string.IsNullOrEmpty(config["user"]) && Convert.ToBoolean(Sql.QueryOneReturn("SELECT @user IN " +
-                    "(SELECT DISTINCT CONCAT(`USER`, '@', `HOST`) " +
-                    "FROM `mysql`.`user`) AS 'does such a user exist'", [new("@user", config["user"])])))
-                {
-                    Sql.QueryNonReturns($"create user '{config["user"]}'@'%'");
-                    Sql.QueryNonReturns($"grant all privileges on 'ArchiveFund' to '{config["user"]}'@'%'");
-                }
-                if (!config["user"].Any(c => !char.IsLetterOrDigit(c)) && !string.IsNullOrEmpty(config["user"]) && Convert.ToBoolean(Sql.QueryOneReturn("SELECT @user IN " +
-                    "(SELECT DISTINCT CONCAT(`USER`, '@', `HOST`) " +
-                    "FROM `mysql`.`user`) AS 'does such a user exist'", [new("@user", config["user"])])))
-                {
-                    Sql.QueryNonReturns($"create user '{config["user"]}'@'%'");
-                    Sql.QueryNonReturns($"grant all privileges on 'ArchiveFund' to '{config["user"]}'@'%'");
-                }
+                    string[] lines = File.ReadAllLines("config.ini");
+                    Dictionary<string, string> config = [];
+                    foreach (var line in lines)
+                    {
+                        if (line.IndexOf('=') == -1)
+                            continue;
+                        config.Add(line.Split('=')[0].Trim(), line.Split('=')[1].Trim());
+                    }
+                    Sql.ConnectionStringBuilding.Database = "information_schema";
+                    if (string.IsNullOrEmpty(config["database"])) config["database"] = "ArchiveFund";
+                    var f = config["database"].Any(c => !char.IsLetterOrDigit(c));
+                    var f0 = !Convert.ToBoolean(Sql.QueryOneReturn("select @database IN (SELECT DISTINCT " +
+                        "TABLE_SCHEMA FROM information_schema.TABLES) " +
+                        "AS 'does such a database exist'", [new("@database", config["database"])]));
+                    if (config["database"].Any(c => !char.IsLetterOrDigit(c)) &&
+                        !Convert.ToBoolean(Sql.QueryOneReturn("select @database IN (SELECT DISTINCT " +
+                        "TABLE_SCHEMA FROM information_schema.TABLES) " +
+                        "AS 'does such a database exist'", [new("@database", config["database"])])))
+                    {
+                        f = f == f0;
+                        Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.04.clear.sql"));
+                    }
+                    var tableStruct = "Boxes, DeletedDocuments, DeletedStudentsPersFiles, Documents, DocumentTypes, Group, Student, StudentsPersFiles, User";
+                    if (config["database"].Any(c => !char.IsLetterOrDigit(c)) && !string.IsNullOrEmpty(config["database"])
+                        && !Convert.ToBoolean(Sql.QueryOneReturn("select @tableStruct = (select GROUP_CONCAT(DISTINCT `TABLE_NAME` " +
+                        "SEPARATOR ', ') FROM information_schema.TABLES WHERE `TABLE_SCHEMA` = @database) " +
+                        "AS 'does this table structure exist'; ", [new("@tableStruct", tableStruct), new("@database", config["database"])])))
+                    {
+                        var backupFilePath = config["database"] + "." + DateTime.Now.ToString("dd.MM.yyyy-HH.mm.ss") + ".sql";
+                        MessageBox.Show("Найдена база данных с именем, указанным в файле 'config.ini', " +
+                            "не соответствующая табличной структуре. Сохранена в файл \"" + backupFilePath + "\n", "Проверка файла конфигурации 'config.ini'",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Sql.ExportToFile(backupFilePath);
+                        Sql.QueryNonReturns($"DROP DATABASE IF EXISTS {config["database"]}");
+                        Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.04.clear.sql"));
+                    }
+                    Sql.ConnectionStringBuilding.Database = "mysql";
+                    if (!config["user"].Any(c => !char.IsLetterOrDigit(c)) && !string.IsNullOrEmpty(config["user"])
+                        && !Convert.ToBoolean(Sql.QueryOneReturn("SELECT @user IN " +
+                        "(SELECT DISTINCT CONCAT(`USER`, '@', `HOST`) " +
+                        "FROM `mysql`.`user`) ", [new("@user", config["user"])])))
+                    {
 
+                        var pas = "";
+                        if (!string.IsNullOrEmpty(config["password"]) && !config["password"].Any(c => !char.IsLetterOrDigit(c)))
+                            pas = "identified by " + config["password"];
+                        Sql.QueryNonReturns($"create user '{config["user"]}'@'%' {pas}");
+                        Sql.QueryNonReturns($"grant all privileges on '{config["database"]}' to '{config["user"]}'@'%'");
+                    }
+                    if (!string.IsNullOrEmpty(config["server"]) && !config["server"].Any(c => !char.IsLetterOrDigit(c)))
+                        Sql.ConnectionStringBuilding.Server = config["server"];
+                    if (!string.IsNullOrEmpty(config["port"]) && !config["port"].Any(c => !char.IsDigit(c)))
+                        Sql.ConnectionStringBuilding.Port = Convert.ToUInt32(config["port"]);
+                    if (!config["password"].Any(c => !char.IsLetterOrDigit(c)))
+                        Sql.ConnectionStringBuilding.Password = config["password"];
+                    if (!string.IsNullOrEmpty(config["user"]) && !config["user"].Any(c => !char.IsLetterOrDigit(c)))
+                        Sql.ConnectionStringBuilding.UserID = config["user"];
+                    if (!string.IsNullOrEmpty(config["database"]) && !config["database"].Any(c => !char.IsLetterOrDigit(c)))
+                        Sql.ConnectionStringBuilding.Database = config["database"];
+                }
+                catch
+                {
+                    MessageBox.Show("Возникло исключение при попытке обработать/собрать файл конфигурации 'config.ini'.\n" +
+                        "Возможно, сервер закрыт или данные повреждены. Дальнейшая работа в приложении опасна!",
+                        "Проверка файла конфигурации 'config.ini'", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
                 Sql.ConnectionStringBuilding.ConnectionTimeout = 1;
                 Sql.ConnectionStringBuilding.Database = "ArchiveFund";
             }
-
-            
-            //File.Exists();
-                /*string[] lines = File.ReadAllLines("config.ini");
-                foreach (string line in lines)
-                {
-                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))
-                        continue;
-                    int separatorIndex = line.IndexOf('=');
-                    if (separatorIndex == -1)
-                        continue;
-                    string key = line.Substring(0, separatorIndex).Trim();
-                    string value = line.Substring(separatorIndex + 1).Trim();
-
-                    // Заполняем соответствующие поля в SqlConnectionStringBuilder
-                    switch (key)
-                    {
-                        case "database":
-                        if (Sql.Query(""))
-                            connectionBuilder.InitialCatalog = value;
-                            break;
-                        case "user":
-                            connectionBuilder.UserID = value;
-                            break;
-                        case "password":
-                            connectionBuilder.Password = value;
-                            break;
-                        case "port":
-                            // Преобразуем порт в число и формируем DataSource
-                            if (int.TryParse(value, out int port))
-                            {
-                                connectionBuilder.DataSource = $"{connectionBuilder.DataSource.Split(',')[0]},{port}";
-                            }
-                            break;
-                        case "server":
-                            // Если уже есть порт, сохраняем его
-                            string currentDataSource = connectionBuilder.DataSource;
-                            string portPart = string.Empty;
-
-                            if (!string.IsNullOrEmpty(currentDataSource) && currentDataSource.Contains(","))
-                            {
-                                portPart = currentDataSource.Substring(currentDataSource.IndexOf(','));
-                            }
-
-                            connectionBuilder.DataSource = value + portPart;
-                            break;
-                    }
-                }*/
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
