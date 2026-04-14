@@ -8,7 +8,6 @@ namespace ArchiveFund
     {
         private Role role;
         private string? login;
-        MainForm sda;
         public MainForm(Role? role = null, string? login = null)
         {
             InitializeComponent();
