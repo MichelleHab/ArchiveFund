@@ -155,8 +155,8 @@ CREATE TABLE `Group` (
 DROP TABLE IF EXISTS `Student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Student AUTO_INCREMENT` (
-  `student_id` int NOT NULL,
+CREATE TABLE `Student` (
+  `student_id` int NOT NULL AUTO_INCREMENT,
   `full_name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `group_id` int DEFAULT NULL,
   PRIMARY KEY (`student_id`),
