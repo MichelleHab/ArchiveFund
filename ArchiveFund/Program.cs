@@ -24,7 +24,7 @@ namespace ArchiveFund
                     Sql.ConnectionStringBuilding.Database = "information_schema";
                     if (string.IsNullOrEmpty(config["database"]))
                         config["database"] = "ArchiveFund";
-                    if (config["database"].Any(c => !char.IsLetterOrDigit(c) || c == '_') &&
+                    if (config["database"].All(c => !char.IsLetterOrDigit(c) || c == '_') &&
                         !Convert.ToBoolean(Sql.QueryOneReturn("select @database IN (SELECT DISTINCT " +
                         "TABLE_SCHEMA FROM information_schema.TABLES) " +
                         "AS 'does such a database exist'", [new("@database", config["database"])])))
@@ -46,32 +46,26 @@ namespace ArchiveFund
                         Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.04.clear.sql"));
                     }
                     Sql.ConnectionStringBuilding.Database = "mysql";
-                    var debug1 = !string.IsNullOrEmpty(config["user"]);
-                    var debug2 = config["user"].Any(c => !char.IsLetterOrDigit(c) || c == '_');
-                    var debug3 = !Convert.ToBoolean(Sql.QueryOneReturn("SELECT @user IN " +
+                    if (!string.IsNullOrEmpty(config["user"]) && config["user"].All(c => char.IsLetterOrDigit(c) || c == '_')
+                        && !Convert.ToBoolean(Sql.QueryOneReturn("SELECT concat(@user, '@', @host) IN " +
                         "(SELECT DISTINCT CONCAT(`USER`, '@', `HOST`) " +
-                        "FROM `mysql`.`user`) ", [new("@user", config["user"])]));
-                    if (!string.IsNullOrEmpty(config["user"]) && !config["user"].Any(c => !char.IsLetterOrDigit(c) || c == '_')
-                        && !Convert.ToBoolean(Sql.QueryOneReturn("SELECT @user IN " +
-                        "(SELECT DISTINCT CONCAT(`USER`, '@', `HOST`) " +
-                        "FROM `mysql`.`user`) ", [new("@user", config["user"])])))
+                        "FROM `mysql`.`user`) ", [new("@user", config["user"]), new("@host", '%')])))
                     {
                         var pas = string.Empty;
                         if (!string.IsNullOrEmpty(config["password"]) && !config["password"].Any(c => !char.IsLetterOrDigit(c)))
                             pas = "identified by " + config["password"];
                         Sql.QueryNonReturns($"create user '{config["user"]}'@'%' {pas}");
-                        Sql.QueryNonReturns($"grant all privileges on '{config["database"]}' to '{config["user"]}'@'%'");
+                        Sql.QueryNonReturns($"grant all privileges on `{config["database"]}`.* to '{config["user"]}'@'%'");
                     }
-                    else config["user"] = "root";
                     if (!string.IsNullOrEmpty(config["server"]) && config["server"].Any(c => !char.IsLetterOrDigit(c)))
                         Sql.ConnectionStringBuilding.Server = config["server"];
                     if (!string.IsNullOrEmpty(config["port"]) && config["port"].Any(c => !char.IsDigit(c)))
                         Sql.ConnectionStringBuilding.Port = Convert.ToUInt32(config["port"]);
                     if (config["password"].Any(c => !char.IsLetterOrDigit(c) || c == '_' || c == '-'))
                         Sql.ConnectionStringBuilding.Password = config["password"];
-                    if (!string.IsNullOrEmpty(config["user"]) && config["user"].Any(c => !char.IsLetterOrDigit(c)))
+                    if (!string.IsNullOrEmpty(config["user"]) && config["user"].All(c => char.IsLetterOrDigit(c) || c == '_'))
                         Sql.ConnectionStringBuilding.UserID = config["user"];
-                    if (!string.IsNullOrEmpty(config["database"]) && config["database"].Any(c => !char.IsLetterOrDigit(c)))
+                    if (!string.IsNullOrEmpty(config["database"]) && !config["database"].All(c => !char.IsLetterOrDigit(c) || c == '_'))
                         Sql.ConnectionStringBuilding.Database = config["database"];
                 }
                 catch
