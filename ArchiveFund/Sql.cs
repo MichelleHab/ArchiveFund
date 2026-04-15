@@ -90,22 +90,14 @@ namespace ArchiveFund
                 conn.Close();
             }
         }
-        public static object[,] SqlRequestErrors(Exception ex)
+        public static string SqlRequestErrors(Exception ex)
         {
-            object[,] ErrorResult = new object[,] { { "Message: " + ex.Message,
-                "StackTrace: " + (ex.StackTrace is not null ? ex.StackTrace : "NULL"),
-                "HelpLink: " + (ex.HelpLink is not null ? ex.HelpLink : "NULL"),
-                "HResult: " + (ex.HResult),
-                "Source: " + (ex.Source is not null ? ex.Source : "NULL"),
-                "TargetSite.Name: " + (ex.TargetSite is not null ? ex.TargetSite.Name : "NULL") } };
+            var result = "Message: " + ex.Message;
 #if DEBUG
-            if (MessageBox.Show(ErrorResult[0, 0].ToString() +
-                ErrorResult[0, 1].ToString() + ErrorResult[0, 2].ToString() +
-                ErrorResult[0, 3].ToString() + ErrorResult[0, 4].ToString() +
-                ErrorResult[0, 5].ToString(), "!SqlRequest! -> exit?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(result, "!SqlRequest! -> exit?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 Environment.Exit(0);
 #endif
-            return ErrorResult;
+            return result;
         }
         public static MySqlConnectionStringBuilder ConnectionStringBuilding = new()
         {
