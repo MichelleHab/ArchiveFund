@@ -7,14 +7,14 @@ namespace ArchiveFund
     {        
         public static DataTable? Query(string request, MySqlParameter[]? parameters = null)
         {
-            MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
+            using MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
             try
             {
                 mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new(request, mySqlConnection);
+                using MySqlCommand mySqlCommand = new(request, mySqlConnection);
                 if (parameters is not null)
                     mySqlCommand.Parameters.AddRange(parameters);
-                DataTable dt = new();
+                using DataTable dt = new();
                 new MySqlDataAdapter(mySqlCommand).Fill(dt);
                 return dt;
             }
@@ -30,11 +30,11 @@ namespace ArchiveFund
         }
         public static object? QueryOneReturn(string request, MySqlParameter[]? parameters = null)
         {
-            MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
+            using MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
             try
             {
                 mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new(request, mySqlConnection);
+                using MySqlCommand mySqlCommand = new(request, mySqlConnection);
                 if (parameters is not null)
                     mySqlCommand.Parameters.AddRange(parameters);
                 var rdr = mySqlCommand.ExecuteReader();
@@ -54,11 +54,11 @@ namespace ArchiveFund
         }
         public static bool QueryNonReturns(string request, MySqlParameter[]? parameters = null)
         {
-            MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
+            using MySqlConnection mySqlConnection = new(ConnectionStringBuilding.ConnectionString);
             try
             {
                 mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new(request, mySqlConnection);
+                using MySqlCommand mySqlCommand = new(request, mySqlConnection);
                 if (parameters is not null)
                     mySqlCommand.Parameters.AddRange(parameters);
                 mySqlCommand.ExecuteNonQuery();
@@ -74,12 +74,19 @@ namespace ArchiveFund
                 mySqlConnection.Close();
             }
         }
-        public static bool ExportToFile(string filePath)
+        public static bool ExportToFile(string filePath, string? database = null)
         {
-            var conn = new MySqlConnection(ConnectionStringBuilding.ConnectionString);
+            string? db = null;
+            if (!string.IsNullOrEmpty(database))
+            {
+                db = ConnectionStringBuilding.Database;
+                ConnectionStringBuilding.Database = database;
+            }
+            using var conn = new MySqlConnection(ConnectionStringBuilding.ConnectionString);
             try
             {
-                var mySqlBackup = new MySqlBackup(conn.CreateCommand());
+                using var mySqlBackup = new MySqlBackup(conn.CreateCommand());
+                mySqlBackup.ExportInfo.AddCreateDatabase = true;
                 conn.Open();
                 mySqlBackup.ExportToFile(filePath);
                 return true;
@@ -87,6 +94,10 @@ namespace ArchiveFund
             catch { return false; }
             finally
             {
+                if (!string.IsNullOrEmpty(db))
+                {
+                    ConnectionStringBuilding.Database = db;
+                }
                 conn.Close();
             }
         }
