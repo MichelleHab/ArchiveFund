@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             mainMenu = new MenuStrip();
             fileMenu = new ToolStripMenuItem();
@@ -52,12 +53,14 @@
             contextAddItem = new ToolStripMenuItem();
             contextEditItem = new ToolStripMenuItem();
             contextDeleteItem = new ToolStripMenuItem();
+            contextFilterItem = new ToolStripMenuItem();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
             lblSearch = new Label();
             searchEngine = new TextBox();
-            contextFilterItem = new ToolStripMenuItem();
+            printMenu = new ToolStripMenuItem();
+            printAllPersFiles = new ToolStripMenuItem();
             mainMenu.SuspendLayout();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
@@ -68,7 +71,7 @@
             // 
             mainMenu.Font = new Font("Times New Roman", 13.8F);
             mainMenu.ImageScalingSize = new Size(20, 20);
-            mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu });
+            mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu, printMenu });
             mainMenu.Location = new Point(0, 0);
             mainMenu.Name = "mainMenu";
             mainMenu.Size = new Size(800, 34);
@@ -77,22 +80,24 @@
             // fileMenu
             // 
             fileMenu.DropDownItems.AddRange(new ToolStripItem[] { exitMenuItem });
+            fileMenu.Image = (Image)resources.GetObject("fileMenu.Image");
             fileMenu.Name = "fileMenu";
-            fileMenu.Size = new Size(77, 30);
+            fileMenu.Size = new Size(97, 30);
             fileMenu.Text = "Файл";
             // 
             // exitMenuItem
             // 
             exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new Size(160, 30);
+            exitMenuItem.Size = new Size(224, 30);
             exitMenuItem.Text = "Выход";
             exitMenuItem.Click += ExitMenuItem_Click;
             // 
             // dataMenu
             // 
             dataMenu.DropDownItems.AddRange(new ToolStripItem[] { usersMenuItem, groupsMenuItem, boxesMenuItem });
+            dataMenu.Image = (Image)resources.GetObject("dataMenu.Image");
             dataMenu.Name = "dataMenu";
-            dataMenu.Size = new Size(101, 30);
+            dataMenu.Size = new Size(121, 30);
             dataMenu.Text = "Данные";
             // 
             // usersMenuItem
@@ -120,8 +125,9 @@
             // studentDataMenu
             // 
             studentDataMenu.DropDownItems.AddRange(new ToolStripItem[] { StudentMenuItem, PersFilesMenuItem, DelPersFilesMenuItem, DocumentsMenuItem, DelDocumentsMenuItem });
+            studentDataMenu.Image = (Image)resources.GetObject("studentDataMenu.Image");
             studentDataMenu.Name = "studentDataMenu";
-            studentDataMenu.Size = new Size(120, 30);
+            studentDataMenu.Size = new Size(140, 30);
             studentDataMenu.Text = "Студенты";
             // 
             // StudentMenuItem
@@ -162,8 +168,9 @@
             // guideMenu
             // 
             guideMenu.DropDownItems.AddRange(new ToolStripItem[] { DocumentTypesMenuItem });
+            guideMenu.Image = (Image)resources.GetObject("guideMenu.Image");
             guideMenu.Name = "guideMenu";
-            guideMenu.Size = new Size(144, 30);
+            guideMenu.Size = new Size(164, 30);
             guideMenu.Text = "Справочник";
             // 
             // DocumentTypesMenuItem
@@ -222,7 +229,7 @@
             contextMenu.ImageScalingSize = new Size(20, 20);
             contextMenu.Items.AddRange(new ToolStripItem[] { contextAddItem, contextEditItem, contextDeleteItem, contextFilterItem });
             contextMenu.Name = "contextMenu";
-            contextMenu.Size = new Size(227, 152);
+            contextMenu.Size = new Size(227, 124);
             // 
             // contextAddItem
             // 
@@ -247,6 +254,13 @@
             contextDeleteItem.Size = new Size(226, 30);
             contextDeleteItem.Text = "Удалить";
             contextDeleteItem.Click += BtnDelete_Click;
+            // 
+            // contextFilterItem
+            // 
+            contextFilterItem.Enabled = false;
+            contextFilterItem.Name = "contextFilterItem";
+            contextFilterItem.Size = new Size(226, 30);
+            contextFilterItem.Text = "Фильтр";
             // 
             // btnAdd
             // 
@@ -298,12 +312,20 @@
             searchEngine.TabIndex = 9;
             searchEngine.TextChanged += searchEngine_TextChanged;
             // 
-            // contextFilterItem
+            // printMenu
             // 
-            contextFilterItem.Enabled = false;
-            contextFilterItem.Name = "contextFilterItem";
-            contextFilterItem.Size = new Size(226, 30);
-            contextFilterItem.Text = "Фильтр";
+            printMenu.DropDownItems.AddRange(new ToolStripItem[] { printAllPersFiles });
+            printMenu.Image = (Image)resources.GetObject("printMenu.Image");
+            printMenu.Name = "printMenu";
+            printMenu.Size = new Size(111, 30);
+            printMenu.Text = "Печать";
+            // 
+            // printAllPersFiles
+            // 
+            printAllPersFiles.Name = "printAllPersFiles";
+            printAllPersFiles.Size = new Size(440, 30);
+            printAllPersFiles.Text = "Получить все данные по студентам";
+            printAllPersFiles.Click += printAllPersFiles_Click;
             // 
             // MainForm
             // 
@@ -360,5 +382,7 @@
         private Label lblSearch;
         private TextBox searchEngine;
         private ToolStripMenuItem contextFilterItem;
+        private ToolStripMenuItem printMenu;
+        private ToolStripMenuItem printAllPersFiles;
     }
 }

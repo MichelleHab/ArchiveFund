@@ -106,18 +106,15 @@ namespace ArchiveFund
         {
             if (string.IsNullOrWhiteSpace(server))
                 return false;
-
             // Разрешённые строковые значения
             if (server == "localhost" || server == "%" || server == "127.0.0.1")
                 return true;
-
             // Проверка на корректный IPv4-адрес
             if (IPAddress.TryParse(server, out var ipAddress))
             {
                 // Убедимся, что это IPv4 (а не IPv6)
                 return ipAddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork;
             }
-
             return false;
         }
     }
