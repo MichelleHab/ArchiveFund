@@ -58,7 +58,6 @@ namespace ArchiveFund
             if (!flag_is_update && tb is not null)
                 statusLabel.Text = "- получено " + tb.Rows.Count + " строк";
             else flag_is_update = false;
-
             ContextFilter.CreateFilterContextMenu(grid, contextFilterItem);
         }
         private Table currentTable = Table.None;

@@ -116,6 +116,7 @@
             // 
             // comboBoxTypeId
             // 
+            comboBoxTypeId.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxTypeId.FormattingEnabled = true;
             comboBoxTypeId.Location = new Point(252, 166);
             comboBoxTypeId.Name = "comboBoxTypeId";
