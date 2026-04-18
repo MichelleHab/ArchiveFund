@@ -30,7 +30,7 @@ namespace ArchiveFund
                     foreach (var item in cmbGroupId.Items)
                     {
                         var prop = item.GetType().GetProperty("Id");
-                        if (prop != null && prop.GetValue(item).ToString() == parameters[4].ToString())
+                        if (prop != null && prop?.GetValue(item)?.ToString() == parameters[4].ToString())
                         {
                             cmbGroupId.SelectedItem = item;
                             break;
@@ -42,7 +42,7 @@ namespace ArchiveFund
                     foreach (var item in cmbTypeId.Items)
                     {
                         var prop = item.GetType().GetProperty("Id");
-                        if (prop != null && prop.GetValue(item).ToString() == parameters[5].ToString())
+                        if (prop != null && prop?.GetValue(item)?.ToString() == parameters[5].ToString())
                         {
                             cmbTypeId.SelectedItem = item;
                             break;
@@ -52,7 +52,7 @@ namespace ArchiveFund
                 if (!string.IsNullOrEmpty(parameters[6]?.ToString()))
                 {
                     noSaveDate.Checked = false;
-                    dtpYearWork.Value = DateTime.Parse(parameters[6].ToString());
+                    dtpYearWork.Value = Convert.ToDateTime(parameters[6].ToString());
                 }
             }
             else this.Text = "Добавление коробки!";

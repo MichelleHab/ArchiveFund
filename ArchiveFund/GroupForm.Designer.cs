@@ -40,10 +40,10 @@
             // 
             // txtGroupName
             // 
-            txtGroupName.Location = new Point(185, 25);
+            txtGroupName.Location = new Point(201, 25);
             txtGroupName.MaxLength = 100;
             txtGroupName.Name = "txtGroupName";
-            txtGroupName.Size = new Size(196, 29);
+            txtGroupName.Size = new Size(181, 29);
             txtGroupName.TabIndex = 3;
             // 
             // lblGroupName
@@ -51,18 +51,18 @@
             lblGroupName.AutoSize = true;
             lblGroupName.Location = new Point(12, 28);
             lblGroupName.Name = "lblGroupName";
-            lblGroupName.Size = new Size(153, 21);
+            lblGroupName.Size = new Size(162, 21);
             lblGroupName.TabIndex = 2;
-            lblGroupName.Text = "Название группы:";
+            lblGroupName.Text = "*Название группы:";
             // 
             // dtpFormationYear
             // 
             dtpFormationYear.CustomFormat = "yyyy";
             dtpFormationYear.Format = DateTimePickerFormat.Short;
-            dtpFormationYear.Location = new Point(185, 69);
+            dtpFormationYear.Location = new Point(201, 69);
             dtpFormationYear.Name = "dtpFormationYear";
             dtpFormationYear.ShowUpDown = true;
-            dtpFormationYear.Size = new Size(196, 29);
+            dtpFormationYear.Size = new Size(180, 29);
             dtpFormationYear.TabIndex = 5;
             // 
             // lblFormationYear
@@ -70,16 +70,16 @@
             lblFormationYear.AutoSize = true;
             lblFormationYear.Location = new Point(12, 75);
             lblFormationYear.Name = "lblFormationYear";
-            lblFormationYear.Size = new Size(167, 21);
+            lblFormationYear.Size = new Size(176, 21);
             lblFormationYear.TabIndex = 4;
-            lblFormationYear.Text = "Год формирования:";
+            lblFormationYear.Text = "*Год формирования:";
             // 
             // txtSpecialization
             // 
-            txtSpecialization.Location = new Point(185, 115);
+            txtSpecialization.Location = new Point(201, 115);
             txtSpecialization.MaxLength = 255;
             txtSpecialization.Name = "txtSpecialization";
-            txtSpecialization.Size = new Size(197, 29);
+            txtSpecialization.Size = new Size(181, 29);
             txtSpecialization.TabIndex = 7;
             // 
             // lblSpecialization
@@ -87,9 +87,9 @@
             lblSpecialization.AutoSize = true;
             lblSpecialization.Location = new Point(12, 118);
             lblSpecialization.Name = "lblSpecialization";
-            lblSpecialization.Size = new Size(137, 21);
+            lblSpecialization.Size = new Size(146, 21);
             lblSpecialization.TabIndex = 6;
-            lblSpecialization.Text = "Специализация:";
+            lblSpecialization.Text = "*Специализация:";
             // 
             // btnSave
             // 

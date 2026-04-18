@@ -15,14 +15,14 @@ namespace ArchiveFund
             InitializeComponent();
             if (parameters != null && parameters.Length == 5)
             {
-                this.Text = "Изменение пользователя!";
+                this.Text = "Администрирования: Изменение пользователя!";
                 if (!string.IsNullOrEmpty(parameters[1].ToString()))
                     txtFIO.Text = parameters[1].ToString();
                 cmbRole.Text = parameters[2].ToString();
                 txtLogin.Text = parameters[3].ToString();
                 txtPassword.Text = parameters[4].ToString();
             }
-            else this.Text = "Добавление пользователя!";
+            else this.Text = "Администрирования: Добавление пользователя!";
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {

@@ -46,10 +46,10 @@
             // 
             // txtFullName
             // 
-            txtFullName.Location = new Point(167, 6);
+            txtFullName.Location = new Point(177, 6);
             txtFullName.MaxLength = 100;
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(350, 29);
+            txtFullName.Size = new Size(340, 29);
             txtFullName.TabIndex = 3;
             // 
             // lblFullName
@@ -57,21 +57,21 @@
             lblFullName.AutoSize = true;
             lblFullName.Location = new Point(12, 9);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(129, 21);
+            lblFullName.Size = new Size(138, 21);
             lblFullName.TabIndex = 2;
-            lblFullName.Text = "ФИО студента:";
+            lblFullName.Text = "*ФИО студента:";
             // 
             // cmbGroupId
             // 
-            cmbGroupId.Location = new Point(167, 41);
+            cmbGroupId.Location = new Point(177, 48);
             cmbGroupId.Name = "cmbGroupId";
-            cmbGroupId.Size = new Size(350, 28);
+            cmbGroupId.Size = new Size(340, 28);
             cmbGroupId.TabIndex = 5;
             // 
             // lblGroupId
             // 
             lblGroupId.AutoSize = true;
-            lblGroupId.Location = new Point(12, 44);
+            lblGroupId.Location = new Point(12, 51);
             lblGroupId.Name = "lblGroupId";
             lblGroupId.Size = new Size(71, 21);
             lblGroupId.TabIndex = 4;
@@ -81,10 +81,10 @@
             // 
             dtpAdmissionYear.CustomFormat = "yyyy";
             dtpAdmissionYear.Format = DateTimePickerFormat.Short;
-            dtpAdmissionYear.Location = new Point(167, 88);
+            dtpAdmissionYear.Location = new Point(177, 88);
             dtpAdmissionYear.Name = "dtpAdmissionYear";
             dtpAdmissionYear.ShowUpDown = true;
-            dtpAdmissionYear.Size = new Size(350, 29);
+            dtpAdmissionYear.Size = new Size(340, 29);
             dtpAdmissionYear.TabIndex = 9;
             // 
             // lblAdmissionYear
@@ -92,19 +92,19 @@
             lblAdmissionYear.AutoSize = true;
             lblAdmissionYear.Location = new Point(12, 94);
             lblAdmissionYear.Name = "lblAdmissionYear";
-            lblAdmissionYear.Size = new Size(149, 21);
+            lblAdmissionYear.Size = new Size(158, 21);
             lblAdmissionYear.TabIndex = 8;
-            lblAdmissionYear.Text = "Год поступления:";
+            lblAdmissionYear.Text = "*Год поступления:";
             // 
             // dtpDeductionYear
             // 
             dtpDeductionYear.CustomFormat = "yyyy";
             dtpDeductionYear.Enabled = false;
             dtpDeductionYear.Format = DateTimePickerFormat.Short;
-            dtpDeductionYear.Location = new Point(167, 137);
+            dtpDeductionYear.Location = new Point(177, 137);
             dtpDeductionYear.Name = "dtpDeductionYear";
             dtpDeductionYear.ShowUpDown = true;
-            dtpDeductionYear.Size = new Size(250, 29);
+            dtpDeductionYear.Size = new Size(240, 29);
             dtpDeductionYear.TabIndex = 11;
             // 
             // lblDeductionYear

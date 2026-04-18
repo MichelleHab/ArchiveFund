@@ -315,7 +315,7 @@ namespace ArchiveFund
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     if (!Sql.QueryNonReturns("insert into `User`(FIO, role, login, password) " +
-                        "values (@FIO, @role, @login, @password)", [
+                        "values (@FIO, @role, @login, SHA2(@password, 512))", [
                             new MySqlParameter("@FIO", ((UserForm)form).txtFIO.Text),
                             new MySqlParameter("@role", ((UserForm)form).cmbRole.Text),
                             new MySqlParameter("@login", ((UserForm)form).txtLogin.Text),
@@ -335,7 +335,7 @@ namespace ArchiveFund
             {
                 case Table.Boxes:
                     form = new BoxesForm(Sql.Query("select * from `Boxes` where box_id = @id",
-                        [new("@id", id)]).Rows[0].ItemArray);
+                        [new("@id", id)])?.Rows[0].ItemArray ?? null);
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     if (!Sql.QueryNonReturns("update `Boxes` set box_name = @box_name, " +
@@ -353,7 +353,7 @@ namespace ArchiveFund
                     break;
                 case Table.Documents or Table.DeletedDocuments:
                     form = new DocumentForm(Sql.Query($"select * from `{currentTable}` where doc_id = @id",
-                        [new("@id", id)]).Rows[0].ItemArray, currentTable == Table.DeletedDocuments);
+                        [new("@id", id)])?.Rows[0].ItemArray, currentTable == Table.DeletedDocuments);
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     Sql.QueryNonReturns($"delete from {currentTable} where doc_id = @id", [new("@id", id)]);
@@ -372,7 +372,7 @@ namespace ArchiveFund
                     break;
                 case Table.DocumentTypes:
                     form = new DocumentTypeForm(Sql.Query("select * from `DocumentTypes` where type_id = @id",
-                    [new MySqlParameter("@id", id)]).Rows[0].ItemArray);
+                    [new MySqlParameter("@id", id)])?.Rows[0].ItemArray);
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     if (!Sql.QueryNonReturns("update `DocumentTypes` set type_name = @type_name where type_id = @id", [
@@ -382,7 +382,7 @@ namespace ArchiveFund
                     break;
                 case Table.Group:
                     form = new GroupForm(Sql.Query("select * from `Group` where group_id = @id",
-                    [new MySqlParameter("@id", id)]).Rows[0].ItemArray);
+                    [new MySqlParameter("@id", id)])?.Rows[0].ItemArray);
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     if (!Sql.QueryNonReturns("update `Group` set group_name = @group_name, " +
@@ -401,24 +401,24 @@ namespace ArchiveFund
                     if (currentTable == Table.Student)
                     {
                         forStudents = Sql.Query("select * from `Student` where student_id = @id",
-                    [new MySqlParameter("@id", id)]).Rows[0].ItemArray;
+                    [new MySqlParameter("@id", id)])?.Rows[0].ItemArray ?? throw new ArgumentNullException();
                         var tbPersFiles = Sql.Query("select * from `StudentsPersFiles` where student_id = @id",
                     [new MySqlParameter("@id", id)]);
-                        if (tbPersFiles.Rows.Count == 0)
+                        if (tbPersFiles?.Rows.Count == 0)
                         {
                             tbPersFiles = Sql.Query("select * from `DeletedStudentsPersFiles` where student_id = @id",
                             [new MySqlParameter("@id", id)]);
                             persFiles = Table.DeletedStudentsPersFiles;
                         }
-                        forPersFiles = tbPersFiles.Rows[0].ItemArray;
+                        forPersFiles = tbPersFiles?.Rows[0].ItemArray ?? throw new ArgumentNullException();
                     }
                     else
                     {
                         persFiles = currentTable;
                         forPersFiles = Sql.Query($"select * from `{persFiles}` where pers_file_id = @id",
-                    [new MySqlParameter("@id", id)]).Rows[0].ItemArray;
+                    [new MySqlParameter("@id", id)])?.Rows[0].ItemArray ?? throw new ArgumentNullException();
                         forStudents = Sql.Query($"select * from `Student` where student_id = @id",
-                    [new MySqlParameter("@id", forPersFiles[4])]).Rows[0].ItemArray;
+                    [new MySqlParameter("@id", forPersFiles[4])])?.Rows[0].ItemArray ?? throw new ArgumentNullException();
                     }
                     form = new StudentForm(forStudents, forPersFiles, persFiles == Table.DeletedStudentsPersFiles);
                     if (form.ShowDialog() != DialogResult.OK)
@@ -440,7 +440,7 @@ namespace ArchiveFund
                     break;
                 case Table.User:
                     form = new UserForm(Sql.Query("select * from `User` where user_id = @id",
-                        [new MySqlParameter("@id", id)]).Rows[0].ItemArray);
+                        [new MySqlParameter("@id", id)])?.Rows[0].ItemArray ?? throw new ArgumentNullException());
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     if (!Sql.QueryNonReturns("update `User` set FIO = @FIO, role = @role, " +
@@ -472,7 +472,7 @@ namespace ArchiveFund
             int num_return = grid.SelectedRows.Count;
             foreach (DataGridViewRow row in grid.SelectedRows)
                 Sql.QueryNonReturns($"delete from `{currentTable}` " +
-                    $"where {getSelects().Split(',')[0]} = @id",
+                    $"where {getSelects()?.Split(',')[0]} = @id",
                     [new("@id", row.Cells[0].Value)]);
             statusLabel.Text = "- Запись(и) удалена(ы) -> " + num_return + " строк";
             flag_is_update = true;
@@ -520,34 +520,37 @@ namespace ArchiveFund
                 return;
             }
             var id = grid.CurrentRow.Cells[0]?.Value?.ToString();
-            if (currentTable == Table.Student)
+            if (id is null)
+                return;
+            if (currentTable != Table.Student)
             {
-
+                id = Sql.QueryOneReturn($"select student_id from `{currentTable}` where pers_file_id = @id", [new("@id", id)])?.ToString();
             }
-            else
-            {
-
-            }
-            var studentData = new Dictionary<string, string>
-        {
-            { "Specialty", "09.02.07 Информационные системы и программирование" },
-            { "FormOfStudy", "Очная" },
-            { "FileNumber", "123-УД/2026" },
-            { "LastName", "Петров" },
-            { "FirstName", "Алексей" },
-            { "MiddleName", "Сергеевич" },
-            { "StartDate", DateTime.Now.ToString("dd.MM.yyyy") },
-            { "EndDate", DateTime.Now.AddYears(4).ToString("dd.MM.yyyy") },
-            { "SheetCount", "25" },
-            { "StorageYears", "50" }
-        };
+            var persFiles = Sql.QueryOneReturn("select count(*) from `StudentsPersFiles` where student_id = @id", [new("@id", id)])?.ToString() == "0" ? 
+                Sql.Query("select * from `DeletedStudentsPersFiles` where student_id = @id", [new("@id", id)])?.Rows[0] : 
+                Sql.Query("select * from `StudentsPersFiles` where student_id = @id", [new("@id", id)])?.Rows[0];
+            if (persFiles is null)
+                return;
+            var studentData = new Dictionary<string, string?>
+{
+    { "Specialty", Sql.QueryOneReturn("select `specialization` from `Group` where group_id = @id",
+        [new("@id", Sql.QueryOneReturn("select group_id from `Student` where student_id = @id", [new("@id", id)]) )])?.ToString() ?? "" },
+    { "FormOfStudy", "Очная" },
+    { "FileNumber", id + "-" + persFiles["pers_file_id"] },
+    { "Name", Sql.QueryOneReturn("select full_name from `Student` where student_id = @id", [new("@id", id)])?.ToString() ?? "" },
+    { "StartDate", persFiles["admission_year"] == DBNull.Value ? "                            " : Convert.ToDateTime(persFiles["admission_year"]).ToString("dd.MM.yyyy") },
+    { "EndDate", persFiles["deduction_year"] == DBNull.Value ? "                            " : Convert.ToDateTime(persFiles["deduction_year"]).ToString("dd.MM.yyyy") },
+    { "SheetCount", (Convert.ToInt32(Sql.QueryOneReturn("select count(*) from `Documents` where student_id = @id", [new("@id", id)]) ?? 0) +
+                     Convert.ToInt32(Sql.QueryOneReturn("select count(*) from `DeletedDocuments` where student_id = @id", [new("@id", id)]) ?? 0)).ToString() },
+    { "StorageYears", "75" }
+};
 
             // 2. Открываем диалог сохранения файла
             using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
                 saveDialog.Filter = "Документы Word (*.docx)|*.docx";
                 saveDialog.Title = "Сохранить личное дело студента";
-                saveDialog.FileName = $"Личное_дело_{studentData["LastName"]}.docx";
+                saveDialog.FileName = $"Личное_дело_{studentData["Name"]}_{studentData["FileNumber"]}.docx";
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -575,8 +578,8 @@ namespace ArchiveFund
                 }
             }
         }
-        private string templatePath = Path.Combine(Application.StartupPath, "Опись Личные_дела_студентов.DOCX");
-        private void GenerateDocument(string templatePath, string outputPath, Dictionary<string, string> data)
+        private string templatePath = "Опись Личные_дела_студентов.DOCX";
+        private void GenerateDocument(string templatePath, string outputPath, Dictionary<string, string?> data)
         {
             if (!File.Exists(templatePath))
             {
@@ -592,9 +595,9 @@ namespace ArchiveFund
                     foreach (var kvp in data)
                     {
                         string key = $"{{{kvp.Key}}}"; // Формируем ключ {Specialty}
-                        if (paragraph.Text.Contains(key))
+                        if (paragraph is not null && paragraph.Text.Contains(key))
                         {
-                            paragraph.ReplaceText(key, kvp.Value);
+                            paragraph?.ReplaceText(key, kvp.Value);
                         }
                     }
                 }

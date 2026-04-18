@@ -25,7 +25,7 @@ namespace ArchiveFund
                 foreach (var item in comboBoxTypeId.Items)
                 {
                     var prop = item.GetType().GetProperty("Id");
-                    if (prop != null && prop.GetValue(item).ToString() == parameters[3].ToString())
+                    if (prop != null && prop?.GetValue(item)?.ToString() == parameters[3].ToString())
                     {
                         comboBoxTypeId.SelectedItem = item;
                         break;
@@ -38,7 +38,7 @@ namespace ArchiveFund
                     foreach (var item in comboBoxStudentId.Items)
                     {
                         var prop = item.GetType().GetProperty("Id");
-                        if (prop != null && prop.GetValue(item).ToString() == parameters[5].ToString())
+                        if (prop != null && prop?.GetValue(item)?.ToString() == parameters[5].ToString())
                         {
                             comboBoxStudentId.SelectedItem = item;
                             break;
@@ -50,7 +50,7 @@ namespace ArchiveFund
                     foreach (var item in comboBoxBox_id.Items)
                     {
                         var prop = item.GetType().GetProperty("Id");
-                        if (prop != null && prop.GetValue(item).ToString() == parameters[6].ToString())
+                        if (prop != null && prop?.GetValue(item)?.ToString() == parameters[6].ToString())
                         {
                             comboBoxBox_id.SelectedItem = item;
                             break;

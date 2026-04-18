@@ -58,7 +58,7 @@ namespace ArchiveFund
                     var display = value?.ToString() ?? "(пусто)";
                     var item = new ToolStripMenuItem(display);
                     int capturedCol = colIndex;
-                    object capturedValue = value;
+                    object? capturedValue = value;
 
                     item.Click += (s, e) => ToggleFilter(capturedCol, capturedValue);
 
@@ -70,7 +70,7 @@ namespace ArchiveFund
             }
         }
 
-        private static bool IsFilterActive(int colIndex, object value)
+        private static bool IsFilterActive(int colIndex, object? value)
         {
             if (_grid == null || colIndex >= _grid.Columns.Count) return false;
 
@@ -124,18 +124,18 @@ namespace ArchiveFund
             {
                 try
                 {
-                    currencyManager = (CurrencyManager)_grid.BindingContext[_grid.DataSource];
+                    currencyManager = (CurrencyManager?)_grid?.BindingContext?[_grid.DataSource];
                     currencyManager?.SuspendBinding();
                 }
                 catch { }
             }
 
-            var currentCell = _grid.CurrentCell;
-            _grid.CurrentCell = null;
+            var currentCell = _grid?.CurrentCell;
+            _grid?.CurrentCell = null;
 
             try
             {
-                foreach (DataGridViewRow row in _grid.Rows)
+                foreach (DataGridViewRow row in _grid is not null ? _grid.Rows : new DataGridViewRowCollection(new DataGridView()))
                 {
                     if (row.IsNewRow) continue;
                     row.Visible = IsRowMatchesFilters(row);
@@ -144,7 +144,7 @@ namespace ArchiveFund
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Filter error: {ex.Message}");
-                foreach (DataGridViewRow row in _grid.Rows)
+                foreach (DataGridViewRow row in _grid is not null ? _grid.Rows : new DataGridViewRowCollection(new DataGridView()))
                 {
                     if (!row.IsNewRow) row.Visible = true;
                 }
@@ -160,7 +160,7 @@ namespace ArchiveFund
                 // Возвращаем выделение
                 try
                 {
-                    if (currentCell != null && currentCell.RowIndex < _grid.RowCount &&
+                    if (currentCell != null && currentCell.RowIndex < _grid?.RowCount &&
                         !_grid.Rows[currentCell.RowIndex].IsNewRow &&
                         _grid.Rows[currentCell.RowIndex].Visible)
                     {
@@ -198,7 +198,7 @@ namespace ArchiveFund
             foreach (DataGridViewRow row in grid.Rows)
             {
                 if (!row.IsNewRow && columnIndex < row.Cells.Count)
-                    values.Add(row.Cells[columnIndex].Value);
+                    values.Add(row.Cells[columnIndex].Value ?? new object());
             }
             return values;
         }

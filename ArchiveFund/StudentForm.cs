@@ -28,7 +28,7 @@ namespace ArchiveFund
                 foreach (var item in cmbGroupId.Items)
                 {
                     var prop = item.GetType().GetProperty("Id");
-                    if (prop != null && prop.GetValue(item).ToString() == parameters_student[2].ToString())
+                    if (prop != null && prop?.GetValue(item)?.ToString() == parameters_student[2].ToString())
                     {
                         cmbGroupId.SelectedItem = item;
                         break;

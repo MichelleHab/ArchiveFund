@@ -37,13 +37,13 @@ namespace ArchiveFund
                 MessageBox.Show("Данный логин не найден!", "Ошибка авторизации");
                 return;
             }
-            if (tb.Rows[0]["password"].ToString() != textBoxForPassword.Text.Trim())
+            if (tb.Rows[0]["password"].ToString() != Sql.QueryOneReturn("select sha2(@pass, 512)", [ new("@pass", textBoxForPassword.Text.Trim()?.ToString()) ])?.ToString())
             {
                 MessageBox.Show("Неверный логин или пароль!", "Ошибка авторизации");
                 return;
             }
             this.Hide();
-            new MainForm(MainForm.RoleParse(tb.Rows[0]["role"].ToString()), tb.Rows[0]["login"].ToString()).ShowDialog(this);
+            new MainForm(MainForm.RoleParse(tb.Rows[0]["role"].ToString() ?? string.Empty), tb.Rows[0]["login"].ToString()).ShowDialog(this);
             this.Close();
         }
     }

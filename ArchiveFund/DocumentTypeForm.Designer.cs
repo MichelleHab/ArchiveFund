@@ -48,9 +48,9 @@
             lblTypeName.AutoSize = true;
             lblTypeName.Location = new Point(109, 9);
             lblTypeName.Name = "lblTypeName";
-            lblTypeName.Size = new Size(129, 21);
+            lblTypeName.Size = new Size(138, 21);
             lblTypeName.TabIndex = 2;
-            lblTypeName.Text = "Название типа:";
+            lblTypeName.Text = "*Название типа:";
             // 
             // btnSave
             // 

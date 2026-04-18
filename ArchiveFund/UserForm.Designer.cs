@@ -71,9 +71,9 @@
             lblRole.AutoSize = true;
             lblRole.Location = new Point(12, 69);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(53, 21);
+            lblRole.Size = new Size(62, 21);
             lblRole.TabIndex = 4;
-            lblRole.Text = "Роль:";
+            lblRole.Text = "*Роль:";
             // 
             // txtLogin
             // 
@@ -88,9 +88,9 @@
             lblLogin.AutoSize = true;
             lblLogin.Location = new Point(12, 112);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(65, 21);
+            lblLogin.Size = new Size(74, 21);
             lblLogin.TabIndex = 6;
-            lblLogin.Text = "Логин:";
+            lblLogin.Text = "*Логин:";
             // 
             // txtPassword
             // 
@@ -105,9 +105,9 @@
             lblPassword.AutoSize = true;
             lblPassword.Location = new Point(12, 159);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(73, 21);
+            lblPassword.Size = new Size(82, 21);
             lblPassword.TabIndex = 8;
-            lblPassword.Text = "Пароль:";
+            lblPassword.Text = "*Пароль:";
             // 
             // btnSave
             // 

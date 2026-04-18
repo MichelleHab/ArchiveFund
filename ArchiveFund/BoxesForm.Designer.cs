@@ -83,6 +83,7 @@
             // 
             // cmbTypeId
             // 
+            cmbTypeId.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTypeId.Location = new Point(188, 129);
             cmbTypeId.Name = "cmbTypeId";
             cmbTypeId.Size = new Size(291, 28);
@@ -93,9 +94,9 @@
             lblTypeId.AutoSize = true;
             lblTypeId.Location = new Point(14, 133);
             lblTypeId.Name = "lblTypeId";
-            lblTypeId.Size = new Size(114, 21);
+            lblTypeId.Size = new Size(123, 21);
             lblTypeId.TabIndex = 8;
-            lblTypeId.Text = "Целевой тип:";
+            lblTypeId.Text = "*Целевой тип:";
             // 
             // dtpYearWork
             // 
@@ -168,13 +169,13 @@
             txtName.TabIndex = 16;
             txtName.GotFocus += TxtName_GotFocus;
             // 
-            // saveDate
+            // noSaveDate
             // 
             noSaveDate.AutoSize = true;
             noSaveDate.Checked = true;
             noSaveDate.CheckState = CheckState.Checked;
             noSaveDate.Location = new Point(382, 165);
-            noSaveDate.Name = "saveDate";
+            noSaveDate.Name = "noSaveDate";
             noSaveDate.Size = new Size(111, 46);
             noSaveDate.TabIndex = 17;
             noSaveDate.Text = "Не\nсохранять";

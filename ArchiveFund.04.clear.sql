@@ -196,14 +196,14 @@ CREATE TABLE `User` (
   `FIO` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `role` enum('Admin','Employer') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `login` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vi_0900_as_cs NOT NULL DEFAULT '',
-  `password` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `password` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-insert into `User`(`user_id`, `FIO`, `role`, `login`, `password`) values (1, 'Админ', 'Admin', 'Admin', 'Admin');
+insert into `User`(`user_id`, `FIO`, `role`, `login`, `password`) values (1, 'Админ', 'Admin', 'Admin', '887375daec62a9f02d32a63c9e14c7641a9a8a42e4fa8f6590eb928d9744b57bb5057a1d227e4d40ef911ac030590bbce2bfdb78103ff0b79094cee8425601f5');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

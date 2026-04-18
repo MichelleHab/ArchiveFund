@@ -46,6 +46,8 @@
             DelDocumentsMenuItem = new ToolStripMenuItem();
             guideMenu = new ToolStripMenuItem();
             DocumentTypesMenuItem = new ToolStripMenuItem();
+            printMenu = new ToolStripMenuItem();
+            printAllPersFiles = new ToolStripMenuItem();
             statusStrip = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
             grid = new DataGridView();
@@ -59,8 +61,6 @@
             btnDelete = new Button();
             lblSearch = new Label();
             searchEngine = new TextBox();
-            printMenu = new ToolStripMenuItem();
-            printAllPersFiles = new ToolStripMenuItem();
             mainMenu.SuspendLayout();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
@@ -74,7 +74,7 @@
             mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu, printMenu });
             mainMenu.Location = new Point(0, 0);
             mainMenu.Name = "mainMenu";
-            mainMenu.Size = new Size(800, 34);
+            mainMenu.Size = new Size(800, 29);
             mainMenu.TabIndex = 0;
             // 
             // fileMenu
@@ -82,13 +82,13 @@
             fileMenu.DropDownItems.AddRange(new ToolStripItem[] { exitMenuItem });
             fileMenu.Image = (Image)resources.GetObject("fileMenu.Image");
             fileMenu.Name = "fileMenu";
-            fileMenu.Size = new Size(97, 30);
+            fileMenu.Size = new Size(83, 25);
             fileMenu.Text = "Файл";
             // 
             // exitMenuItem
             // 
             exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new Size(224, 30);
+            exitMenuItem.Size = new Size(132, 26);
             exitMenuItem.Text = "Выход";
             exitMenuItem.Click += ExitMenuItem_Click;
             // 
@@ -97,13 +97,13 @@
             dataMenu.DropDownItems.AddRange(new ToolStripItem[] { usersMenuItem, groupsMenuItem, boxesMenuItem });
             dataMenu.Image = (Image)resources.GetObject("dataMenu.Image");
             dataMenu.Name = "dataMenu";
-            dataMenu.Size = new Size(121, 30);
+            dataMenu.Size = new Size(104, 25);
             dataMenu.Text = "Данные";
             // 
             // usersMenuItem
             // 
             usersMenuItem.Name = "usersMenuItem";
-            usersMenuItem.Size = new Size(230, 30);
+            usersMenuItem.Size = new Size(191, 26);
             usersMenuItem.Text = "Пользователи";
             usersMenuItem.Visible = false;
             usersMenuItem.Click += UsersMenuItem_Click;
@@ -111,14 +111,14 @@
             // groupsMenuItem
             // 
             groupsMenuItem.Name = "groupsMenuItem";
-            groupsMenuItem.Size = new Size(230, 30);
+            groupsMenuItem.Size = new Size(191, 26);
             groupsMenuItem.Text = "Группы";
             groupsMenuItem.Click += GroupsMenuItem_Click;
             // 
             // boxesMenuItem
             // 
             boxesMenuItem.Name = "boxesMenuItem";
-            boxesMenuItem.Size = new Size(230, 30);
+            boxesMenuItem.Size = new Size(191, 26);
             boxesMenuItem.Text = "Коробки";
             boxesMenuItem.Click += BoxesMenuItem_Click;
             // 
@@ -127,41 +127,41 @@
             studentDataMenu.DropDownItems.AddRange(new ToolStripItem[] { StudentMenuItem, PersFilesMenuItem, DelPersFilesMenuItem, DocumentsMenuItem, DelDocumentsMenuItem });
             studentDataMenu.Image = (Image)resources.GetObject("studentDataMenu.Image");
             studentDataMenu.Name = "studentDataMenu";
-            studentDataMenu.Size = new Size(140, 30);
+            studentDataMenu.Size = new Size(120, 25);
             studentDataMenu.Text = "Студенты";
             // 
             // StudentMenuItem
             // 
             StudentMenuItem.Name = "StudentMenuItem";
-            StudentMenuItem.Size = new Size(328, 30);
+            StudentMenuItem.Size = new Size(270, 26);
             StudentMenuItem.Text = "Студенты";
             StudentMenuItem.Click += StudentMenuItem_Click;
             // 
             // PersFilesMenuItem
             // 
             PersFilesMenuItem.Name = "PersFilesMenuItem";
-            PersFilesMenuItem.Size = new Size(328, 30);
+            PersFilesMenuItem.Size = new Size(270, 26);
             PersFilesMenuItem.Text = "Персональные файлы";
             PersFilesMenuItem.Click += PersFilesMenuItem_Click;
             // 
             // DelPersFilesMenuItem
             // 
             DelPersFilesMenuItem.Name = "DelPersFilesMenuItem";
-            DelPersFilesMenuItem.Size = new Size(328, 30);
+            DelPersFilesMenuItem.Size = new Size(270, 26);
             DelPersFilesMenuItem.Text = "Удаленные перс. файлы";
             DelPersFilesMenuItem.Click += DelPersFilesMenuItem_Click;
             // 
             // DocumentsMenuItem
             // 
             DocumentsMenuItem.Name = "DocumentsMenuItem";
-            DocumentsMenuItem.Size = new Size(328, 30);
+            DocumentsMenuItem.Size = new Size(270, 26);
             DocumentsMenuItem.Text = "Документы работ";
             DocumentsMenuItem.Click += DocumentsMenuItem_Click;
             // 
             // DelDocumentsMenuItem
             // 
             DelDocumentsMenuItem.Name = "DelDocumentsMenuItem";
-            DelDocumentsMenuItem.Size = new Size(328, 30);
+            DelDocumentsMenuItem.Size = new Size(270, 26);
             DelDocumentsMenuItem.Text = "Удаленные док. работ";
             DelDocumentsMenuItem.Click += DelDocumentsMenuItem_Click;
             // 
@@ -170,30 +170,45 @@
             guideMenu.DropDownItems.AddRange(new ToolStripItem[] { DocumentTypesMenuItem });
             guideMenu.Image = (Image)resources.GetObject("guideMenu.Image");
             guideMenu.Name = "guideMenu";
-            guideMenu.Size = new Size(164, 30);
+            guideMenu.Size = new Size(141, 25);
             guideMenu.Text = "Справочник";
             // 
             // DocumentTypesMenuItem
             // 
             DocumentTypesMenuItem.Name = "DocumentTypesMenuItem";
-            DocumentTypesMenuItem.Size = new Size(272, 30);
+            DocumentTypesMenuItem.Size = new Size(225, 26);
             DocumentTypesMenuItem.Text = "Типы документов";
             DocumentTypesMenuItem.Click += DocumentTypesMenuItem_Click;
+            // 
+            // printMenu
+            // 
+            printMenu.DropDownItems.AddRange(new ToolStripItem[] { printAllPersFiles });
+            printMenu.Image = (Image)resources.GetObject("printMenu.Image");
+            printMenu.Name = "printMenu";
+            printMenu.Size = new Size(98, 25);
+            printMenu.Text = "Печать";
+            // 
+            // printAllPersFiles
+            // 
+            printAllPersFiles.Name = "printAllPersFiles";
+            printAllPersFiles.Size = new Size(364, 26);
+            printAllPersFiles.Text = "Получить все данные по студентам";
+            printAllPersFiles.Click += printAllPersFiles_Click;
             // 
             // statusStrip
             // 
             statusStrip.Font = new Font("Times New Roman", 13.8F);
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel });
-            statusStrip.Location = new Point(0, 568);
+            statusStrip.Location = new Point(0, 574);
             statusStrip.Name = "statusStrip";
-            statusStrip.Size = new Size(800, 32);
+            statusStrip.Size = new Size(800, 26);
             statusStrip.TabIndex = 1;
             // 
             // statusLabel
             // 
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(157, 26);
+            statusLabel.Size = new Size(129, 21);
             statusLabel.Text = "Готов к работе";
             // 
             // grid
@@ -229,13 +244,13 @@
             contextMenu.ImageScalingSize = new Size(20, 20);
             contextMenu.Items.AddRange(new ToolStripItem[] { contextAddItem, contextEditItem, contextDeleteItem, contextFilterItem });
             contextMenu.Name = "contextMenu";
-            contextMenu.Size = new Size(227, 124);
+            contextMenu.Size = new Size(199, 108);
             // 
             // contextAddItem
             // 
             contextAddItem.Enabled = false;
             contextAddItem.Name = "contextAddItem";
-            contextAddItem.Size = new Size(226, 30);
+            contextAddItem.Size = new Size(198, 26);
             contextAddItem.Text = "Добавить";
             contextAddItem.Click += BtnAdd_Click;
             // 
@@ -243,7 +258,7 @@
             // 
             contextEditItem.Enabled = false;
             contextEditItem.Name = "contextEditItem";
-            contextEditItem.Size = new Size(226, 30);
+            contextEditItem.Size = new Size(198, 26);
             contextEditItem.Text = "Редактировать";
             contextEditItem.Click += BtnEdit_Click;
             // 
@@ -251,7 +266,7 @@
             // 
             contextDeleteItem.Enabled = false;
             contextDeleteItem.Name = "contextDeleteItem";
-            contextDeleteItem.Size = new Size(226, 30);
+            contextDeleteItem.Size = new Size(198, 26);
             contextDeleteItem.Text = "Удалить";
             contextDeleteItem.Click += BtnDelete_Click;
             // 
@@ -259,7 +274,7 @@
             // 
             contextFilterItem.Enabled = false;
             contextFilterItem.Name = "contextFilterItem";
-            contextFilterItem.Size = new Size(226, 30);
+            contextFilterItem.Size = new Size(198, 26);
             contextFilterItem.Text = "Фильтр";
             // 
             // btnAdd
@@ -300,7 +315,7 @@
             lblSearch.AutoSize = true;
             lblSearch.Location = new Point(12, 74);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(78, 26);
+            lblSearch.Size = new Size(65, 21);
             lblSearch.TabIndex = 8;
             lblSearch.Text = "Поиск:";
             // 
@@ -308,24 +323,9 @@
             // 
             searchEngine.Location = new Point(107, 71);
             searchEngine.Name = "searchEngine";
-            searchEngine.Size = new Size(205, 34);
+            searchEngine.Size = new Size(205, 29);
             searchEngine.TabIndex = 9;
             searchEngine.TextChanged += searchEngine_TextChanged;
-            // 
-            // printMenu
-            // 
-            printMenu.DropDownItems.AddRange(new ToolStripItem[] { printAllPersFiles });
-            printMenu.Image = (Image)resources.GetObject("printMenu.Image");
-            printMenu.Name = "printMenu";
-            printMenu.Size = new Size(111, 30);
-            printMenu.Text = "Печать";
-            // 
-            // printAllPersFiles
-            // 
-            printAllPersFiles.Name = "printAllPersFiles";
-            printAllPersFiles.Size = new Size(440, 30);
-            printAllPersFiles.Text = "Получить все данные по студентам";
-            printAllPersFiles.Click += printAllPersFiles_Click;
             // 
             // MainForm
             // 

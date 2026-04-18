@@ -58,18 +58,18 @@
             lblDocumentSubject.AutoSize = true;
             lblDocumentSubject.Location = new Point(20, 22);
             lblDocumentSubject.Name = "lblDocumentSubject";
-            lblDocumentSubject.Size = new Size(142, 21);
+            lblDocumentSubject.Size = new Size(151, 21);
             lblDocumentSubject.TabIndex = 2;
-            lblDocumentSubject.Text = "Тема документа:";
+            lblDocumentSubject.Text = "*Тема документа:";
             // 
             // lblTypeId
             // 
             lblTypeId.AutoSize = true;
             lblTypeId.Location = new Point(20, 169);
             lblTypeId.Name = "lblTypeId";
-            lblTypeId.Size = new Size(135, 21);
+            lblTypeId.Size = new Size(144, 21);
             lblTypeId.TabIndex = 4;
-            lblTypeId.Text = "Тип документа:";
+            lblTypeId.Text = "*Тип документа:";
             // 
             // txtSupervisorFullName
             // 
@@ -92,9 +92,9 @@
             lblStudentId.AutoSize = true;
             lblStudentId.Location = new Point(20, 270);
             lblStudentId.Name = "lblStudentId";
-            lblStudentId.Size = new Size(79, 21);
+            lblStudentId.Size = new Size(88, 21);
             lblStudentId.TabIndex = 8;
-            lblStudentId.Text = "Студент:";
+            lblStudentId.Text = "*Студент:";
             // 
             // btnSave
             // 
@@ -146,9 +146,9 @@
             lblCreationYear.AutoSize = true;
             lblCreationYear.Location = new Point(21, 120);
             lblCreationYear.Name = "lblCreationYear";
-            lblCreationYear.Size = new Size(121, 21);
+            lblCreationYear.Size = new Size(130, 21);
             lblCreationYear.TabIndex = 14;
-            lblCreationYear.Text = "Год создания:";
+            lblCreationYear.Text = "*Год создания:";
             // 
             // dtpCreationYear
             // 
