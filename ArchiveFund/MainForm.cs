@@ -1,9 +1,10 @@
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
-
+using Xceed.Words.NET;
 namespace ArchiveFund
-{ 
+{
     public partial class MainForm : Form
     {
         private Role role;
@@ -510,5 +511,121 @@ namespace ArchiveFund
         private void searchEngine_TextChanged(object sender, EventArgs e) => ShowTable();
         [GeneratedRegex(@"\s+as\s+[^,]*")]
         private static partial Regex MyRegex();
+
+        private void printAllPersFiles_Click(object sender, EventArgs e)
+        {
+            // 1. Подготавливаем данные (например, из базы данных или полей ввода)
+            if (currentTable is not Table.Student and not Table.StudentsPersFiles and not Table.DeletedStudentsPersFiles || grid.CurrentRow is null)
+            {
+                return;
+            }
+            var id = grid.CurrentRow.Cells[0]?.Value?.ToString();
+            if (currentTable == Table.Student)
+            {
+
+            }
+            else
+            {
+
+            }
+            var studentData = new Dictionary<string, string>
+        {
+            { "Specialty", "09.02.07 Информационные системы и программирование" },
+            { "FormOfStudy", "Очная" },
+            { "FileNumber", "123-УД/2026" },
+            { "LastName", "Петров" },
+            { "FirstName", "Алексей" },
+            { "MiddleName", "Сергеевич" },
+            { "StartDate", DateTime.Now.ToString("dd.MM.yyyy") },
+            { "EndDate", DateTime.Now.AddYears(4).ToString("dd.MM.yyyy") },
+            { "SheetCount", "25" },
+            { "StorageYears", "50" }
+        };
+
+            // 2. Открываем диалог сохранения файла
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "Документы Word (*.docx)|*.docx";
+                saveDialog.Title = "Сохранить личное дело студента";
+                saveDialog.FileName = $"Личное_дело_{studentData["LastName"]}.docx";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // 3. Генерируем документ
+                        GenerateDocument(templatePath, saveDialog.FileName, studentData);
+
+                        // 4. Предлагаем отправить на печать
+                        DialogResult printResult = MessageBox.Show(
+                            "Документ успешно создан.\nОтправить его на печать?",
+                            "Печать",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+                        if (printResult == DialogResult.Yes)
+                        {
+                            PrintDocument(saveDialog.FileName);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при создании документа: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        private string templatePath = Path.Combine(Application.StartupPath, "Опись Личные_дела_студентов.DOCX");
+        private void GenerateDocument(string templatePath, string outputPath, Dictionary<string, string> data)
+        {
+            if (!File.Exists(templatePath))
+            {
+                throw new FileNotFoundException("Шаблон не найден: " + templatePath);
+            }
+
+            // Загружаем шаблон
+            using (var doc = DocX.Load(templatePath))
+            {
+                // Проходим по всем параграфам и заменяем ключи вида {Key} на значения
+                foreach (var paragraph in doc.Paragraphs)
+                {
+                    foreach (var kvp in data)
+                    {
+                        string key = $"{{{kvp.Key}}}"; // Формируем ключ {Specialty}
+                        if (paragraph.Text.Contains(key))
+                        {
+                            paragraph.ReplaceText(key, kvp.Value);
+                        }
+                    }
+                }
+
+                // Сохраняем новый файл по пути, выбранному пользователем
+                doc.SaveAs(outputPath);
+            }
+        }
+
+        /// <summary>
+        /// Открывает стандартный диалог печати Windows для файла
+        /// </summary>
+        private static void PrintDocument(string filePath)
+        {
+            try
+            {
+                ProcessStartInfo info = new ProcessStartInfo(filePath);
+                info.Verb = "print"; // Команда печати
+                info.CreateNoWindow = true;
+                info.WindowStyle = ProcessWindowStyle.Hidden;
+
+                // Запуск процесса откроет окно печати ассоциированного приложения (Word)
+                Process.Start(info);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось вызвать диалог печати: {ex.Message}\nПопробуйте открыть файл вручную.", "Ошибка печати", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Фоллбэк: просто открываем файл
+                Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+            }
+        }
     }
 }
