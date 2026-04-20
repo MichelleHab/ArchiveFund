@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             mainMenu = new MenuStrip();
             fileMenu = new ToolStripMenuItem();
             exitMenuItem = new ToolStripMenuItem();
@@ -69,6 +69,7 @@
             // 
             // mainMenu
             // 
+            mainMenu.BackColor = Color.FromArgb(100, 200, 200, 200);
             mainMenu.Font = new Font("Times New Roman", 13.8F);
             mainMenu.ImageScalingSize = new Size(20, 20);
             mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu, printMenu });
@@ -197,6 +198,7 @@
             // 
             // statusStrip
             // 
+            statusStrip.BackColor = Color.FromArgb(100, 200, 200, 200);
             statusStrip.Font = new Font("Times New Roman", 13.8F);
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel });
@@ -216,26 +218,28 @@
             grid.AllowUserToAddRows = false;
             grid.AllowUserToDeleteRows = false;
             grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            grid.BackgroundColor = Color.Wheat;
             grid.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grid.ContextMenuStrip = contextMenu;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.8F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            grid.DefaultCellStyle = dataGridViewCellStyle1;
-            grid.Location = new Point(12, 125);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            grid.DefaultCellStyle = dataGridViewCellStyle2;
+            grid.Location = new Point(12, 79);
             grid.Name = "grid";
             grid.ReadOnly = true;
             grid.RowHeadersVisible = false;
             grid.RowHeadersWidth = 51;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.ShowRowErrors = false;
-            grid.Size = new Size(776, 400);
+            grid.Size = new Size(776, 446);
             grid.TabIndex = 2;
+            grid.Visible = false;
             grid.SelectionChanged += DataGridView_SelectionChanged;
             // 
             // contextMenu
@@ -244,76 +248,89 @@
             contextMenu.ImageScalingSize = new Size(20, 20);
             contextMenu.Items.AddRange(new ToolStripItem[] { contextAddItem, contextEditItem, contextDeleteItem, contextFilterItem });
             contextMenu.Name = "contextMenu";
-            contextMenu.Size = new Size(199, 108);
+            contextMenu.Size = new Size(203, 108);
             // 
             // contextAddItem
             // 
             contextAddItem.Enabled = false;
+            contextAddItem.Image = (Image)resources.GetObject("contextAddItem.Image");
             contextAddItem.Name = "contextAddItem";
-            contextAddItem.Size = new Size(198, 26);
+            contextAddItem.Size = new Size(202, 26);
             contextAddItem.Text = "Добавить";
             contextAddItem.Click += BtnAdd_Click;
             // 
             // contextEditItem
             // 
             contextEditItem.Enabled = false;
+            contextEditItem.Image = (Image)resources.GetObject("contextEditItem.Image");
             contextEditItem.Name = "contextEditItem";
-            contextEditItem.Size = new Size(198, 26);
+            contextEditItem.Size = new Size(202, 26);
             contextEditItem.Text = "Редактировать";
             contextEditItem.Click += BtnEdit_Click;
             // 
             // contextDeleteItem
             // 
             contextDeleteItem.Enabled = false;
+            contextDeleteItem.Image = (Image)resources.GetObject("contextDeleteItem.Image");
             contextDeleteItem.Name = "contextDeleteItem";
-            contextDeleteItem.Size = new Size(198, 26);
+            contextDeleteItem.Size = new Size(202, 26);
             contextDeleteItem.Text = "Удалить";
             contextDeleteItem.Click += BtnDelete_Click;
             // 
             // contextFilterItem
             // 
             contextFilterItem.Enabled = false;
+            contextFilterItem.Image = (Image)resources.GetObject("contextFilterItem.Image");
             contextFilterItem.Name = "contextFilterItem";
-            contextFilterItem.Size = new Size(198, 26);
+            contextFilterItem.Size = new Size(202, 26);
             contextFilterItem.Text = "Фильтр";
             // 
             // btnAdd
             // 
             btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.Wheat;
             btnAdd.Enabled = false;
-            btnAdd.Location = new Point(397, 533);
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(357, 533);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(115, 36);
+            btnAdd.Size = new Size(155, 36);
             btnAdd.TabIndex = 5;
             btnAdd.Text = "Добавить";
+            btnAdd.TextAlign = ContentAlignment.TopRight;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += BtnAdd_Click;
             // 
             // btnEdit
             // 
             btnEdit.AutoSize = true;
+            btnEdit.BackColor = Color.Wheat;
             btnEdit.Enabled = false;
             btnEdit.Location = new Point(518, 533);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(164, 36);
             btnEdit.TabIndex = 6;
             btnEdit.Text = "Редактировать";
+            btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += BtnEdit_Click;
             // 
             // btnDelete
             // 
             btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.Wheat;
             btnDelete.Enabled = false;
             btnDelete.Location = new Point(688, 533);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(100, 36);
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Удалить";
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += BtnDelete_Click;
             // 
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(12, 74);
+            lblSearch.BackColor = Color.Transparent;
+            lblSearch.Location = new Point(12, 44);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(65, 21);
             lblSearch.TabIndex = 8;
@@ -321,14 +338,19 @@
             // 
             // searchEngine
             // 
-            searchEngine.Location = new Point(107, 71);
+            searchEngine.BackColor = Color.Wheat;
+            searchEngine.Location = new Point(83, 41);
+            searchEngine.Margin = new Padding(0);
             searchEngine.Name = "searchEngine";
-            searchEngine.Size = new Size(205, 29);
+            searchEngine.PlaceholderText = "Search";
+            searchEngine.Size = new Size(326, 29);
             searchEngine.TabIndex = 9;
             searchEngine.TextChanged += searchEngine_TextChanged;
             // 
             // MainForm
             // 
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 600);
             Controls.Add(searchEngine);
             Controls.Add(lblSearch);
@@ -339,6 +361,8 @@
             Controls.Add(btnEdit);
             Controls.Add(btnDelete);
             Font = new Font("Times New Roman", 13.8F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Архивный фонд — Главная";

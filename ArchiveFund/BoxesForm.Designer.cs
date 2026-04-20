@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoxesForm));
             lblRackNumber = new Label();
             lblShelfNumber = new Label();
             cmbGroupId = new ComboBox();
@@ -50,6 +51,7 @@
             // lblRackNumber
             // 
             lblRackNumber.AutoSize = true;
+            lblRackNumber.BackColor = Color.Transparent;
             lblRackNumber.Location = new Point(12, 9);
             lblRackNumber.Name = "lblRackNumber";
             lblRackNumber.Size = new Size(144, 21);
@@ -59,6 +61,7 @@
             // lblShelfNumber
             // 
             lblShelfNumber.AutoSize = true;
+            lblShelfNumber.BackColor = Color.Transparent;
             lblShelfNumber.Location = new Point(12, 51);
             lblShelfNumber.Name = "lblShelfNumber";
             lblShelfNumber.Size = new Size(120, 21);
@@ -67,6 +70,7 @@
             // 
             // cmbGroupId
             // 
+            cmbGroupId.BackColor = Color.Wheat;
             cmbGroupId.Location = new Point(188, 89);
             cmbGroupId.Name = "cmbGroupId";
             cmbGroupId.Size = new Size(291, 28);
@@ -75,6 +79,7 @@
             // lblGroupId
             // 
             lblGroupId.AutoSize = true;
+            lblGroupId.BackColor = Color.Transparent;
             lblGroupId.Location = new Point(12, 92);
             lblGroupId.Name = "lblGroupId";
             lblGroupId.Size = new Size(138, 21);
@@ -83,6 +88,7 @@
             // 
             // cmbTypeId
             // 
+            cmbTypeId.BackColor = Color.Wheat;
             cmbTypeId.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTypeId.Location = new Point(188, 129);
             cmbTypeId.Name = "cmbTypeId";
@@ -92,6 +98,7 @@
             // lblTypeId
             // 
             lblTypeId.AutoSize = true;
+            lblTypeId.BackColor = Color.Transparent;
             lblTypeId.Location = new Point(14, 133);
             lblTypeId.Name = "lblTypeId";
             lblTypeId.Size = new Size(123, 21);
@@ -112,6 +119,7 @@
             // lblYearWork
             // 
             lblYearWork.AutoSize = true;
+            lblYearWork.BackColor = Color.Transparent;
             lblYearWork.Location = new Point(14, 177);
             lblYearWork.Name = "lblYearWork";
             lblYearWork.Size = new Size(106, 21);
@@ -121,25 +129,30 @@
             // btnSave
             // 
             btnSave.AutoSize = true;
+            btnSave.BackColor = Color.Wheat;
             btnSave.Location = new Point(372, 225);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(107, 36);
             btnSave.TabIndex = 12;
             btnSave.Text = "Принять";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.AutoSize = true;
+            btnCancel.BackColor = Color.Wheat;
             btnCancel.Location = new Point(12, 225);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(96, 36);
             btnCancel.TabIndex = 13;
             btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
             // numericRackNumber
             // 
+            numericRackNumber.BackColor = Color.Wheat;
             numericRackNumber.Location = new Point(188, 9);
             numericRackNumber.Name = "numericRackNumber";
             numericRackNumber.Size = new Size(120, 29);
@@ -147,6 +160,7 @@
             // 
             // numericShelfNumber
             // 
+            numericShelfNumber.BackColor = Color.Wheat;
             numericShelfNumber.Location = new Point(188, 49);
             numericShelfNumber.Name = "numericShelfNumber";
             numericShelfNumber.Size = new Size(120, 29);
@@ -155,6 +169,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Location = new Point(331, 9);
             label1.Name = "label1";
             label1.Size = new Size(48, 21);
@@ -163,8 +178,10 @@
             // 
             // txtName
             // 
+            txtName.BackColor = Color.Wheat;
             txtName.Location = new Point(331, 43);
             txtName.Name = "txtName";
+            txtName.PlaceholderText = "Box:1-1";
             txtName.Size = new Size(148, 29);
             txtName.TabIndex = 16;
             txtName.GotFocus += TxtName_GotFocus;
@@ -172,6 +189,7 @@
             // noSaveDate
             // 
             noSaveDate.AutoSize = true;
+            noSaveDate.BackColor = Color.Transparent;
             noSaveDate.Checked = true;
             noSaveDate.CheckState = CheckState.Checked;
             noSaveDate.Location = new Point(382, 165);
@@ -179,12 +197,14 @@
             noSaveDate.Size = new Size(111, 46);
             noSaveDate.TabIndex = 17;
             noSaveDate.Text = "Не\nсохранять";
-            noSaveDate.UseVisualStyleBackColor = true;
+            noSaveDate.UseVisualStyleBackColor = false;
             noSaveDate.CheckedChanged += saveDate_CheckedChanged;
             // 
             // BoxesForm
             // 
             AutoSize = true;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(491, 273);
             Controls.Add(noSaveDate);
             Controls.Add(txtName);
@@ -203,6 +223,7 @@
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "BoxesForm";

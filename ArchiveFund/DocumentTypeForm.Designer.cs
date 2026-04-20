@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentTypeForm));
             txtTypeName = new TextBox();
             lblTypeName = new Label();
             btnSave = new Button();
@@ -36,16 +37,19 @@
             // 
             // txtTypeName
             // 
+            txtTypeName.BackColor = Color.Wheat;
             txtTypeName.Location = new Point(12, 38);
             txtTypeName.MaxLength = 100;
             txtTypeName.Multiline = true;
             txtTypeName.Name = "txtTypeName";
+            txtTypeName.PlaceholderText = "Экзамен, зачет, лекция...";
             txtTypeName.Size = new Size(376, 97);
             txtTypeName.TabIndex = 3;
             // 
             // lblTypeName
             // 
             lblTypeName.AutoSize = true;
+            lblTypeName.BackColor = Color.Transparent;
             lblTypeName.Location = new Point(109, 9);
             lblTypeName.Name = "lblTypeName";
             lblTypeName.Size = new Size(138, 21);
@@ -55,32 +59,39 @@
             // btnSave
             // 
             btnSave.AutoSize = true;
+            btnSave.BackColor = Color.Wheat;
             btnSave.Location = new Point(281, 157);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(107, 36);
             btnSave.TabIndex = 4;
             btnSave.Text = "Принять";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.AutoSize = true;
+            btnCancel.BackColor = Color.Wheat;
             btnCancel.Location = new Point(12, 157);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(96, 36);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
             // DocumentTypeForm
             // 
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(400, 200);
             Controls.Add(lblTypeName);
             Controls.Add(txtTypeName);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "DocumentTypeForm";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentForm));
             txtDocumentSubject = new TextBox();
             lblDocumentSubject = new Label();
             lblTypeId = new Label();
@@ -47,15 +48,18 @@
             // 
             // txtDocumentSubject
             // 
+            txtDocumentSubject.BackColor = Color.Wheat;
             txtDocumentSubject.Location = new Point(201, 22);
             txtDocumentSubject.Multiline = true;
             txtDocumentSubject.Name = "txtDocumentSubject";
+            txtDocumentSubject.PlaceholderText = "Анализ современного обучения";
             txtDocumentSubject.Size = new Size(251, 75);
             txtDocumentSubject.TabIndex = 3;
             // 
             // lblDocumentSubject
             // 
             lblDocumentSubject.AutoSize = true;
+            lblDocumentSubject.BackColor = Color.Transparent;
             lblDocumentSubject.Location = new Point(20, 22);
             lblDocumentSubject.Name = "lblDocumentSubject";
             lblDocumentSubject.Size = new Size(151, 21);
@@ -65,6 +69,7 @@
             // lblTypeId
             // 
             lblTypeId.AutoSize = true;
+            lblTypeId.BackColor = Color.Transparent;
             lblTypeId.Location = new Point(20, 169);
             lblTypeId.Name = "lblTypeId";
             lblTypeId.Size = new Size(144, 21);
@@ -73,14 +78,17 @@
             // 
             // txtSupervisorFullName
             // 
+            txtSupervisorFullName.BackColor = Color.Wheat;
             txtSupervisorFullName.Location = new Point(252, 217);
             txtSupervisorFullName.Name = "txtSupervisorFullName";
+            txtSupervisorFullName.PlaceholderText = "Иванов Ива Иванович";
             txtSupervisorFullName.Size = new Size(200, 29);
             txtSupervisorFullName.TabIndex = 7;
             // 
             // lblSupervisorFullName
             // 
             lblSupervisorFullName.AutoSize = true;
+            lblSupervisorFullName.BackColor = Color.Transparent;
             lblSupervisorFullName.Location = new Point(20, 220);
             lblSupervisorFullName.Name = "lblSupervisorFullName";
             lblSupervisorFullName.Size = new Size(169, 21);
@@ -90,6 +98,7 @@
             // lblStudentId
             // 
             lblStudentId.AutoSize = true;
+            lblStudentId.BackColor = Color.Transparent;
             lblStudentId.Location = new Point(20, 270);
             lblStudentId.Name = "lblStudentId";
             lblStudentId.Size = new Size(88, 21);
@@ -98,24 +107,29 @@
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.Wheat;
             btnSave.Location = new Point(328, 360);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(141, 38);
             btnSave.TabIndex = 10;
             btnSave.Text = "Принять";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnCancel
             // 
+            btnCancel.BackColor = Color.Wheat;
             btnCancel.Location = new Point(12, 360);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(108, 38);
             btnCancel.TabIndex = 11;
             btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
             // comboBoxTypeId
             // 
+            comboBoxTypeId.BackColor = Color.Wheat;
             comboBoxTypeId.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxTypeId.FormattingEnabled = true;
             comboBoxTypeId.Location = new Point(252, 166);
@@ -125,6 +139,7 @@
             // 
             // comboBoxStudentId
             // 
+            comboBoxStudentId.BackColor = Color.Wheat;
             comboBoxStudentId.FormattingEnabled = true;
             comboBoxStudentId.Location = new Point(252, 267);
             comboBoxStudentId.Name = "comboBoxStudentId";
@@ -134,16 +149,18 @@
             // flagIsDelete
             // 
             flagIsDelete.AutoSize = true;
+            flagIsDelete.BackColor = Color.Transparent;
             flagIsDelete.Location = new Point(20, 51);
             flagIsDelete.Name = "flagIsDelete";
             flagIsDelete.Size = new Size(117, 46);
             flagIsDelete.TabIndex = 13;
             flagIsDelete.Text = "Удаленный\nдокумент?";
-            flagIsDelete.UseVisualStyleBackColor = true;
+            flagIsDelete.UseVisualStyleBackColor = false;
             // 
             // lblCreationYear
             // 
             lblCreationYear.AutoSize = true;
+            lblCreationYear.BackColor = Color.Transparent;
             lblCreationYear.Location = new Point(21, 120);
             lblCreationYear.Name = "lblCreationYear";
             lblCreationYear.Size = new Size(130, 21);
@@ -163,6 +180,7 @@
             // lblBox_id
             // 
             lblBox_id.AutoSize = true;
+            lblBox_id.BackColor = Color.Transparent;
             lblBox_id.Location = new Point(21, 314);
             lblBox_id.Name = "lblBox_id";
             lblBox_id.Size = new Size(162, 21);
@@ -171,6 +189,7 @@
             // 
             // comboBoxBox_id
             // 
+            comboBoxBox_id.BackColor = Color.Wheat;
             comboBoxBox_id.FormattingEnabled = true;
             comboBoxBox_id.Location = new Point(252, 311);
             comboBoxBox_id.Name = "comboBoxBox_id";
@@ -179,6 +198,8 @@
             // 
             // DocumentForm
             // 
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(481, 410);
             Controls.Add(lblBox_id);
             Controls.Add(lblCreationYear);
@@ -196,6 +217,8 @@
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DocumentForm";
             Text = "DocumentForm";
             ResumeLayout(false);

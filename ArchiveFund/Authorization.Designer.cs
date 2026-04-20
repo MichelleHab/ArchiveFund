@@ -1,4 +1,6 @@
-﻿namespace ArchiveFund
+﻿using System.Drawing.Drawing2D;
+
+namespace ArchiveFund
 {
     partial class Authorization
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authorization));
             label1 = new Label();
             label2 = new Label();
             button = new Button();
@@ -38,20 +41,24 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = SystemColors.HighlightText;
             label1.Location = new Point(296, 9);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(88, 26);
+            label1.Size = new Size(73, 21);
             label1.TabIndex = 0;
             label1.Text = "Пароль:";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = SystemColors.HighlightText;
             label2.Location = new Point(14, 9);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(78, 26);
+            label2.Size = new Size(65, 21);
             label2.TabIndex = 0;
             label2.Text = "Логин:";
             // 
@@ -68,24 +75,32 @@
             // 
             // textBoxForLogin
             // 
+            textBoxForLogin.BackColor = Color.FromArgb(3, 44, 178);
+            textBoxForLogin.ForeColor = Color.LightSalmon;
             textBoxForLogin.Location = new Point(14, 38);
             textBoxForLogin.Margin = new Padding(5, 4, 5, 4);
             textBoxForLogin.Name = "textBoxForLogin";
-            textBoxForLogin.Size = new Size(216, 34);
+            textBoxForLogin.PlaceholderText = "Ivanov_II";
+            textBoxForLogin.Size = new Size(216, 29);
             textBoxForLogin.TabIndex = 2;
             // 
             // textBoxForPassword
             // 
+            textBoxForPassword.BackColor = Color.FromArgb(3, 44, 178);
+            textBoxForPassword.ForeColor = Color.LightSalmon;
             textBoxForPassword.Location = new Point(296, 38);
             textBoxForPassword.Margin = new Padding(5, 4, 5, 4);
             textBoxForPassword.Name = "textBoxForPassword";
-            textBoxForPassword.Size = new Size(216, 34);
+            textBoxForPassword.Size = new Size(216, 29);
             textBoxForPassword.TabIndex = 3;
+            textBoxForPassword.UseSystemPasswordChar = true;
             // 
             // Authorization
             // 
-            AutoScaleDimensions = new SizeF(13F, 26F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(554, 187);
             Controls.Add(textBoxForPassword);
             Controls.Add(textBoxForLogin);
@@ -94,10 +109,12 @@
             Controls.Add(label1);
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             Name = "Authorization";
             Text = "Authorization";
+            Load += Authorization_Load;
             ResumeLayout(false);
             PerformLayout();
         }

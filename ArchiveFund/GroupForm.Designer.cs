@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupForm));
             txtGroupName = new TextBox();
             lblGroupName = new Label();
             dtpFormationYear = new DateTimePicker();
@@ -40,15 +41,18 @@
             // 
             // txtGroupName
             // 
+            txtGroupName.BackColor = Color.Wheat;
             txtGroupName.Location = new Point(201, 25);
             txtGroupName.MaxLength = 100;
             txtGroupName.Name = "txtGroupName";
+            txtGroupName.PlaceholderText = "Гр-1а";
             txtGroupName.Size = new Size(181, 29);
             txtGroupName.TabIndex = 3;
             // 
             // lblGroupName
             // 
             lblGroupName.AutoSize = true;
+            lblGroupName.BackColor = Color.Transparent;
             lblGroupName.Location = new Point(12, 28);
             lblGroupName.Name = "lblGroupName";
             lblGroupName.Size = new Size(162, 21);
@@ -68,6 +72,7 @@
             // lblFormationYear
             // 
             lblFormationYear.AutoSize = true;
+            lblFormationYear.BackColor = Color.Transparent;
             lblFormationYear.Location = new Point(12, 75);
             lblFormationYear.Name = "lblFormationYear";
             lblFormationYear.Size = new Size(176, 21);
@@ -76,15 +81,18 @@
             // 
             // txtSpecialization
             // 
+            txtSpecialization.BackColor = Color.Wheat;
             txtSpecialization.Location = new Point(201, 115);
             txtSpecialization.MaxLength = 255;
             txtSpecialization.Name = "txtSpecialization";
+            txtSpecialization.PlaceholderText = "01.01.01 Обучение...";
             txtSpecialization.Size = new Size(181, 29);
             txtSpecialization.TabIndex = 7;
             // 
             // lblSpecialization
             // 
             lblSpecialization.AutoSize = true;
+            lblSpecialization.BackColor = Color.Transparent;
             lblSpecialization.Location = new Point(12, 118);
             lblSpecialization.Name = "lblSpecialization";
             lblSpecialization.Size = new Size(146, 21);
@@ -94,26 +102,32 @@
             // btnSave
             // 
             btnSave.AutoSize = true;
+            btnSave.BackColor = Color.Wheat;
             btnSave.Location = new Point(278, 192);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(104, 36);
             btnSave.TabIndex = 8;
             btnSave.Text = "Принять";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.AutoSize = true;
+            btnCancel.BackColor = Color.Wheat;
             btnCancel.Location = new Point(12, 192);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(96, 36);
             btnCancel.TabIndex = 9;
             btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
             // GroupForm
             // 
             AutoSize = true;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(394, 240);
             Controls.Add(lblGroupName);
             Controls.Add(txtGroupName);
@@ -124,7 +138,8 @@
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "GroupForm";

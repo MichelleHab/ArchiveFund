@@ -30,7 +30,7 @@ namespace ArchiveFund
                             config["database"] = "ArchiveFund";
                         if (!Convert.ToBoolean(Sql.QueryOneReturn("select @database IN (SELECT DISTINCT " +
                             "TABLE_SCHEMA FROM information_schema.TABLES) " +
-                            "AS 'does such a database exist'", [new("@database", config["database"])])))
+                            "AS 'does such a database exist'", [new("@database", config["database"])]) ?? throw new ArgumentNullException()))
                         {
                             MessageBox.Show("База данных с именем, указанным в файле 'config.ini' не найдена. " +
                                 "Загружена пустая версия", "Проверка файла конфигурации 'config.ini'",
@@ -40,7 +40,7 @@ namespace ArchiveFund
                         var tableStruct = "Boxes, DeletedDocuments, DeletedStudentsPersFiles, Documents, DocumentTypes, Group, Student, StudentsPersFiles, User";
                         if (!Convert.ToBoolean(Sql.QueryOneReturn("select @tableStruct = (select GROUP_CONCAT(DISTINCT `TABLE_NAME` " +
                             "SEPARATOR ', ') FROM information_schema.TABLES WHERE `TABLE_SCHEMA` = @database) " +
-                            "AS 'does this table structure exist'; ", [new("@tableStruct", tableStruct), new("@database", config["database"])])))
+                            "AS 'does this table structure exist'; ", [new("@tableStruct", tableStruct), new("@database", config["database"])]) ?? throw new ArgumentNullException()))
                         {
                             var backupFilePath = config["database"] + "." + DateTime.Now.ToString("dd.MM.yyyy-HH.mm.ss") + ".sql";
                             MessageBox.Show("Найдена база данных с именем, указанным в файле 'config.ini', " +
@@ -54,7 +54,7 @@ namespace ArchiveFund
                         if (!string.IsNullOrEmpty(config["user"]) && config["user"].All(c => char.IsLetterOrDigit(c) || c == '_')
                             && !Convert.ToBoolean(Sql.QueryOneReturn("SELECT concat(@user, '@', @host) IN " +
                             "(SELECT DISTINCT CONCAT(`USER`, '@', `HOST`) " +
-                            "FROM `mysql`.`user`) ", [new("@user", config["user"]), new("@host", IsValidServerAddress(config["server"]) ? config["server"] : "%")])))
+                            "FROM `mysql`.`user`) ", [new("@user", config["user"]), new("@host", IsValidServerAddress(config["server"]) ? config["server"] : "%")]) ?? throw new ArgumentNullException()))
                         {
                             var pas = string.Empty;
                             if (!string.IsNullOrWhiteSpace(config["password"]))
@@ -82,7 +82,10 @@ namespace ArchiveFund
                                 return;
                             case DialogResult.TryAgain:
                                 continue;
-                            default: break;
+                            default:
+                                Sql.ConnectionStringBuilding.ConnectionTimeout = 1;
+                                Sql.ConnectionStringBuilding.Database = "ArchiveFund";
+                                break;
                         }
                     }
                     break;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             txtFullName = new TextBox();
             lblFullName = new Label();
             cmbGroupId = new ComboBox();
@@ -46,15 +47,18 @@
             // 
             // txtFullName
             // 
+            txtFullName.BackColor = Color.Wheat;
             txtFullName.Location = new Point(177, 6);
             txtFullName.MaxLength = 100;
             txtFullName.Name = "txtFullName";
+            txtFullName.PlaceholderText = "Иванов Ива Иванович";
             txtFullName.Size = new Size(340, 29);
             txtFullName.TabIndex = 3;
             // 
             // lblFullName
             // 
             lblFullName.AutoSize = true;
+            lblFullName.BackColor = Color.Transparent;
             lblFullName.Location = new Point(12, 9);
             lblFullName.Name = "lblFullName";
             lblFullName.Size = new Size(138, 21);
@@ -63,6 +67,7 @@
             // 
             // cmbGroupId
             // 
+            cmbGroupId.BackColor = Color.Wheat;
             cmbGroupId.Location = new Point(177, 48);
             cmbGroupId.Name = "cmbGroupId";
             cmbGroupId.Size = new Size(340, 28);
@@ -71,6 +76,7 @@
             // lblGroupId
             // 
             lblGroupId.AutoSize = true;
+            lblGroupId.BackColor = Color.Transparent;
             lblGroupId.Location = new Point(12, 51);
             lblGroupId.Name = "lblGroupId";
             lblGroupId.Size = new Size(71, 21);
@@ -90,6 +96,7 @@
             // lblAdmissionYear
             // 
             lblAdmissionYear.AutoSize = true;
+            lblAdmissionYear.BackColor = Color.Transparent;
             lblAdmissionYear.Location = new Point(12, 94);
             lblAdmissionYear.Name = "lblAdmissionYear";
             lblAdmissionYear.Size = new Size(158, 21);
@@ -110,6 +117,7 @@
             // lblDeductionYear
             // 
             lblDeductionYear.AutoSize = true;
+            lblDeductionYear.BackColor = Color.Transparent;
             lblDeductionYear.Location = new Point(12, 143);
             lblDeductionYear.Name = "lblDeductionYear";
             lblDeductionYear.Size = new Size(103, 21);
@@ -118,16 +126,19 @@
             // 
             // txtReason
             // 
+            txtReason.BackColor = Color.Wheat;
             txtReason.Location = new Point(12, 243);
             txtReason.MaxLength = 100;
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
+            txtReason.PlaceholderText = "Завершил или Отчислен по причине...";
             txtReason.Size = new Size(505, 117);
             txtReason.TabIndex = 13;
             // 
             // lblReason
             // 
             lblReason.AutoSize = true;
+            lblReason.BackColor = Color.Transparent;
             lblReason.Location = new Point(12, 214);
             lblReason.Name = "lblReason";
             lblReason.Size = new Size(146, 21);
@@ -137,36 +148,42 @@
             // btnSave
             // 
             btnSave.AutoSize = true;
+            btnSave.BackColor = Color.Wheat;
             btnSave.Location = new Point(392, 376);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(125, 36);
             btnSave.TabIndex = 14;
             btnSave.Text = "Сохранить";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.AutoSize = true;
+            btnCancel.BackColor = Color.Wheat;
             btnCancel.Location = new Point(12, 376);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(96, 36);
             btnCancel.TabIndex = 15;
             btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
             // checkBoxIsDelete
             // 
             checkBoxIsDelete.AutoSize = true;
+            checkBoxIsDelete.BackColor = Color.Transparent;
             checkBoxIsDelete.Location = new Point(12, 176);
             checkBoxIsDelete.Name = "checkBoxIsDelete";
             checkBoxIsDelete.Size = new Size(213, 25);
             checkBoxIsDelete.TabIndex = 16;
             checkBoxIsDelete.Text = "Студента в удаленные?";
-            checkBoxIsDelete.UseVisualStyleBackColor = true;
+            checkBoxIsDelete.UseVisualStyleBackColor = false;
             // 
             // deductionNoSaveDate
             // 
             deductionNoSaveDate.AutoSize = true;
+            deductionNoSaveDate.BackColor = Color.Transparent;
             deductionNoSaveDate.Checked = true;
             deductionNoSaveDate.CheckState = CheckState.Checked;
             deductionNoSaveDate.Location = new Point(423, 131);
@@ -174,11 +191,14 @@
             deductionNoSaveDate.Size = new Size(111, 46);
             deductionNoSaveDate.TabIndex = 18;
             deductionNoSaveDate.Text = "Не\nсохранять";
-            deductionNoSaveDate.UseVisualStyleBackColor = true;
+            deductionNoSaveDate.UseVisualStyleBackColor = false;
             deductionNoSaveDate.CheckedChanged += DeductionNoSaveDate_CheckedChanged;
             // 
             // StudentForm
             // 
+            BackColor = Color.Wheat;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(529, 424);
             Controls.Add(deductionNoSaveDate);
             Controls.Add(checkBoxIsDelete);
@@ -195,7 +215,8 @@
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "StudentForm";

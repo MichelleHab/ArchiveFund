@@ -38,6 +38,7 @@ namespace ArchiveFund
             if (currentTable is Table.None)
             {
                 grid.Rows.Clear();
+                grid.Visible = false;
                 contextFilterItem.Enabled = false;
                 return;
             }
@@ -59,7 +60,8 @@ namespace ArchiveFund
             if (!flag_is_update && tb is not null)
                 statusLabel.Text = "- получено " + tb.Rows.Count + " строк";
             else flag_is_update = false;
-            ContextFilter.CreateFilterContextMenu(grid, contextFilterItem);
+            grid.Visible = true;
+            ContextFilter.ResetFilter(grid, contextFilterItem);
         }
         private Table currentTable = Table.None;
         public enum Table
@@ -444,7 +446,8 @@ namespace ArchiveFund
                     if (form.ShowDialog() != DialogResult.OK)
                         return;
                     if (!Sql.QueryNonReturns("update `User` set FIO = @FIO, role = @role, " +
-                        "login = @login, password = @password where user_id = @id",
+                        $"login = @login{(!string.IsNullOrWhiteSpace(((UserForm)form).txtPassword.Text) ?
+                        ", password = SHA2(@password, 512)" : string.Empty)} where user_id = @id",
                         [
                             new MySqlParameter("@id", id),
                             new MySqlParameter("@FIO", ((UserForm)form).txtFIO.Text),
@@ -526,8 +529,8 @@ namespace ArchiveFund
             {
                 id = Sql.QueryOneReturn($"select student_id from `{currentTable}` where pers_file_id = @id", [new("@id", id)])?.ToString();
             }
-            var persFiles = Sql.QueryOneReturn("select count(*) from `StudentsPersFiles` where student_id = @id", [new("@id", id)])?.ToString() == "0" ? 
-                Sql.Query("select * from `DeletedStudentsPersFiles` where student_id = @id", [new("@id", id)])?.Rows[0] : 
+            var persFiles = Sql.QueryOneReturn("select count(*) from `StudentsPersFiles` where student_id = @id", [new("@id", id)])?.ToString() == "0" ?
+                Sql.Query("select * from `DeletedStudentsPersFiles` where student_id = @id", [new("@id", id)])?.Rows[0] :
                 Sql.Query("select * from `StudentsPersFiles` where student_id = @id", [new("@id", id)])?.Rows[0];
             if (persFiles is null)
                 return;

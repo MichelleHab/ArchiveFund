@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             txtFIO = new TextBox();
             lblFIO = new Label();
             cmbRole = new ComboBox();
@@ -42,15 +43,18 @@
             // 
             // txtFIO
             // 
+            txtFIO.BackColor = Color.Wheat;
             txtFIO.Location = new Point(107, 25);
             txtFIO.MaxLength = 150;
             txtFIO.Name = "txtFIO";
+            txtFIO.PlaceholderText = "Иванов Ива Иванович";
             txtFIO.Size = new Size(250, 29);
             txtFIO.TabIndex = 3;
             // 
             // lblFIO
             // 
             lblFIO.AutoSize = true;
+            lblFIO.BackColor = Color.Transparent;
             lblFIO.Location = new Point(12, 28);
             lblFIO.Name = "lblFIO";
             lblFIO.Size = new Size(55, 21);
@@ -59,6 +63,7 @@
             // 
             // cmbRole
             // 
+            cmbRole.BackColor = Color.Wheat;
             cmbRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRole.Items.AddRange(new object[] { "Admin", "Employer" });
             cmbRole.Location = new Point(107, 66);
@@ -69,6 +74,7 @@
             // lblRole
             // 
             lblRole.AutoSize = true;
+            lblRole.BackColor = Color.Transparent;
             lblRole.Location = new Point(12, 69);
             lblRole.Name = "lblRole";
             lblRole.Size = new Size(62, 21);
@@ -77,15 +83,18 @@
             // 
             // txtLogin
             // 
+            txtLogin.BackColor = Color.Wheat;
             txtLogin.Location = new Point(107, 109);
             txtLogin.MaxLength = 50;
             txtLogin.Name = "txtLogin";
+            txtLogin.PlaceholderText = "Ivanov_II";
             txtLogin.Size = new Size(250, 29);
             txtLogin.TabIndex = 7;
             // 
             // lblLogin
             // 
             lblLogin.AutoSize = true;
+            lblLogin.BackColor = Color.Transparent;
             lblLogin.Location = new Point(12, 112);
             lblLogin.Name = "lblLogin";
             lblLogin.Size = new Size(74, 21);
@@ -94,15 +103,18 @@
             // 
             // txtPassword
             // 
+            txtPassword.BackColor = Color.Wheat;
             txtPassword.Location = new Point(107, 156);
             txtPassword.MaxLength = 50;
             txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "????????????";
             txtPassword.Size = new Size(250, 29);
             txtPassword.TabIndex = 9;
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
+            lblPassword.BackColor = Color.Transparent;
             lblPassword.Location = new Point(12, 159);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(82, 21);
@@ -112,26 +124,32 @@
             // btnSave
             // 
             btnSave.AutoSize = true;
+            btnSave.BackColor = Color.Wheat;
             btnSave.Location = new Point(265, 207);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(107, 31);
             btnSave.TabIndex = 10;
             btnSave.Text = "Принять";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.AutoSize = true;
+            btnCancel.BackColor = Color.Wheat;
             btnCancel.Location = new Point(12, 207);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(80, 31);
             btnCancel.TabIndex = 11;
             btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
             // UserForm
             // 
             AutoSize = true;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(384, 250);
             Controls.Add(lblFIO);
             Controls.Add(txtFIO);
@@ -144,7 +162,8 @@
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "UserForm";
