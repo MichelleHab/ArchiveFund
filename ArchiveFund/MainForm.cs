@@ -441,6 +441,8 @@ namespace ArchiveFund
                         MessageBoxForErrorsToShow();
                     break;
                 case Table.User:
+                    if (int.Parse(id?.ToString() ?? "0") is -1)
+                        return;
                     form = new UserForm(Sql.Query("select * from `User` where user_id = @id",
                         [new MySqlParameter("@id", id)])?.Rows[0].ItemArray ?? throw new ArgumentNullException());
                     if (form.ShowDialog() != DialogResult.OK)
@@ -513,7 +515,7 @@ namespace ArchiveFund
         }
         private void searchEngine_TextChanged(object sender, EventArgs e) => ShowTable();
         [GeneratedRegex(@"\s+as\s+[^,]*")]
-        private static partial Regex MyRegex();
+        private static partial Regex MyRegex(); 
 
         private void printAllPersFiles_Click(object sender, EventArgs e)
         {
@@ -617,17 +619,20 @@ namespace ArchiveFund
         {
             try
             {
-                ProcessStartInfo info = new ProcessStartInfo(filePath);
-                info.Verb = "print"; // Команда печати
-                info.CreateNoWindow = true;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
+                ProcessStartInfo info = new ProcessStartInfo(filePath)
+                {
+                    Verb = "print",
+                    UseShellExecute = true,   // ← КЛЮЧЕВОЙ МОМЕНТ
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                };
 
-                // Запуск процесса откроет окно печати ассоциированного приложения (Word)
                 Process.Start(info);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Не удалось вызвать диалог печати: {ex.Message}\nПопробуйте открыть файл вручную.", "Ошибка печати", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Не удалось вызвать диалог печати: {ex.Message}\nПопробуйте открыть файл вручную.",
+                    "Ошибка печати", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 // Фоллбэк: просто открываем файл
                 Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });

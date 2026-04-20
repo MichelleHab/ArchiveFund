@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             mainMenu = new MenuStrip();
             fileMenu = new ToolStripMenuItem();
             exitMenuItem = new ToolStripMenuItem();
@@ -222,14 +222,14 @@
             grid.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grid.ContextMenuStrip = contextMenu;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.8F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            grid.DefaultCellStyle = dataGridViewCellStyle1;
             grid.Location = new Point(12, 79);
             grid.Name = "grid";
             grid.ReadOnly = true;
@@ -291,12 +291,11 @@
             btnAdd.BackColor = Color.Wheat;
             btnAdd.Enabled = false;
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdd.Location = new Point(357, 533);
+            btnAdd.Location = new Point(378, 533);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(155, 36);
+            btnAdd.Size = new Size(134, 36);
             btnAdd.TabIndex = 5;
             btnAdd.Text = "Добавить";
-            btnAdd.TextAlign = ContentAlignment.TopRight;
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += BtnAdd_Click;
             // 
