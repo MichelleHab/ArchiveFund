@@ -9,7 +9,8 @@ namespace ArchiveFund
     {
         private Role role;
         private string? login;
-        public MainForm(Role? role = null, string? login = null)
+        private string? fio;
+        public MainForm(Role? role = null, string? login = null, string? fio = null)
         {
             InitializeComponent();
             if (role is null)
@@ -19,6 +20,11 @@ namespace ArchiveFund
             {
                 this.login = login;
                 this.Text += " >- " + login + " <- ";
+            }
+            if (fio is not null)
+            {
+                this.fio = fio;
+                this.Text += ": >- " + fio + " <- ";
             }
             switch (this.role)
             {
@@ -190,11 +196,13 @@ namespace ArchiveFund
             {
                 this.contextAddItem.Enabled = true;
                 this.btnAdd.Enabled = true;
+                this.toolStripAdd.Enabled = true;
             }
             else
             {
                 this.contextAddItem.Enabled = false;
                 this.btnAdd.Enabled = false;
+                this.toolStripAdd.Enabled = false;
             }
             if (this.grid.SelectedRows.Count > 0)
             {
@@ -202,21 +210,27 @@ namespace ArchiveFund
                 {
                     this.contextEditItem.Enabled = true;
                     this.btnEdit.Enabled = true;
+                    this.toolStripEdit.Enabled = true;
                 }
                 else
                 {
                     this.contextEditItem.Enabled = false;
                     this.btnEdit.Enabled = false;
+                    this.toolStripEdit.Enabled = false;
                 }
                 this.btnDelete.Enabled = true;
                 this.contextDeleteItem.Enabled = true;
+                this.toolStripDelete.Enabled = true;
             }
             else
             {
                 this.btnDelete.Enabled = false;
                 this.contextDeleteItem.Enabled = false;
+                this.toolStripDelete.Enabled = false;
                 this.contextEditItem.Enabled = false;
                 this.btnEdit.Enabled = false;
+                this.toolStripEdit.Enabled = false;
+
             }
         }
         private void ExitMenuItem_Click(object sender, EventArgs e) => this.Close();
@@ -315,7 +329,10 @@ namespace ArchiveFund
                 case Table.User:
                     form = new UserForm();
                     if (form.ShowDialog() != DialogResult.OK)
+                    {
+                        ShowTable();
                         return;
+                    }
                     if (!Sql.QueryNonReturns("insert into `User`(FIO, role, login, password) " +
                         "values (@FIO, @role, @login, SHA2(@password, 512))", [
                             new MySqlParameter("@FIO", ((UserForm)form).txtFIO.Text),
@@ -446,7 +463,10 @@ namespace ArchiveFund
                     form = new UserForm(Sql.Query("select * from `User` where user_id = @id",
                         [new MySqlParameter("@id", id)])?.Rows[0].ItemArray ?? throw new ArgumentNullException());
                     if (form.ShowDialog() != DialogResult.OK)
+                    {
+                        ShowTable();
                         return;
+                    }
                     if (!Sql.QueryNonReturns("update `User` set FIO = @FIO, role = @role, " +
                         $"login = @login{(!string.IsNullOrWhiteSpace(((UserForm)form).txtPassword.Text) ?
                         ", password = SHA2(@password, 512)" : string.Empty)} where user_id = @id",
@@ -515,7 +535,7 @@ namespace ArchiveFund
         }
         private void searchEngine_TextChanged(object sender, EventArgs e) => ShowTable();
         [GeneratedRegex(@"\s+as\s+[^,]*")]
-        private static partial Regex MyRegex(); 
+        private static partial Regex MyRegex();
 
         private void printAllPersFiles_Click(object sender, EventArgs e)
         {
@@ -606,7 +626,6 @@ namespace ArchiveFund
                         }
                     }
                 }
-
                 // Сохраняем новый файл по пути, выбранному пользователем
                 doc.SaveAs(outputPath);
             }
@@ -637,6 +656,10 @@ namespace ArchiveFund
                 // Фоллбэк: просто открываем файл
                 Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
             }
+        }
+        private void DateTimeTimer_Tick(object sender, EventArgs e)
+        {
+            StatusLabelDateTime.Text = DateTime.Now.ToString();
         }
     }
 }

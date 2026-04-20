@@ -50,6 +50,7 @@
             printAllPersFiles = new ToolStripMenuItem();
             statusStrip = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
+            StatusLabelDateTime = new ToolStripStatusLabel();
             grid = new DataGridView();
             contextMenu = new ContextMenuStrip(components);
             contextAddItem = new ToolStripMenuItem();
@@ -61,10 +62,16 @@
             btnDelete = new Button();
             lblSearch = new Label();
             searchEngine = new TextBox();
+            toolStrip = new ToolStrip();
+            toolStripAdd = new ToolStripButton();
+            toolStripEdit = new ToolStripButton();
+            toolStripDelete = new ToolStripButton();
+            DateTimeTimer = new System.Windows.Forms.Timer(components);
             mainMenu.SuspendLayout();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             contextMenu.SuspendLayout();
+            toolStrip.SuspendLayout();
             SuspendLayout();
             // 
             // mainMenu
@@ -201,7 +208,8 @@
             statusStrip.BackColor = Color.FromArgb(100, 200, 200, 200);
             statusStrip.Font = new Font("Times New Roman", 13.8F);
             statusStrip.ImageScalingSize = new Size(20, 20);
-            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel });
+            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel, StatusLabelDateTime });
+            statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             statusStrip.Location = new Point(0, 574);
             statusStrip.Name = "statusStrip";
             statusStrip.Size = new Size(800, 26);
@@ -212,6 +220,13 @@
             statusLabel.Name = "statusLabel";
             statusLabel.Size = new Size(129, 21);
             statusLabel.Text = "Готов к работе";
+            // 
+            // StatusLabelDateTime
+            // 
+            StatusLabelDateTime.Alignment = ToolStripItemAlignment.Right;
+            StatusLabelDateTime.Name = "StatusLabelDateTime";
+            StatusLabelDateTime.Size = new Size(36, 21);
+            StatusLabelDateTime.Text = "null";
             // 
             // grid
             // 
@@ -230,14 +245,14 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             grid.DefaultCellStyle = dataGridViewCellStyle1;
-            grid.Location = new Point(12, 79);
+            grid.Location = new Point(12, 122);
             grid.Name = "grid";
             grid.ReadOnly = true;
             grid.RowHeadersVisible = false;
             grid.RowHeadersWidth = 51;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.ShowRowErrors = false;
-            grid.Size = new Size(776, 446);
+            grid.Size = new Size(776, 403);
             grid.TabIndex = 2;
             grid.Visible = false;
             grid.SelectionChanged += DataGridView_SelectionChanged;
@@ -329,7 +344,7 @@
             // 
             lblSearch.AutoSize = true;
             lblSearch.BackColor = Color.Transparent;
-            lblSearch.Location = new Point(12, 44);
+            lblSearch.Location = new Point(12, 81);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(65, 21);
             lblSearch.TabIndex = 8;
@@ -338,7 +353,7 @@
             // searchEngine
             // 
             searchEngine.BackColor = Color.Wheat;
-            searchEngine.Location = new Point(83, 41);
+            searchEngine.Location = new Point(83, 78);
             searchEngine.Margin = new Padding(0);
             searchEngine.Name = "searchEngine";
             searchEngine.PlaceholderText = "Search";
@@ -346,11 +361,61 @@
             searchEngine.TabIndex = 9;
             searchEngine.TextChanged += searchEngine_TextChanged;
             // 
+            // toolStrip
+            // 
+            toolStrip.BackColor = Color.FromArgb(100, 200, 200, 200);
+            toolStrip.Items.AddRange(new ToolStripItem[] { toolStripAdd, toolStripEdit, toolStripDelete });
+            toolStrip.Location = new Point(0, 29);
+            toolStrip.Name = "toolStrip";
+            toolStrip.Size = new Size(800, 25);
+            toolStrip.TabIndex = 10;
+            toolStrip.Text = "toolStrip1";
+            // 
+            // toolStripAdd
+            // 
+            toolStripAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripAdd.Enabled = false;
+            toolStripAdd.Image = (Image)resources.GetObject("toolStripAdd.Image");
+            toolStripAdd.ImageTransparentColor = Color.Magenta;
+            toolStripAdd.Name = "toolStripAdd";
+            toolStripAdd.Size = new Size(23, 22);
+            toolStripAdd.Text = "toolStripButton1";
+            toolStripAdd.Click += BtnAdd_Click;
+            // 
+            // toolStripEdit
+            // 
+            toolStripEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripEdit.Enabled = false;
+            toolStripEdit.Image = (Image)resources.GetObject("toolStripEdit.Image");
+            toolStripEdit.ImageTransparentColor = Color.Magenta;
+            toolStripEdit.Name = "toolStripEdit";
+            toolStripEdit.Size = new Size(23, 22);
+            toolStripEdit.Text = "toolStripButton2";
+            toolStripEdit.Click += BtnEdit_Click;
+            // 
+            // toolStripDelete
+            // 
+            toolStripDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDelete.Enabled = false;
+            toolStripDelete.Image = (Image)resources.GetObject("toolStripDelete.Image");
+            toolStripDelete.ImageTransparentColor = Color.Magenta;
+            toolStripDelete.Name = "toolStripDelete";
+            toolStripDelete.Size = new Size(23, 22);
+            toolStripDelete.Text = "toolStripButton3";
+            toolStripDelete.Click += BtnDelete_Click;
+            // 
+            // DateTimeTimer
+            // 
+            DateTimeTimer.Enabled = true;
+            DateTimeTimer.Interval = 1000;
+            DateTimeTimer.Tick += DateTimeTimer_Tick;
+            // 
             // MainForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 600);
+            Controls.Add(toolStrip);
             Controls.Add(searchEngine);
             Controls.Add(lblSearch);
             Controls.Add(mainMenu);
@@ -371,6 +436,8 @@
             statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             contextMenu.ResumeLayout(false);
+            toolStrip.ResumeLayout(false);
+            toolStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -407,5 +474,11 @@
         private ToolStripMenuItem contextFilterItem;
         private ToolStripMenuItem printMenu;
         private ToolStripMenuItem printAllPersFiles;
+        private ToolStrip toolStrip;
+        private ToolStripButton toolStripAdd;
+        private ToolStripButton toolStripEdit;
+        private ToolStripButton toolStripDelete;
+        private ToolStripStatusLabel StatusLabelDateTime;
+        private System.Windows.Forms.Timer DateTimeTimer;
     }
 }

@@ -101,6 +101,36 @@ namespace ArchiveFund
                 conn.Close();
             }
         }
+        public static bool ImportFromFile(string filePath)
+        {
+            string? db = null;
+            if (!string.IsNullOrEmpty(ConnectionStringBuilding.Database))
+            {
+                db = ConnectionStringBuilding.Database;
+            }
+
+            using var conn = new MySqlConnection(ConnectionStringBuilding.ConnectionString);
+            try
+            {
+                using var mySqlBackup = new MySqlBackup(conn.CreateCommand());
+                conn.Open();
+                mySqlBackup.ImportFromFile(filePath);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                SqlRequestErrors(ex);
+                return false;
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(db))
+                {
+                    ConnectionStringBuilding.Database = db;
+                }
+                conn.Close();
+            }
+        }
         public static string SqlRequestErrors(Exception ex)
         {
             var result = "Message: " + ex.Message;

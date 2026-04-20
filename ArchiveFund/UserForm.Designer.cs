@@ -39,6 +39,8 @@
             lblPassword = new Label();
             btnSave = new Button();
             btnCancel = new Button();
+            btnBackup = new Button();
+            btnRestore = new Button();
             SuspendLayout();
             // 
             // txtFIO
@@ -125,7 +127,7 @@
             // 
             btnSave.AutoSize = true;
             btnSave.BackColor = Color.Wheat;
-            btnSave.Location = new Point(265, 207);
+            btnSave.Location = new Point(391, 207);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(107, 31);
             btnSave.TabIndex = 10;
@@ -145,12 +147,36 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
+            // btnBackup
+            // 
+            btnBackup.BackColor = Color.Wheat;
+            btnBackup.Location = new Point(363, 23);
+            btnBackup.Name = "btnBackup";
+            btnBackup.Size = new Size(145, 71);
+            btnBackup.TabIndex = 12;
+            btnBackup.Text = "Создать резервную копию";
+            btnBackup.UseVisualStyleBackColor = false;
+            btnBackup.Click += btnBackup_Click;
+            // 
+            // btnRestore
+            // 
+            btnRestore.BackColor = Color.Wheat;
+            btnRestore.Location = new Point(363, 114);
+            btnRestore.Name = "btnRestore";
+            btnRestore.Size = new Size(145, 71);
+            btnRestore.TabIndex = 12;
+            btnRestore.Text = "Восстановить резервную копию";
+            btnRestore.UseVisualStyleBackColor = false;
+            btnRestore.Click += btnRestore_Click;
+            // 
             // UserForm
             // 
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(384, 250);
+            ClientSize = new Size(510, 250);
+            Controls.Add(btnRestore);
+            Controls.Add(btnBackup);
             Controls.Add(lblFIO);
             Controls.Add(txtFIO);
             Controls.Add(lblRole);
@@ -183,5 +209,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private Button btnBackup;
+        private Button btnRestore;
     }
 }
