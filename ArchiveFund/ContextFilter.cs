@@ -31,7 +31,7 @@ namespace ArchiveFund
             parentMenuItem.DropDownItems.Add(resetAllItem);
             parentMenuItem.DropDownItems.Add("-"); // Разделитель
 
-            for (int colIndex = 1; colIndex < grid.Columns.Count; colIndex++)
+            for (int colIndex = 0; colIndex < grid.Columns.Count; colIndex++)
             {
                 var column = grid.Columns[colIndex];
                 if (column == null || !column.Visible) continue;
@@ -42,7 +42,9 @@ namespace ArchiveFund
                 // Подсветка колонки, если есть активный фильтр
                 if (_activeFilters.ContainsKey(colIndex))
                     columnMenu.BackColor = Color.LightGreen;
-                if (uniqueValues.Count < grid.RowCount)
+
+                // добавить если все не уникальны и если ни только один 
+                if (uniqueValues.Count < grid.RowCount && uniqueValues.Count > 1)
                     parentMenuItem.DropDownItems.Add(columnMenu);
 
                 
@@ -73,8 +75,17 @@ namespace ArchiveFund
                     columnMenu.DropDownItems.Add(item);
                 }
                 if (parentMenuItem.DropDownItems.Count <= 2)
-                    parentMenuItem.Visible = false;
-                else parentMenuItem.Visible = true;
+                {
+                    if (Is_EnableOrVisible)
+                        parentMenuItem.Enabled = false;
+                    else parentMenuItem.Visible = false;
+                }
+                else
+                {
+                    if (Is_EnableOrVisible)
+                        parentMenuItem.Enabled = true;
+                    else parentMenuItem.Visible = true;
+                }
             }
         }
 
@@ -87,7 +98,7 @@ namespace ArchiveFund
 
             return _activeFilters.ContainsKey(colIndex) && Equals(_activeFilters[colIndex], value);
         }
-
+        public static bool Is_EnableOrVisible { get; set; } = false;
         private static void ToggleFilter(int colIndex, object? value)
         {
             if (_grid == null) return;
