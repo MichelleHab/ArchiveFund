@@ -20,13 +20,13 @@ namespace ArchiveFund
         {
             if (string.IsNullOrEmpty(textBoxForLogin.Text))
             {
-                MessageBox.Show("Не введен логин!", "Ошибка авторизации");
+                MessageBox.Show("Не введен логин!", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxForLogin.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(textBoxForPassword.Text))
             {
-                MessageBox.Show("Не введен пароль!", "Ошибка авторизации");
+                MessageBox.Show("Не введен пароль!", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxForPassword.Focus();
                 return;
             }
@@ -35,16 +35,16 @@ namespace ArchiveFund
                 return;
             if (tb.Rows.Count is not 1)
             {
-                MessageBox.Show("Данный логин не найден!", "Ошибка авторизации");
+                MessageBox.Show("Данный логин не найден!", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (tb.Rows[0]["password"].ToString() != Sql.QueryOneReturn("select sha2(@pass, 512)", [new("@pass", textBoxForPassword.Text.Trim()?.ToString())])?.ToString())
             {
-                MessageBox.Show("Неверный логин или пароль!", "Ошибка авторизации");
+                MessageBox.Show("Неверный логин или пароль!", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             this.Hide();
-            new MainForm(MainForm.RoleParse(tb.Rows[0]["role"].ToString() ?? string.Empty), tb.Rows[0]["login"].ToString()).ShowDialog(this);
+            new MainForm(MainForm.RoleParse(tb.Rows[0]["role"].ToString() ?? string.Empty), tb.Rows[0]["login"].ToString(), tb.Rows[0]["FIO"].ToString()).ShowDialog(this);
             this.Close();
         }
 

@@ -47,7 +47,7 @@
             guideMenu = new ToolStripMenuItem();
             DocumentTypesMenuItem = new ToolStripMenuItem();
             printMenu = new ToolStripMenuItem();
-            printAllPersFiles = new ToolStripMenuItem();
+            printPersFiles = new ToolStripMenuItem();
             statusStrip = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
             StatusLabelDateTime = new ToolStripStatusLabel();
@@ -190,18 +190,18 @@
             // 
             // printMenu
             // 
-            printMenu.DropDownItems.AddRange(new ToolStripItem[] { printAllPersFiles });
+            printMenu.DropDownItems.AddRange(new ToolStripItem[] { printPersFiles });
             printMenu.Image = (Image)resources.GetObject("printMenu.Image");
             printMenu.Name = "printMenu";
             printMenu.Size = new Size(98, 25);
             printMenu.Text = "Печать";
             // 
-            // printAllPersFiles
+            // printPersFiles
             // 
-            printAllPersFiles.Name = "printAllPersFiles";
-            printAllPersFiles.Size = new Size(364, 26);
-            printAllPersFiles.Text = "Получить все данные по студентам";
-            printAllPersFiles.Click += printAllPersFiles_Click;
+            printPersFiles.Name = "printPersFiles";
+            printPersFiles.Size = new Size(399, 26);
+            printPersFiles.Text = "Получит данные о выбранном студенте";
+            printPersFiles.Click += printAllPersFiles_Click;
             // 
             // statusStrip
             // 
@@ -473,7 +473,7 @@
         private TextBox searchEngine;
         private ToolStripMenuItem contextFilterItem;
         private ToolStripMenuItem printMenu;
-        private ToolStripMenuItem printAllPersFiles;
+        private ToolStripMenuItem printPersFiles;
         private ToolStrip toolStrip;
         private ToolStripButton toolStripAdd;
         private ToolStripButton toolStripEdit;

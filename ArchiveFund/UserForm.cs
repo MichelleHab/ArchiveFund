@@ -40,7 +40,7 @@ namespace ArchiveFund
                 txtLogin.Focus();
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtPassword.Text) || is_update)
+            if (string.IsNullOrWhiteSpace(txtPassword.Text) && !is_update)
             {
                 MessageBox.Show("Не введен пароль!");
                 txtPassword.Focus();

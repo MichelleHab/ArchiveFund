@@ -496,8 +496,8 @@ namespace ArchiveFund
                 return;
             int num_return = grid.SelectedRows.Count;
             foreach (DataGridViewRow row in grid.SelectedRows)
-                Sql.QueryNonReturns($"delete from `{currentTable}` " +
-                    $"where {getSelects()?.Split(',')[0]} = @id",
+                Sql.QueryNonReturns($"start trabsaction; delete from `{currentTable}` " +
+                    $"where {getSelects()?.Split(',')[0]} = @id; commit;",
                     [new("@id", row.Cells[0].Value)]);
             statusLabel.Text = "- Запись(и) удалена(ы) -> " + num_return + " строк";
             flag_is_update = true;
