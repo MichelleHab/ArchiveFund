@@ -35,7 +35,7 @@ namespace ArchiveFund
                             MessageBox.Show("База данных с именем, указанным в файле 'config.ini' не найдена. " +
                                 "Загружена пустая версия", "Проверка файла конфигурации 'config.ini'",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.04.clear.sql"));
+                            Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.06.clear.sql"));
                         }
                         var tableStruct = "Boxes, DeletedDocuments, DeletedStudentsPersFiles, Documents, DocumentTypes, Group, Student, StudentsPersFiles, User";
                         if (!Convert.ToBoolean(Sql.QueryOneReturn("select @tableStruct = (select GROUP_CONCAT(DISTINCT `TABLE_NAME` " +
@@ -48,7 +48,7 @@ namespace ArchiveFund
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Sql.ExportToFile(backupFilePath, config["database"]);
                             Sql.QueryNonReturns($"DROP DATABASE IF EXISTS {config["database"]}");
-                            Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.04.clear.sql"));
+                            Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.06.clear.sql"));
                         }
                         Sql.ConnectionStringBuilding.Database = "mysql";
                         if (!string.IsNullOrEmpty(config["user"]) && config["user"].All(c => char.IsLetterOrDigit(c) || c == '_')
