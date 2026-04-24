@@ -93,7 +93,7 @@
             mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu, printMenu });
             mainMenu.Location = new Point(0, 0);
             mainMenu.Name = "mainMenu";
-            mainMenu.Size = new Size(800, 29);
+            mainMenu.Size = new Size(800, 34);
             mainMenu.TabIndex = 0;
             // 
             // fileMenu
@@ -101,14 +101,14 @@
             fileMenu.DropDownItems.AddRange(new ToolStripItem[] { exitMenuItem });
             fileMenu.Image = (Image)resources.GetObject("fileMenu.Image");
             fileMenu.Name = "fileMenu";
-            fileMenu.Size = new Size(83, 25);
+            fileMenu.Size = new Size(97, 30);
             fileMenu.Text = "Файл";
             // 
             // exitMenuItem
             // 
             exitMenuItem.BackColor = Color.LightCoral;
             exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new Size(132, 26);
+            exitMenuItem.Size = new Size(160, 30);
             exitMenuItem.Text = "Выход";
             exitMenuItem.Click += ExitMenuItem_Click;
             // 
@@ -117,14 +117,14 @@
             dataMenu.DropDownItems.AddRange(new ToolStripItem[] { usersMenuItem, groupsMenuItem, boxesMenuItem });
             dataMenu.Image = (Image)resources.GetObject("dataMenu.Image");
             dataMenu.Name = "dataMenu";
-            dataMenu.Size = new Size(104, 25);
+            dataMenu.Size = new Size(121, 30);
             dataMenu.Text = "Данные";
             // 
             // usersMenuItem
             // 
             usersMenuItem.BackColor = Color.LightCoral;
             usersMenuItem.Name = "usersMenuItem";
-            usersMenuItem.Size = new Size(191, 26);
+            usersMenuItem.Size = new Size(230, 30);
             usersMenuItem.Text = "Пользователи";
             usersMenuItem.Visible = false;
             usersMenuItem.Click += UsersMenuItem_Click;
@@ -133,7 +133,7 @@
             // 
             groupsMenuItem.BackColor = Color.LightCoral;
             groupsMenuItem.Name = "groupsMenuItem";
-            groupsMenuItem.Size = new Size(191, 26);
+            groupsMenuItem.Size = new Size(230, 30);
             groupsMenuItem.Text = "Группы";
             groupsMenuItem.Click += GroupsMenuItem_Click;
             // 
@@ -141,7 +141,7 @@
             // 
             boxesMenuItem.BackColor = Color.LightCoral;
             boxesMenuItem.Name = "boxesMenuItem";
-            boxesMenuItem.Size = new Size(191, 26);
+            boxesMenuItem.Size = new Size(230, 30);
             boxesMenuItem.Text = "Коробки";
             boxesMenuItem.Click += BoxesMenuItem_Click;
             // 
@@ -150,14 +150,14 @@
             studentDataMenu.DropDownItems.AddRange(new ToolStripItem[] { StudentMenuItem, PersFilesMenuItem, DelPersFilesMenuItem, DocumentsMenuItem, DelDocumentsMenuItem });
             studentDataMenu.Image = (Image)resources.GetObject("studentDataMenu.Image");
             studentDataMenu.Name = "studentDataMenu";
-            studentDataMenu.Size = new Size(120, 25);
+            studentDataMenu.Size = new Size(140, 30);
             studentDataMenu.Text = "Студенты";
             // 
             // StudentMenuItem
             // 
             StudentMenuItem.BackColor = Color.LightCoral;
             StudentMenuItem.Name = "StudentMenuItem";
-            StudentMenuItem.Size = new Size(270, 26);
+            StudentMenuItem.Size = new Size(328, 30);
             StudentMenuItem.Text = "Студенты";
             StudentMenuItem.Click += StudentMenuItem_Click;
             // 
@@ -165,7 +165,7 @@
             // 
             PersFilesMenuItem.BackColor = Color.LightCoral;
             PersFilesMenuItem.Name = "PersFilesMenuItem";
-            PersFilesMenuItem.Size = new Size(270, 26);
+            PersFilesMenuItem.Size = new Size(328, 30);
             PersFilesMenuItem.Text = "Персональные файлы";
             PersFilesMenuItem.Click += PersFilesMenuItem_Click;
             // 
@@ -173,7 +173,7 @@
             // 
             DelPersFilesMenuItem.BackColor = Color.LightCoral;
             DelPersFilesMenuItem.Name = "DelPersFilesMenuItem";
-            DelPersFilesMenuItem.Size = new Size(270, 26);
+            DelPersFilesMenuItem.Size = new Size(328, 30);
             DelPersFilesMenuItem.Text = "Удаленные перс. файлы";
             DelPersFilesMenuItem.Click += DelPersFilesMenuItem_Click;
             // 
@@ -181,7 +181,7 @@
             // 
             DocumentsMenuItem.BackColor = Color.LightCoral;
             DocumentsMenuItem.Name = "DocumentsMenuItem";
-            DocumentsMenuItem.Size = new Size(270, 26);
+            DocumentsMenuItem.Size = new Size(328, 30);
             DocumentsMenuItem.Text = "Документы работ";
             DocumentsMenuItem.Click += DocumentsMenuItem_Click;
             // 
@@ -189,7 +189,7 @@
             // 
             DelDocumentsMenuItem.BackColor = Color.LightCoral;
             DelDocumentsMenuItem.Name = "DelDocumentsMenuItem";
-            DelDocumentsMenuItem.Size = new Size(270, 26);
+            DelDocumentsMenuItem.Size = new Size(328, 30);
             DelDocumentsMenuItem.Text = "Удаленные док. работ";
             DelDocumentsMenuItem.Click += DelDocumentsMenuItem_Click;
             // 
@@ -198,14 +198,14 @@
             guideMenu.DropDownItems.AddRange(new ToolStripItem[] { DocumentTypesMenuItem });
             guideMenu.Image = (Image)resources.GetObject("guideMenu.Image");
             guideMenu.Name = "guideMenu";
-            guideMenu.Size = new Size(141, 25);
+            guideMenu.Size = new Size(164, 30);
             guideMenu.Text = "Справочник";
             // 
             // DocumentTypesMenuItem
             // 
             DocumentTypesMenuItem.BackColor = Color.LightCoral;
             DocumentTypesMenuItem.Name = "DocumentTypesMenuItem";
-            DocumentTypesMenuItem.Size = new Size(225, 26);
+            DocumentTypesMenuItem.Size = new Size(272, 30);
             DocumentTypesMenuItem.Text = "Типы документов";
             DocumentTypesMenuItem.Click += DocumentTypesMenuItem_Click;
             // 
@@ -295,22 +295,22 @@
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel, StatusLabelDateTime });
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            statusStrip.Location = new Point(0, 574);
+            statusStrip.Location = new Point(0, 568);
             statusStrip.Name = "statusStrip";
-            statusStrip.Size = new Size(800, 26);
+            statusStrip.Size = new Size(800, 32);
             statusStrip.TabIndex = 1;
             // 
             // statusLabel
             // 
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(129, 21);
+            statusLabel.Size = new Size(157, 26);
             statusLabel.Text = "Готов к работе";
             // 
             // StatusLabelDateTime
             // 
             StatusLabelDateTime.Alignment = ToolStripItemAlignment.Right;
             StatusLabelDateTime.Name = "StatusLabelDateTime";
-            StatusLabelDateTime.Size = new Size(36, 21);
+            StatusLabelDateTime.Size = new Size(48, 26);
             StatusLabelDateTime.Text = "null";
             // 
             // grid
@@ -367,14 +367,14 @@
             contextMenu.ImageScalingSize = new Size(20, 20);
             contextMenu.Items.AddRange(new ToolStripItem[] { contextAddItem, contextEditItem, contextDeleteItem, contextFilterItem });
             contextMenu.Name = "contextMenu";
-            contextMenu.Size = new Size(203, 108);
+            contextMenu.Size = new Size(231, 124);
             // 
             // contextAddItem
             // 
             contextAddItem.Enabled = false;
             contextAddItem.Image = (Image)resources.GetObject("contextAddItem.Image");
             contextAddItem.Name = "contextAddItem";
-            contextAddItem.Size = new Size(202, 26);
+            contextAddItem.Size = new Size(230, 30);
             contextAddItem.Text = "Добавить";
             contextAddItem.Click += BtnAdd_Click;
             // 
@@ -383,7 +383,7 @@
             contextEditItem.Enabled = false;
             contextEditItem.Image = (Image)resources.GetObject("contextEditItem.Image");
             contextEditItem.Name = "contextEditItem";
-            contextEditItem.Size = new Size(202, 26);
+            contextEditItem.Size = new Size(230, 30);
             contextEditItem.Text = "Редактировать";
             contextEditItem.Click += BtnEdit_Click;
             // 
@@ -392,7 +392,7 @@
             contextDeleteItem.Enabled = false;
             contextDeleteItem.Image = (Image)resources.GetObject("contextDeleteItem.Image");
             contextDeleteItem.Name = "contextDeleteItem";
-            contextDeleteItem.Size = new Size(202, 26);
+            contextDeleteItem.Size = new Size(230, 30);
             contextDeleteItem.Text = "Удалить";
             contextDeleteItem.Click += BtnDelete_Click;
             // 
@@ -401,7 +401,7 @@
             contextFilterItem.Enabled = false;
             contextFilterItem.Image = (Image)resources.GetObject("contextFilterItem.Image");
             contextFilterItem.Name = "contextFilterItem";
-            contextFilterItem.Size = new Size(202, 26);
+            contextFilterItem.Size = new Size(230, 30);
             contextFilterItem.Text = "Фильтр";
             // 
             // btnAdd
@@ -450,7 +450,7 @@
             lblSearch.BackColor = Color.Transparent;
             lblSearch.Location = new Point(12, 81);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(65, 21);
+            lblSearch.Size = new Size(78, 26);
             lblSearch.TabIndex = 8;
             lblSearch.Text = "Поиск:";
             // 
@@ -461,7 +461,7 @@
             searchEngine.Margin = new Padding(0);
             searchEngine.Name = "searchEngine";
             searchEngine.PlaceholderText = "Search";
-            searchEngine.Size = new Size(326, 29);
+            searchEngine.Size = new Size(326, 34);
             searchEngine.TabIndex = 9;
             searchEngine.TextChanged += searchEngine_TextChanged;
             // 
@@ -470,7 +470,7 @@
             toolStrip.BackColor = Color.FromArgb(100, 200, 200, 200);
             toolStrip.ImageScalingSize = new Size(20, 20);
             toolStrip.Items.AddRange(new ToolStripItem[] { toolStripAdd, toolStripEdit, toolStripDelete });
-            toolStrip.Location = new Point(0, 29);
+            toolStrip.Location = new Point(0, 34);
             toolStrip.Name = "toolStrip";
             toolStrip.Size = new Size(800, 27);
             toolStrip.TabIndex = 10;

@@ -789,14 +789,12 @@ namespace ArchiveFund
             {
                 MenuItemGeneratePrint.Enabled = false;
                 MenuItemClearPrint.Enabled = false;
-                MenuItemShowPrint.Enabled = false;
                 
             }
             else
             {
                 MenuItemGeneratePrint.Enabled = true;
                 MenuItemClearPrint.Enabled = true;
-                MenuItemShowPrint.Enabled = true;
             }
             SetEnabledForMenuItemsPrint((int)currentTable);
         }
