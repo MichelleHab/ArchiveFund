@@ -110,7 +110,7 @@ namespace ArchiveFund
 
                 if (result == DialogResult.Yes)
                 {
-                    bool success = Sql.ImportFromFile(openDialog.FileName);
+                    bool success = Sql.QueryNonReturns(File.ReadAllText(openDialog.FileName));
 
                     if (success)
                     {

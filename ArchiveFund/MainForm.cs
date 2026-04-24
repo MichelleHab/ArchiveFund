@@ -544,7 +544,7 @@ namespace ArchiveFund
                 return;
             int num_return = grid.SelectedRows.Count;
             foreach (DataGridViewRow row in grid.SelectedRows)
-                Sql.QueryNonReturns($"start trabsaction; delete from `{currentTable}` " +
+                Sql.QueryNonReturns($"start transaction; delete from `{currentTable}` " +
                     $"where {getSelects()?.Split(',')[0]} = @id; commit;",
                     [new("@id", row.Cells[0].Value)]);
             statusLabel.Text = "- Запись(и) удалена(ы) -> " + num_return + " строк";
@@ -737,6 +737,7 @@ namespace ArchiveFund
                         using (var doc = DocX.Create(saveDialog.FileName))
                         {
                             // Добавляем заголовки
+
                             doc.InsertParagraph("ОПИСЬ ВЫПУСКНЫХ КВАЛИФИКАЦИОННЫХ РАБОТ").FontSize(16).Bold().Alignment = Alignment.center;
                             doc.InsertParagraph($"Специальность: {tbGroup?.Rows[0]["specialization"].ToString()}, " +
                                 $"группа: {tbGroup?.Rows[0]["group_name"].ToString()}, " +
@@ -745,7 +746,6 @@ namespace ArchiveFund
 
                             // Создаём таблицу с 4 колонками
                             var table = doc.AddTable(tbDocs.Rows.Count + 1, 4);
-
                             // Заголовки таблицы
                             table.Rows[0].Cells[0].Paragraphs[0].Append("№").Bold();
                             table.Rows[0].Cells[1].Paragraphs[0].Append("ФИО обучающегося").Bold();
@@ -781,10 +781,96 @@ namespace ArchiveFund
                 }
             }
         }
-
-        private void printNavigationFile_Click(object sender, EventArgs e)
+        private DocX? docPrint = null;
+        private List<StructItem>? docItemPrint = null;
+        private void printNavigationFile_DropDownOpening(object sender, EventArgs e)
         {
+            if (docItemPrint is null)
+            {
+                MenuItemGeneratePrint.Enabled = false;
+                MenuItemClearPrint.Enabled = false;
+                MenuItemShowPrint.Enabled = false;
+                
+            }
+            else
+            {
+                MenuItemGeneratePrint.Enabled = true;
+                MenuItemClearPrint.Enabled = true;
+                MenuItemShowPrint.Enabled = true;
+            }
+            SetEnabledForMenuItemsPrint((int)currentTable);
+        }
+        private void SetEnabledForMenuItemsPrint(int? value)
+        {
+            MenuItemAddGroupPrint.Enabled = false;
+            MenuItemAddStudentsPrint.Enabled = false;
+            MenuItemAddDocumentPrint.Enabled = false;
+            switch (value)
+            {
+                case 6:
+                    MenuItemAddGroupPrint.Enabled = true;
+                    break;
+                case 7:
+                    MenuItemAddStudentsPrint.Enabled = true;
+                    break;
+                case 2 or 4:
+                    MenuItemAddDocumentPrint.Enabled = true;
+                    break;
+                default: break;
+            }
+            ;
+        }
+        private void MenuItemAddDocumentPrint_Click(object sender, EventArgs e)
+        {
+            docItemPrint ??= [];
+            docItemPrint.Add(new StructItem(currentTable == Table.Documents ? StructItem.Items.Document : StructItem.Items.DelDocument,
+                int.Parse(grid.CurrentRow?.Cells[0].Value?.ToString() ?? throw new ArgumentNullException())));
+        }
+        private void MenuItemAddStudentsPrint_Click(object sender, EventArgs e)
+        {
+            docItemPrint ??= [];
+            docItemPrint.Add(new StructItem(StructItem.Items.Student,
+                int.Parse(grid.CurrentRow?.Cells[0].Value?.ToString() ?? throw new ArgumentNullException())));
+        }
+        private void MenuItemAddGroupPrint_Click(object sender, EventArgs e)
+        {
+            docItemPrint ??= [];
+            docItemPrint.Add(new StructItem(StructItem.Items.Group,
+                int.Parse(grid.CurrentRow?.Cells[0].Value?.ToString() ?? throw new ArgumentNullException())));
+        }
+        private void MenuItemGeneratePrint_Click(object sender, EventArgs e)
+        {
+            if (docItemPrint is null)
+                return;
+            using SaveFileDialog saveDialog = new();
+            saveDialog.Filter = "Документы Word (*.docx)|*.docx";
+            saveDialog.Title = "Составить файл навигации";
+            saveDialog.FileName = $"Файл_навигации_по_архиву.docx";
 
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // 3. Генерируем документ
+                    var doc = DocX.Create(saveDialog.FileName);
+                    doc.InsertParagraph("НАВИГАЦИЯ ПО АРХИВУ").FontSize(20).Bold().Alignment = Alignment.center;
+                    foreach (var item in docItemPrint)
+                        item.SetItem(ref doc);
+                    // Сохраняем документ
+                    doc.Save();
+                    // 4. Предлагаем отправить на печать
+                    PrintDocument(saveDialog.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при создании документа: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void MenuItemClearPrint_Click(object sender, EventArgs e)
+        {
+            docPrint = null;
+            docItemPrint = null;
         }
     }
 }
