@@ -185,6 +185,8 @@ namespace ArchiveFund
             var tb = Sql.Query($"select `{value_id}`, {value_name} from `{table}` {where}");
             if (tb is null)
                 return;
+            cmb.Items.Clear();
+            cmb.DataSource = null;
             DataRowCollection? Row = tb.Rows;
             var items = new List<object>();
             foreach (DataRow row in Row)
@@ -192,6 +194,16 @@ namespace ArchiveFund
             cmb.DataSource = items;
             cmb.DisplayMember = "Name";
             cmb.ValueMember = "Id";
+        }
+        public static void LoadToComboBox(string value_name, Table table, ComboBox cmb, string? where = null)
+        {
+            var tb = Sql.Query($"select DISTINCT {value_name} from `{table}` {where}");
+            if (tb is null)
+                return;
+            cmb.Items.Clear();
+            cmb.DataSource = null;
+            foreach (DataRow row in tb.Rows)
+                cmb.Items.Add(row[0]);
         }
         private string? getSelectsNotAs(string? select)
         {
@@ -330,7 +342,7 @@ namespace ArchiveFund
                             new MySqlParameter("@document_subject", ((DocumentForm)form).txtDocumentSubject.Text),
                             new MySqlParameter("@start_data", ((DocumentForm)form).dtpCreationYear.Value),
                             new MySqlParameter("@type_id", ((DocumentForm)form).comboBoxTypeId.SelectedValue),
-                            new MySqlParameter("@Supervisor_full_name", string.IsNullOrEmpty(((DocumentForm)form).txtSupervisorFullName.Text) ? DBNull.Value : ((DocumentForm)form).txtSupervisorFullName.Text),
+                            new MySqlParameter("@Supervisor_full_name", string.IsNullOrEmpty(((DocumentForm)form).cmbSupervisorFullName.Text) ? DBNull.Value : ((DocumentForm)form).cmbSupervisorFullName.Text),
                             new MySqlParameter("@student_id", ((DocumentForm)form).comboBoxStudentId.SelectedValue),
                             new MySqlParameter("@box_id", ((DocumentForm)form).comboBoxBox_id.SelectedValue)
                         ]))
@@ -352,7 +364,7 @@ namespace ArchiveFund
                         "values (@group_name, @formation_year, @specialization)", [
                             new MySqlParameter("@group_name", ((GroupForm)form).txtGroupName.Text),
                             new MySqlParameter("@formation_year", ((GroupForm)form).dtpFormationYear.Value),
-                            new MySqlParameter("@specialization", ((GroupForm)form).txtSpecialization.Text)
+                            new MySqlParameter("@specialization", ((GroupForm)form).cmbSpecialization.Text)
                         ]))
                         MessageBoxForErrorsToShow();
                     break;
@@ -432,7 +444,7 @@ namespace ArchiveFund
                             new MySqlParameter("@document_subject", ((DocumentForm)form).txtDocumentSubject.Text),
                             new MySqlParameter("@start_data", ((DocumentForm)form).dtpCreationYear.Value),
                             new MySqlParameter("@type_id", ((DocumentForm)form).comboBoxTypeId.SelectedValue),
-                            new MySqlParameter("@Supervisor_full_name", string.IsNullOrEmpty(((DocumentForm)form).txtSupervisorFullName.Text) ? DBNull.Value : ((DocumentForm)form).txtSupervisorFullName.Text),
+                            new MySqlParameter("@Supervisor_full_name", string.IsNullOrEmpty(((DocumentForm)form).cmbSupervisorFullName.Text) ? DBNull.Value : ((DocumentForm)form).cmbSupervisorFullName.Text),
                             new MySqlParameter("@student_id", ((DocumentForm)form).comboBoxStudentId.SelectedValue),
                             new MySqlParameter("@box_id", ((DocumentForm)form).comboBoxBox_id.SelectedValue) ]))
                         MessageBoxForErrorsToShow();
@@ -458,7 +470,7 @@ namespace ArchiveFund
                             new MySqlParameter("@id", id),
                             new MySqlParameter("@group_name", ((GroupForm)form).txtGroupName.Text),
                             new MySqlParameter("@formation_year", ((GroupForm)form).dtpFormationYear.Value),
-                            new MySqlParameter("@specialization", ((GroupForm)form).txtSpecialization.Text) ]))
+                            new MySqlParameter("@specialization", ((GroupForm)form).cmbSpecialization.Text) ]))
                         MessageBoxForErrorsToShow();
                     break;
                 case Table.Student or Table.StudentsPersFiles or Table.DeletedStudentsPersFiles:

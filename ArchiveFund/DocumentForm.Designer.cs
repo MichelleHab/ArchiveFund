@@ -32,7 +32,6 @@
             txtDocumentSubject = new TextBox();
             lblDocumentSubject = new Label();
             lblTypeId = new Label();
-            txtSupervisorFullName = new TextBox();
             lblSupervisorFullName = new Label();
             lblStudentId = new Label();
             btnSave = new Button();
@@ -44,12 +43,13 @@
             dtpCreationYear = new DateTimePicker();
             lblBox_id = new Label();
             comboBoxBox_id = new ComboBox();
+            cmbSupervisorFullName = new ComboBox();
             SuspendLayout();
             // 
             // txtDocumentSubject
             // 
             txtDocumentSubject.BackColor = Color.Wheat;
-            txtDocumentSubject.Location = new Point(201, 22);
+            txtDocumentSubject.Location = new Point(218, 22);
             txtDocumentSubject.Multiline = true;
             txtDocumentSubject.Name = "txtDocumentSubject";
             txtDocumentSubject.PlaceholderText = "Анализ современного обучения";
@@ -62,7 +62,7 @@
             lblDocumentSubject.BackColor = Color.Transparent;
             lblDocumentSubject.Location = new Point(20, 22);
             lblDocumentSubject.Name = "lblDocumentSubject";
-            lblDocumentSubject.Size = new Size(151, 21);
+            lblDocumentSubject.Size = new Size(187, 26);
             lblDocumentSubject.TabIndex = 2;
             lblDocumentSubject.Text = "*Тема документа:";
             // 
@@ -72,18 +72,9 @@
             lblTypeId.BackColor = Color.Transparent;
             lblTypeId.Location = new Point(20, 169);
             lblTypeId.Name = "lblTypeId";
-            lblTypeId.Size = new Size(144, 21);
+            lblTypeId.Size = new Size(176, 26);
             lblTypeId.TabIndex = 4;
             lblTypeId.Text = "*Тип документа:";
-            // 
-            // txtSupervisorFullName
-            // 
-            txtSupervisorFullName.BackColor = Color.Wheat;
-            txtSupervisorFullName.Location = new Point(252, 217);
-            txtSupervisorFullName.Name = "txtSupervisorFullName";
-            txtSupervisorFullName.PlaceholderText = "Иванов Ива Иванович";
-            txtSupervisorFullName.Size = new Size(200, 29);
-            txtSupervisorFullName.TabIndex = 7;
             // 
             // lblSupervisorFullName
             // 
@@ -91,7 +82,7 @@
             lblSupervisorFullName.BackColor = Color.Transparent;
             lblSupervisorFullName.Location = new Point(20, 220);
             lblSupervisorFullName.Name = "lblSupervisorFullName";
-            lblSupervisorFullName.Size = new Size(169, 21);
+            lblSupervisorFullName.Size = new Size(207, 26);
             lblSupervisorFullName.TabIndex = 6;
             lblSupervisorFullName.Text = "ФИО руководителя:";
             // 
@@ -101,7 +92,7 @@
             lblStudentId.BackColor = Color.Transparent;
             lblStudentId.Location = new Point(20, 270);
             lblStudentId.Name = "lblStudentId";
-            lblStudentId.Size = new Size(88, 21);
+            lblStudentId.Size = new Size(109, 26);
             lblStudentId.TabIndex = 8;
             lblStudentId.Text = "*Студент:";
             // 
@@ -134,16 +125,17 @@
             comboBoxTypeId.FormattingEnabled = true;
             comboBoxTypeId.Location = new Point(252, 166);
             comboBoxTypeId.Name = "comboBoxTypeId";
-            comboBoxTypeId.Size = new Size(200, 28);
+            comboBoxTypeId.Size = new Size(200, 34);
             comboBoxTypeId.TabIndex = 12;
             // 
             // comboBoxStudentId
             // 
             comboBoxStudentId.BackColor = Color.Wheat;
+            comboBoxStudentId.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStudentId.FormattingEnabled = true;
             comboBoxStudentId.Location = new Point(252, 267);
             comboBoxStudentId.Name = "comboBoxStudentId";
-            comboBoxStudentId.Size = new Size(200, 28);
+            comboBoxStudentId.Size = new Size(200, 34);
             comboBoxStudentId.TabIndex = 12;
             // 
             // flagIsDelete
@@ -152,7 +144,7 @@
             flagIsDelete.BackColor = Color.Transparent;
             flagIsDelete.Location = new Point(20, 51);
             flagIsDelete.Name = "flagIsDelete";
-            flagIsDelete.Size = new Size(117, 46);
+            flagIsDelete.Size = new Size(141, 56);
             flagIsDelete.TabIndex = 13;
             flagIsDelete.Text = "Удаленный\nдокумент?";
             flagIsDelete.UseVisualStyleBackColor = false;
@@ -163,7 +155,7 @@
             lblCreationYear.BackColor = Color.Transparent;
             lblCreationYear.Location = new Point(21, 120);
             lblCreationYear.Name = "lblCreationYear";
-            lblCreationYear.Size = new Size(130, 21);
+            lblCreationYear.Size = new Size(158, 26);
             lblCreationYear.TabIndex = 14;
             lblCreationYear.Text = "*Год создания:";
             // 
@@ -174,7 +166,7 @@
             dtpCreationYear.Location = new Point(252, 114);
             dtpCreationYear.Name = "dtpCreationYear";
             dtpCreationYear.ShowUpDown = true;
-            dtpCreationYear.Size = new Size(200, 29);
+            dtpCreationYear.Size = new Size(200, 34);
             dtpCreationYear.TabIndex = 15;
             // 
             // lblBox_id
@@ -183,7 +175,7 @@
             lblBox_id.BackColor = Color.Transparent;
             lblBox_id.Location = new Point(21, 314);
             lblBox_id.Name = "lblBox_id";
-            lblBox_id.Size = new Size(162, 21);
+            lblBox_id.Size = new Size(197, 26);
             lblBox_id.TabIndex = 16;
             lblBox_id.Text = "Коробка хранения:";
             // 
@@ -193,14 +185,24 @@
             comboBoxBox_id.FormattingEnabled = true;
             comboBoxBox_id.Location = new Point(252, 311);
             comboBoxBox_id.Name = "comboBoxBox_id";
-            comboBoxBox_id.Size = new Size(200, 28);
+            comboBoxBox_id.Size = new Size(200, 34);
             comboBoxBox_id.TabIndex = 12;
+            // 
+            // cmbSupervisorFullName
+            // 
+            cmbSupervisorFullName.BackColor = Color.Wheat;
+            cmbSupervisorFullName.FormattingEnabled = true;
+            cmbSupervisorFullName.Location = new Point(252, 217);
+            cmbSupervisorFullName.Name = "cmbSupervisorFullName";
+            cmbSupervisorFullName.Size = new Size(200, 34);
+            cmbSupervisorFullName.TabIndex = 17;
             // 
             // DocumentForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(481, 410);
+            Controls.Add(cmbSupervisorFullName);
             Controls.Add(lblBox_id);
             Controls.Add(lblCreationYear);
             Controls.Add(dtpCreationYear);
@@ -212,7 +214,6 @@
             Controls.Add(txtDocumentSubject);
             Controls.Add(lblTypeId);
             Controls.Add(lblSupervisorFullName);
-            Controls.Add(txtSupervisorFullName);
             Controls.Add(lblStudentId);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
@@ -235,12 +236,12 @@
         private System.Windows.Forms.Button btnCancel;
         private Label lblCreationYear;
         private Label lblBox_id;
-        public TextBox txtSupervisorFullName;
         public ComboBox comboBoxTypeId;
         public ComboBox comboBoxStudentId;
         public CheckBox flagIsDelete;
         public ComboBox comboBoxBox_id;
         public TextBox txtDocumentSubject;
         public DateTimePicker dtpCreationYear;
+        public ComboBox cmbSupervisorFullName;
     }
 }

@@ -48,11 +48,11 @@
             // txtFullName
             // 
             txtFullName.BackColor = Color.Wheat;
-            txtFullName.Location = new Point(177, 6);
+            txtFullName.Location = new Point(214, 6);
             txtFullName.MaxLength = 100;
             txtFullName.Name = "txtFullName";
             txtFullName.PlaceholderText = "Иванов Ива Иванович";
-            txtFullName.Size = new Size(340, 29);
+            txtFullName.Size = new Size(340, 34);
             txtFullName.TabIndex = 3;
             // 
             // lblFullName
@@ -61,16 +61,16 @@
             lblFullName.BackColor = Color.Transparent;
             lblFullName.Location = new Point(12, 9);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(138, 21);
+            lblFullName.Size = new Size(170, 26);
             lblFullName.TabIndex = 2;
             lblFullName.Text = "*ФИО студента:";
             // 
             // cmbGroupId
             // 
             cmbGroupId.BackColor = Color.Wheat;
-            cmbGroupId.Location = new Point(177, 48);
+            cmbGroupId.Location = new Point(214, 51);
             cmbGroupId.Name = "cmbGroupId";
-            cmbGroupId.Size = new Size(340, 28);
+            cmbGroupId.Size = new Size(340, 34);
             cmbGroupId.TabIndex = 5;
             // 
             // lblGroupId
@@ -79,7 +79,7 @@
             lblGroupId.BackColor = Color.Transparent;
             lblGroupId.Location = new Point(12, 51);
             lblGroupId.Name = "lblGroupId";
-            lblGroupId.Size = new Size(71, 21);
+            lblGroupId.Size = new Size(87, 26);
             lblGroupId.TabIndex = 4;
             lblGroupId.Text = "Группа:";
             // 
@@ -87,10 +87,10 @@
             // 
             dtpAdmissionYear.CustomFormat = "yyyy";
             dtpAdmissionYear.Format = DateTimePickerFormat.Short;
-            dtpAdmissionYear.Location = new Point(177, 88);
+            dtpAdmissionYear.Location = new Point(214, 91);
             dtpAdmissionYear.Name = "dtpAdmissionYear";
             dtpAdmissionYear.ShowUpDown = true;
-            dtpAdmissionYear.Size = new Size(340, 29);
+            dtpAdmissionYear.Size = new Size(340, 34);
             dtpAdmissionYear.TabIndex = 9;
             // 
             // lblAdmissionYear
@@ -99,7 +99,7 @@
             lblAdmissionYear.BackColor = Color.Transparent;
             lblAdmissionYear.Location = new Point(12, 94);
             lblAdmissionYear.Name = "lblAdmissionYear";
-            lblAdmissionYear.Size = new Size(158, 21);
+            lblAdmissionYear.Size = new Size(194, 26);
             lblAdmissionYear.TabIndex = 8;
             lblAdmissionYear.Text = "*Год поступления:";
             // 
@@ -108,10 +108,10 @@
             dtpDeductionYear.CustomFormat = "yyyy";
             dtpDeductionYear.Enabled = false;
             dtpDeductionYear.Format = DateTimePickerFormat.Short;
-            dtpDeductionYear.Location = new Point(177, 137);
+            dtpDeductionYear.Location = new Point(214, 137);
             dtpDeductionYear.Name = "dtpDeductionYear";
             dtpDeductionYear.ShowUpDown = true;
-            dtpDeductionYear.Size = new Size(240, 29);
+            dtpDeductionYear.Size = new Size(240, 34);
             dtpDeductionYear.TabIndex = 11;
             // 
             // lblDeductionYear
@@ -120,7 +120,7 @@
             lblDeductionYear.BackColor = Color.Transparent;
             lblDeductionYear.Location = new Point(12, 143);
             lblDeductionYear.Name = "lblDeductionYear";
-            lblDeductionYear.Size = new Size(103, 21);
+            lblDeductionYear.Size = new Size(126, 26);
             lblDeductionYear.TabIndex = 10;
             lblDeductionYear.Text = "Год вычета:";
             // 
@@ -141,7 +141,7 @@
             lblReason.BackColor = Color.Transparent;
             lblReason.Location = new Point(12, 214);
             lblReason.Name = "lblReason";
-            lblReason.Size = new Size(146, 21);
+            lblReason.Size = new Size(177, 26);
             lblReason.TabIndex = 12;
             lblReason.Text = "Причина вычета:";
             // 
@@ -149,7 +149,7 @@
             // 
             btnSave.AutoSize = true;
             btnSave.BackColor = Color.Wheat;
-            btnSave.Location = new Point(392, 376);
+            btnSave.Location = new Point(461, 376);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(125, 36);
             btnSave.TabIndex = 14;
@@ -175,7 +175,7 @@
             checkBoxIsDelete.BackColor = Color.Transparent;
             checkBoxIsDelete.Location = new Point(12, 176);
             checkBoxIsDelete.Name = "checkBoxIsDelete";
-            checkBoxIsDelete.Size = new Size(213, 25);
+            checkBoxIsDelete.Size = new Size(258, 30);
             checkBoxIsDelete.TabIndex = 16;
             checkBoxIsDelete.Text = "Студента в удаленные?";
             checkBoxIsDelete.UseVisualStyleBackColor = false;
@@ -186,9 +186,9 @@
             deductionNoSaveDate.BackColor = Color.Transparent;
             deductionNoSaveDate.Checked = true;
             deductionNoSaveDate.CheckState = CheckState.Checked;
-            deductionNoSaveDate.Location = new Point(423, 131);
+            deductionNoSaveDate.Location = new Point(460, 131);
             deductionNoSaveDate.Name = "deductionNoSaveDate";
-            deductionNoSaveDate.Size = new Size(111, 46);
+            deductionNoSaveDate.Size = new Size(131, 56);
             deductionNoSaveDate.TabIndex = 18;
             deductionNoSaveDate.Text = "Не\nсохранять";
             deductionNoSaveDate.UseVisualStyleBackColor = false;
@@ -199,7 +199,7 @@
             BackColor = Color.Wheat;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(529, 424);
+            ClientSize = new Size(598, 424);
             Controls.Add(deductionNoSaveDate);
             Controls.Add(checkBoxIsDelete);
             Controls.Add(lblFullName);

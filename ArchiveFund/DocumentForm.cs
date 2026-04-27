@@ -16,6 +16,7 @@ namespace ArchiveFund
             MainForm.LoadToComboBox("type_id", "`type_name`", MainForm.Table.DocumentTypes, comboBoxTypeId);
             MainForm.LoadToComboBox("student_id", "`full_name`", MainForm.Table.Student, comboBoxStudentId);
             MainForm.LoadToComboBox("box_id", "Concat_ws('', 'id:', `box_id`, '->', `box_name`)", MainForm.Table.Boxes, comboBoxBox_id);
+            MainForm.LoadToComboBox("Supervisor_full_name", MainForm.Table.Documents, cmbSupervisorFullName);
             if (parameters != null && parameters.Length >= 7)
             {
                 flagIsDelete.Checked = isDelete;
@@ -32,7 +33,7 @@ namespace ArchiveFund
                     }
                 }
                 if (!string.IsNullOrEmpty(parameters[4].ToString()))
-                    txtSupervisorFullName.Text = parameters[4].ToString();
+                    cmbSupervisorFullName.Text = parameters[4].ToString();
                 if (!string.IsNullOrEmpty(parameters[5].ToString()))
                 {
                     foreach (var item in comboBoxStudentId.Items)

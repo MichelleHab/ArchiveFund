@@ -54,7 +54,7 @@
             lblRackNumber.BackColor = Color.Transparent;
             lblRackNumber.Location = new Point(12, 9);
             lblRackNumber.Name = "lblRackNumber";
-            lblRackNumber.Size = new Size(144, 21);
+            lblRackNumber.Size = new Size(176, 26);
             lblRackNumber.TabIndex = 2;
             lblRackNumber.Text = "Номер стеллажа:";
             // 
@@ -64,16 +64,16 @@
             lblShelfNumber.BackColor = Color.Transparent;
             lblShelfNumber.Location = new Point(12, 51);
             lblShelfNumber.Name = "lblShelfNumber";
-            lblShelfNumber.Size = new Size(120, 21);
+            lblShelfNumber.Size = new Size(146, 26);
             lblShelfNumber.TabIndex = 4;
             lblShelfNumber.Text = "Номер полки:";
             // 
             // cmbGroupId
             // 
             cmbGroupId.BackColor = Color.Wheat;
-            cmbGroupId.Location = new Point(188, 89);
+            cmbGroupId.Location = new Point(216, 92);
             cmbGroupId.Name = "cmbGroupId";
-            cmbGroupId.Size = new Size(291, 28);
+            cmbGroupId.Size = new Size(291, 34);
             cmbGroupId.TabIndex = 7;
             // 
             // lblGroupId
@@ -82,7 +82,7 @@
             lblGroupId.BackColor = Color.Transparent;
             lblGroupId.Location = new Point(12, 92);
             lblGroupId.Name = "lblGroupId";
-            lblGroupId.Size = new Size(138, 21);
+            lblGroupId.Size = new Size(168, 26);
             lblGroupId.TabIndex = 6;
             lblGroupId.Text = "Целевая группа:";
             // 
@@ -90,9 +90,9 @@
             // 
             cmbTypeId.BackColor = Color.Wheat;
             cmbTypeId.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTypeId.Location = new Point(188, 129);
+            cmbTypeId.Location = new Point(216, 132);
             cmbTypeId.Name = "cmbTypeId";
-            cmbTypeId.Size = new Size(291, 28);
+            cmbTypeId.Size = new Size(291, 34);
             cmbTypeId.TabIndex = 9;
             // 
             // lblTypeId
@@ -101,7 +101,7 @@
             lblTypeId.BackColor = Color.Transparent;
             lblTypeId.Location = new Point(14, 133);
             lblTypeId.Name = "lblTypeId";
-            lblTypeId.Size = new Size(123, 21);
+            lblTypeId.Size = new Size(151, 26);
             lblTypeId.TabIndex = 8;
             lblTypeId.Text = "*Целевой тип:";
             // 
@@ -110,10 +110,10 @@
             dtpYearWork.CustomFormat = "yyyy";
             dtpYearWork.Enabled = false;
             dtpYearWork.Format = DateTimePickerFormat.Short;
-            dtpYearWork.Location = new Point(126, 171);
+            dtpYearWork.Location = new Point(154, 174);
             dtpYearWork.Name = "dtpYearWork";
             dtpYearWork.ShowUpDown = true;
-            dtpYearWork.Size = new Size(250, 29);
+            dtpYearWork.Size = new Size(250, 34);
             dtpYearWork.TabIndex = 11;
             // 
             // lblYearWork
@@ -122,7 +122,7 @@
             lblYearWork.BackColor = Color.Transparent;
             lblYearWork.Location = new Point(14, 177);
             lblYearWork.Name = "lblYearWork";
-            lblYearWork.Size = new Size(106, 21);
+            lblYearWork.Size = new Size(129, 26);
             lblYearWork.TabIndex = 10;
             lblYearWork.Text = "Год работы:";
             // 
@@ -130,7 +130,7 @@
             // 
             btnSave.AutoSize = true;
             btnSave.BackColor = Color.Wheat;
-            btnSave.Location = new Point(372, 225);
+            btnSave.Location = new Point(427, 225);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(107, 36);
             btnSave.TabIndex = 12;
@@ -153,36 +153,36 @@
             // numericRackNumber
             // 
             numericRackNumber.BackColor = Color.Wheat;
-            numericRackNumber.Location = new Point(188, 9);
+            numericRackNumber.Location = new Point(216, 12);
             numericRackNumber.Name = "numericRackNumber";
-            numericRackNumber.Size = new Size(120, 29);
+            numericRackNumber.Size = new Size(120, 34);
             numericRackNumber.TabIndex = 14;
             // 
             // numericShelfNumber
             // 
             numericShelfNumber.BackColor = Color.Wheat;
-            numericShelfNumber.Location = new Point(188, 49);
+            numericShelfNumber.Location = new Point(216, 52);
             numericShelfNumber.Name = "numericShelfNumber";
-            numericShelfNumber.Size = new Size(120, 29);
+            numericShelfNumber.Size = new Size(120, 34);
             numericShelfNumber.TabIndex = 14;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(331, 9);
+            label1.Location = new Point(359, 12);
             label1.Name = "label1";
-            label1.Size = new Size(48, 21);
+            label1.Size = new Size(59, 26);
             label1.TabIndex = 15;
             label1.Text = "Имя:";
             // 
             // txtName
             // 
             txtName.BackColor = Color.Wheat;
-            txtName.Location = new Point(331, 43);
+            txtName.Location = new Point(359, 46);
             txtName.Name = "txtName";
             txtName.PlaceholderText = "Box:1-1";
-            txtName.Size = new Size(148, 29);
+            txtName.Size = new Size(148, 34);
             txtName.TabIndex = 16;
             txtName.GotFocus += TxtName_GotFocus;
             // 
@@ -192,9 +192,9 @@
             noSaveDate.BackColor = Color.Transparent;
             noSaveDate.Checked = true;
             noSaveDate.CheckState = CheckState.Checked;
-            noSaveDate.Location = new Point(382, 165);
+            noSaveDate.Location = new Point(410, 168);
             noSaveDate.Name = "noSaveDate";
-            noSaveDate.Size = new Size(111, 46);
+            noSaveDate.Size = new Size(131, 56);
             noSaveDate.TabIndex = 17;
             noSaveDate.Text = "Не\nсохранять";
             noSaveDate.UseVisualStyleBackColor = false;
@@ -205,7 +205,7 @@
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(491, 273);
+            ClientSize = new Size(546, 273);
             Controls.Add(noSaveDate);
             Controls.Add(txtName);
             Controls.Add(label1);

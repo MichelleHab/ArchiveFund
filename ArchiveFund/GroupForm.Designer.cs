@@ -33,20 +33,20 @@
             lblGroupName = new Label();
             dtpFormationYear = new DateTimePicker();
             lblFormationYear = new Label();
-            txtSpecialization = new TextBox();
             lblSpecialization = new Label();
             btnSave = new Button();
             btnCancel = new Button();
+            cmbSpecialization = new ComboBox();
             SuspendLayout();
             // 
             // txtGroupName
             // 
             txtGroupName.BackColor = Color.Wheat;
-            txtGroupName.Location = new Point(201, 25);
+            txtGroupName.Location = new Point(248, 25);
             txtGroupName.MaxLength = 100;
             txtGroupName.Name = "txtGroupName";
             txtGroupName.PlaceholderText = "Гр-1а";
-            txtGroupName.Size = new Size(181, 29);
+            txtGroupName.Size = new Size(181, 34);
             txtGroupName.TabIndex = 3;
             // 
             // lblGroupName
@@ -55,7 +55,7 @@
             lblGroupName.BackColor = Color.Transparent;
             lblGroupName.Location = new Point(12, 28);
             lblGroupName.Name = "lblGroupName";
-            lblGroupName.Size = new Size(162, 21);
+            lblGroupName.Size = new Size(196, 26);
             lblGroupName.TabIndex = 2;
             lblGroupName.Text = "*Название группы:";
             // 
@@ -63,10 +63,10 @@
             // 
             dtpFormationYear.CustomFormat = "yyyy";
             dtpFormationYear.Format = DateTimePickerFormat.Short;
-            dtpFormationYear.Location = new Point(201, 69);
+            dtpFormationYear.Location = new Point(249, 69);
             dtpFormationYear.Name = "dtpFormationYear";
             dtpFormationYear.ShowUpDown = true;
-            dtpFormationYear.Size = new Size(180, 29);
+            dtpFormationYear.Size = new Size(180, 34);
             dtpFormationYear.TabIndex = 5;
             // 
             // lblFormationYear
@@ -75,19 +75,9 @@
             lblFormationYear.BackColor = Color.Transparent;
             lblFormationYear.Location = new Point(12, 75);
             lblFormationYear.Name = "lblFormationYear";
-            lblFormationYear.Size = new Size(176, 21);
+            lblFormationYear.Size = new Size(216, 26);
             lblFormationYear.TabIndex = 4;
             lblFormationYear.Text = "*Год формирования:";
-            // 
-            // txtSpecialization
-            // 
-            txtSpecialization.BackColor = Color.Wheat;
-            txtSpecialization.Location = new Point(201, 115);
-            txtSpecialization.MaxLength = 255;
-            txtSpecialization.Name = "txtSpecialization";
-            txtSpecialization.PlaceholderText = "01.01.01 Обучение...";
-            txtSpecialization.Size = new Size(181, 29);
-            txtSpecialization.TabIndex = 7;
             // 
             // lblSpecialization
             // 
@@ -95,7 +85,7 @@
             lblSpecialization.BackColor = Color.Transparent;
             lblSpecialization.Location = new Point(12, 118);
             lblSpecialization.Name = "lblSpecialization";
-            lblSpecialization.Size = new Size(146, 21);
+            lblSpecialization.Size = new Size(178, 26);
             lblSpecialization.TabIndex = 6;
             lblSpecialization.Text = "*Специализация:";
             // 
@@ -103,7 +93,7 @@
             // 
             btnSave.AutoSize = true;
             btnSave.BackColor = Color.Wheat;
-            btnSave.Location = new Point(278, 192);
+            btnSave.Location = new Point(325, 192);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(104, 36);
             btnSave.TabIndex = 8;
@@ -123,18 +113,27 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
+            // txtSpecialization
+            // 
+            cmbSpecialization.BackColor = Color.Wheat;
+            cmbSpecialization.FormattingEnabled = true;
+            cmbSpecialization.Location = new Point(248, 115);
+            cmbSpecialization.Name = "txtSpecialization";
+            cmbSpecialization.Size = new Size(181, 34);
+            cmbSpecialization.TabIndex = 10;
+            // 
             // GroupForm
             // 
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(394, 240);
+            ClientSize = new Size(441, 240);
+            Controls.Add(cmbSpecialization);
             Controls.Add(lblGroupName);
             Controls.Add(txtGroupName);
             Controls.Add(lblFormationYear);
             Controls.Add(dtpFormationYear);
             Controls.Add(lblSpecialization);
-            Controls.Add(txtSpecialization);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Font = new Font("Times New Roman", 13.8F);
@@ -156,6 +155,6 @@
         private System.Windows.Forms.Button btnCancel;
         public TextBox txtGroupName;
         public DateTimePicker dtpFormationYear;
-        public TextBox txtSpecialization;
+        public ComboBox cmbSpecialization;
     }
 }

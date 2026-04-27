@@ -18,22 +18,23 @@ namespace ArchiveFund
                 this.Text = "Изменение группы!";
                 txtGroupName.Text = parameters[1].ToString();
                 dtpFormationYear.Value = Convert.ToDateTime(parameters[2]);
-                txtSpecialization.Text = parameters[3].ToString();
+                cmbSpecialization.Text = parameters[3].ToString();
             }
             else this.Text = "Добавление группы!";
+            MainForm.LoadToComboBox("specialization", MainForm.Table.Group, cmbSpecialization);
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtGroupName.Text))
+            if (string.IsNullOrWhiteSpace(txtGroupName.Text))
             {
                 MessageBox.Show("Не введено название группы!");
                 txtGroupName.Focus();
                 return;
             }
-            if (string.IsNullOrEmpty(txtSpecialization.Text))
+            if (string.IsNullOrWhiteSpace(cmbSpecialization.Text))
             {
                 MessageBox.Show("Не введена специализация!");
-                txtSpecialization.Focus();
+                cmbSpecialization.Focus();
                 return;
             }
             DialogResult = DialogResult.OK;
