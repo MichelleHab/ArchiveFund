@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>boxes_form</Title>
+<style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #ddd;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 10px 0;
+            display: block;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+            color: #c0392b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</HEAD>
+<BODY>
+    <h1>Работа с формой &laquo;Коробки&raquo;</h1>
+    <p>Данная форма используется для регистрации новых архивных коробок или редактирования сведений о существующих. Ниже приведено описание элементов интерфейса и порядка действий.</p>
+
+    <div class="alert">
+        <span class="alert-title">Обратите внимание:</span>
+        Заголовок окна автоматически меняется на &laquo;Изменение коробки!&raquo;, если вы открыли существующую запись. В противном случае отображается &laquo;Добавление коробки!&raquo;.
+    </div>
+
+    <h2>1. Физическое расположение</h2>
+    <p>В верхней части формы указывается место хранения коробки.</p>
+    
+    <div class="img-container">
+        <!-- Ссылка на картинку: скриншот верхней части формы -->
+        <img src="images/boxes_location.png" alt="Поля ввода стеллажа и полки">
+        <div class="caption">Рис. 1. Блок указания местоположения</div>
+    </div>
+
+    <ul>
+        <li><span class="ui-element">Номер стеллажа</span> &mdash; введите номер стеллажа (числовое поле).</li>
+        <li><span class="ui-element">Номер полки</span> &mdash; введите номер полки.</li>
+        <li><span class="ui-element">Имя</span> &mdash; уникальное имя коробки.
+            <br><em>Совет:</em> Если нажать на это поле после ввода стеллажа и полки, система автоматически предложит имя в формате <code>Box:Стеллаж-Полка</code> (например, <code>Box:1-1</code>). Вы можете отредактировать его вручную.
+        </li>
+    </ul>
+
+    <h2>2. Классификация и дата</h2>
+    <p>Центральная часть формы отвечает за типологию содержимого.</p>
+
+    <div class="img-container">
+        <!-- Ссылка на картинку: скриншот центральной части формы -->
+        <img src="images/boxes_params.png" alt="Выбор группы, типа и года">
+        <div class="caption">Рис. 2. Параметры классификации</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Элемент</th>
+                <th>Описание действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Целевая группа</strong></td>
+                <td>Выберите группу из выпадающего списка. Список загружается из справочника групп.</td>
+            </tr>
+            <tr>
+                <td><strong>*Целевой тип</strong></td>
+                <td><strong>Обязательное поле.</strong> Выберите тип документа. Без выбора типа сохранение невозможно.</td>
+            </tr>
+            <tr>
+                <td><strong>Год работы</strong></td>
+                <td>Поле выбора года. Активно только если снята галочка &laquo;Не сохранять&raquo;.</td>
+            </tr>
+            <tr>
+                <td><strong>Не сохранять</strong></td>
+                <td>Чекбокс. Если он установлен (по умолчанию), поле &laquo;Год работы&raquo; заблокировано. Снимите галочку, чтобы указать год.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Завершение работы</h2>
+    <p>В нижней части формы расположены кнопки управления.</p>
+
+    <div class="img-container">
+        <!-- Ссылка на картинку: скриншот кнопок -->
+        <img src="images/boxes_buttons.png" alt="Кнопки Принять и Отмена">
+        <div class="caption">Рис. 3. Кнопки управления</div>
+    </div>
+
+    <ul>
+        <li><span class="ui-element">Принять</span> &mdash; сохраняет изменения. 
+            <br>Если поле <em>*Целевой тип</em> не заполнено, система выдаст предупреждение: <em>&laquo;Не введен тип! Пожалуйста выберите из предложенных.&raquo;</em>
+        </li>
+        <li><span class="ui-element">Отмена</span> &mdash; закрывает форму без сохранения данных.</li>
+    </ul>
+
+
+</BODY>
+</HTML>

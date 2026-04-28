@@ -113,12 +113,12 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += BtnCancel_Click;
             // 
-            // txtSpecialization
+            // cmbSpecialization
             // 
             cmbSpecialization.BackColor = Color.Wheat;
             cmbSpecialization.FormattingEnabled = true;
             cmbSpecialization.Location = new Point(248, 115);
-            cmbSpecialization.Name = "txtSpecialization";
+            cmbSpecialization.Name = "cmbSpecialization";
             cmbSpecialization.Size = new Size(181, 34);
             cmbSpecialization.TabIndex = 10;
             // 
