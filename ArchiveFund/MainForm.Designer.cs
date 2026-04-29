@@ -36,6 +36,7 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             mainMenu = new MenuStrip();
             fileMenu = new ToolStripMenuItem();
+            HelperMenuItem = new ToolStripMenuItem();
             exitMenuItem = new ToolStripMenuItem();
             dataMenu = new ToolStripMenuItem();
             usersMenuItem = new ToolStripMenuItem();
@@ -78,7 +79,8 @@
             toolStripEdit = new ToolStripButton();
             toolStripDelete = new ToolStripButton();
             DateTimeTimer = new System.Windows.Forms.Timer(components);
-            HelperMenuItem = new ToolStripMenuItem();
+            aboutMenu = new ToolStripMenuItem();
+            MenuItemAbout = new ToolStripMenuItem();
             mainMenu.SuspendLayout();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
@@ -91,7 +93,7 @@
             mainMenu.BackColor = Color.FromArgb(100, 200, 200, 200);
             mainMenu.Font = new Font("Times New Roman", 13.8F);
             mainMenu.ImageScalingSize = new Size(20, 20);
-            mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu, printMenu });
+            mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu, dataMenu, studentDataMenu, guideMenu, printMenu, aboutMenu });
             mainMenu.Location = new Point(0, 0);
             mainMenu.Name = "mainMenu";
             mainMenu.Size = new Size(800, 34);
@@ -105,11 +107,18 @@
             fileMenu.Size = new Size(97, 30);
             fileMenu.Text = "Файл";
             // 
+            // HelperMenuItem
+            // 
+            HelperMenuItem.BackColor = Color.LightCoral;
+            HelperMenuItem.Name = "HelperMenuItem";
+            HelperMenuItem.Size = new Size(179, 30);
+            HelperMenuItem.Text = "Справка";
+            // 
             // exitMenuItem
             // 
             exitMenuItem.BackColor = Color.LightCoral;
             exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new Size(224, 30);
+            exitMenuItem.Size = new Size(179, 30);
             exitMenuItem.Text = "Выход";
             exitMenuItem.Click += ExitMenuItem_Click;
             // 
@@ -516,12 +525,19 @@
             DateTimeTimer.Interval = 1000;
             DateTimeTimer.Tick += DateTimeTimer_Tick;
             // 
-            // HelperMenuItem
+            // aboutMenu
             // 
-            HelperMenuItem.BackColor = Color.LightCoral;
-            HelperMenuItem.Name = "HelperMenuItem";
-            HelperMenuItem.Size = new Size(224, 30);
-            HelperMenuItem.Text = "Справка";
+            aboutMenu.DropDownItems.AddRange(new ToolStripItem[] { MenuItemAbout });
+            aboutMenu.Name = "aboutMenu";
+            aboutMenu.Size = new Size(156, 30);
+            aboutMenu.Text = "О программе";
+            // 
+            // MenuItemAbout
+            // 
+            MenuItemAbout.Name = "MenuItemAbout";
+            MenuItemAbout.Size = new Size(224, 30);
+            MenuItemAbout.Text = "Справка";
+            MenuItemAbout.Click += MenuItemAbout_Click;
             // 
             // MainForm
             // 
@@ -602,5 +618,7 @@
         private ToolStripMenuItem MenuItemAddGroupPrint;
         private ToolStripMenuItem MenuItemClearPrint;
         private ToolStripMenuItem HelperMenuItem;
+        private ToolStripMenuItem aboutMenu;
+        private ToolStripMenuItem MenuItemAbout;
     }
 }

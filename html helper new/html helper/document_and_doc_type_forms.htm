@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Document_and_doc_type_forms</Title>
+<style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            font-size: 18px;
+            margin-top: 35px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            background-color: #f0f8ff;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #444;
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p { margin-bottom: 15px; }
+        
+        /* Стили для элементов интерфейса */
+        .ui-field {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-weight: bold;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Контейнер для изображений */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .figcaption {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Таблица полей */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f8f9fa;
+            width: 35%;
+        }
+
+        /* Блок предупреждения */
+        .alert {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 40px 0;
+        }
+    </style>
+</HEAD>
+<BODY>
+<!-- ЧАСТЬ 1: DOCUMENT FORM -->
+    <h1>Часть 1. Форма документа (DocumentForm)</h1>
+    <p>Форма <strong>DocumentForm</strong> предназначена для ввода мета-данных архивного документа: темы, авторов, типа и местоположения. Поля, отмеченные звездочкой (<span class="required">*</span>), являются обязательными для заполнения.</p>
+
+    <div class="figure">
+        <img src="images/document_form_full.png" alt="Общий вид формы документа">
+        <div class="figcaption">Рис. 1. Общий вид формы редактирования документа</div>
+    </div>
+
+    <h3>1. Основная информация</h3>
+    <table>
+        <tr>
+            <th><span class="required">*</span> Тема документа</th>
+            <td>
+                Многострочное текстовое поле.<br>
+                Введите краткое описание или заголовок работы.
+            </td>
+        </tr>
+        <tr>
+            <th>Удаленный документ?</th>
+            <td>
+                Чекбокс.<br>
+                Устанавливается, если документ помечен как удаленный (архивная пометка).
+            </td>
+        </tr>
+    </table>
+
+    <h3>2. Классификация и авторы</h3>
+    <ul>
+        <li><span class="required">*</span> <strong>Год создания:</strong> Выберите год в календаре.</li>
+        <li><span class="required">*</span> <strong>Тип документа:</strong> Выберите из выпадающего списка.</li>
+        <li><strong>ФИО руководителя:</strong> Выберите или введите необходимого руководителя.</li>
+        <li><span class="required">*</span> <strong>Студент:</strong> Выберите студента-автора работы.</li>
+        <li><strong>Коробка хранения:</strong> Указывает физическое расположение (формат: <code>id:ID -> Имя</code>).</li>
+    </ul>
+
+    <div class="alert">
+        <strong>Важно:</strong> При нажатии кнопки <span class="ui-field">Принять</span> система проверит заполнение обязательных полей (Тема, Тип, Студент). Если что-то пропущено, сохранение не произойдет.
+    </div>
+
+    <hr>
+
+    <!-- ЧАСТЬ 2: DOCUMENT TYPE FORM -->
+    <h1>Часть 2. Форма типа документа (DocumentTypeForm)</h1>
+    <p>Данная форма является вспомогательной и используется для создания или редактирования справочника <strong>типов документов</strong>. Она позволяет задать название для нового вида архивных записей (например, «Курсовая работа», «Диплом», «Лекция»).</p>
+
+    <div class="figure">
+        <!-- Ссылка на изображение для новой формы -->
+        <img src="images/doctype_form.png" alt="Форма редактирования типа документа">
+        <div class="figcaption">Рис. 2. Окно добавления/изменения типа документа</div>
+    </div>
+
+    <h3>Элементы управления</h3>
+    <p>Интерфейс формы максимально упрощен и содержит всего один основной элемент ввода:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Элемент</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="required">*</span> Название типа</td>
+                <td>
+                    Текстовое поле.<br>
+                    Предназначено для ввода наименования типа документа.<br>
+                    <em>Пример:</em> «Зачет», «Экзаменационная ведомость», «Реферат».
+                </td>
+            </tr>
+            <tr>
+                <td>Принять</td>
+                <td>
+                    Кнопка. Сохраняет введенное название в базу данных.<br>
+                    Если поле пустое, появится сообщение об ошибке: <em>«Не введено название типа документа!»</em>.
+                </td>
+            </tr>
+            <tr>
+                <td>Отмена</td>
+                <td>
+                    Кнопка. Закрывает окно без сохранения изменений.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Режимы работы</h3>
+    <ul>
+        <li><strong>Добавление:</strong> Если форма открыта для создания новой записи, заголовок окна будет гласить <em>«Добавление типа документа!»</em>. Поле ввода будет пустым.</li>
+        <li><strong>Изменение:</strong> Если вы редактируете существующий тип, заголовок изменится на <em>«Изменение типа документа!»</em>, а в поле ввода отобразится текущее название типа, которое можно отредактировать.</li>
+    </ul>
+
+</BODY>
+</HTML>

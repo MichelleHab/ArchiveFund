@@ -1,0 +1,18 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=new_helper.chm
+Contents file=help\Table of Contents.hhc
+Display compile progress=No
+Language=0x419 Русский (Россия)
+
+
+[FILES]
+help\boxes.htm
+help\documents.htm
+help\groups.htm
+help\index.htm
+help\students.htm
+help\users.htm
+
+[INFOTYPES]
+
