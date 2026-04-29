@@ -1,5 +1,10 @@
 ```
-# Help documentation files (if generated)
+# HTML help files - assuming these are generated documentation
 help/*.htm
-help/*.html
+help/boxes.htm
+help/documents.htm
+help/groups.htm
+help/index.htm
+help/students.htm
+help/users.htm
 ```
