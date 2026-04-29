@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="ArchiveFund/ArchiveFund.csproj" />
+  <Project Path="TestProject/TestProject.csproj" Id="7fb0eeb6-b8d7-4d5b-bf74-d8cbdc192d7d" />
 </Solution>
