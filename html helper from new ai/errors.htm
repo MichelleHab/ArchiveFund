@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Возможные ошибки и их решение</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Возможные ошибки при работе и способы их устранения" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>4.2. Возможные ошибки и их решение</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="support_section.htm">Справка и поддержка</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="support_section.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="faq.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="error_connection.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">В этом разделе описаны наиболее распространённые ошибки, которые могут возникнуть при работе с программой «Архивный фонд», и способы их устранения.</span></p>
+		
+		<!-- СКРИНШОТ: общий вид сообщения об ошибке -->
+		<p class="rvps4"><img alt="Пример ошибки" style="padding: 1px;" src="lib/error_save_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Пример сообщения об ошибке в программе</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Содержание раздела:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <a href="error_connection.htm">4.2.1. Ошибка подключения к серверу</a></span></p>
+		<p class="rvps4"><span class="rvts11">— <a href="error_save.htm">4.2.2. Ошибка при сохранении данных</a></span></p>
+		<p class="rvps4"><span class="rvts11">— <a href="error_database.htm">4.2.3. База данных не найдена или не соответствует структуре</a></span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Общие рекомендации при возникновении любых ошибок</b></span></p>
+		
+		<!-- СКРИНШОТ: иконка рекомендаций -->
+
+		
+		<p class="rvps4"><span class="rvtsll">1. <b>Запишите текст ошибки</b> — это поможет при обращении в службу поддержки.</span></p>
+		<p class="rvps4"><span class="rvtsll">2. <b>Проверьте подключение к серверу</b> — убедитесь, что сервер MySQL запущен и доступен.</span></p>
+		<p class="rvps4"><span class="rvtsll">3. <b>Проверьте файл config.ini</b> — правильность параметров подключения.</span></p>
+		<p class="rvps4"><span class="rvtsll">4. <b>Создайте резервную копию</b> перед выполнением операций, которые могут повлиять на данные.</span></p>
+		<p class="rvps4"><span class="rvtsll">5. <b>Обратитесь к администратору</b> — многие ошибки требуют прав администратора базы данных.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Таблица ошибок и их коды</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Тип ошибки</th>
+				<th style="width: 75%; background: #d0d0d0; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка подключения</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Не удаётся установить соединение с сервером MySQL (раздел 4.2.1)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка сохранения</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Ошибка при добавлении, редактировании или удалении записи (раздел 4.2.2)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка структуры БД</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">База данных не найдена или её структура не соответствует ожидаемой (раздел 4.2.3)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка авторизации</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Неверный логин или пароль, либо логин не найден (раздел 1.5)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка целостности</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Нарушение внешнего ключа (например, попытка удалить группу, к которой привязаны студенты)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка шаблона</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Файл шаблона для печати не найден (раздел 2.5.1)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Ошибка прав доступа</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Недостаточно прав для выполнения операции (например, попытка редактирования пользователя не-администратором)</td>
+			</tr>
+			</table>
+		
+	</div>
+</body>
+</html>

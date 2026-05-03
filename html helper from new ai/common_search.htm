@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Поиск записей (строка поиска)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Поиск записей с помощью строки поиска" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.1.2. Поиск записей (строка поиска)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="common.htm">Общие принципы работы</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="common.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="common_navigation.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="common_filter.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Для быстрого поиска записей в текущем разделе используется <b>строка поиска</b> (поле ввода с подписью «Поиск:»). Она расположена в верхней части главного окна, под панелью инструментов.</span></p>
+		
+		<!-- СКРИНШОТ: выделенная строка поиска -->
+		<p class="rvps4"><img alt="Строка поиска" style="padding: 1px;" src="lib/search_bar.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Строка поиска — поле ввода с плейсхолдером «Search»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Принцип работы</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Поиск является <b>динамическим (фильтрующим)</b> — таблица перефильтровывается автоматически при каждом изменении текста в поле поиска. Не нужно нажимать дополнительные кнопки.</span></p>
+		
+		<!-- СКРИНШОТ: анимация или последовательность поиска -->
+		<p class="rvps4"><img alt="Процесс поиска" style="padding: 1px;" src="lib/search_process.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Пример: поиск по фамилии «Иванов» в разделе «Студенты»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Особенности поиска:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— Поиск выполняется <b>одновременно по всем видимым текстовым полям</b> текущей таблицы (ФИО, название группы, тема документа и т.д.).</span></p>
+		<p class="rvps4"><span class="rvts11">— Поиск <b>нечувствителен к регистру</b> (буквы в любом регистре).</span></p>
+		<p class="rvps4"><span class="rvts11">— Поиск проверяет <b>вхождение подстроки</b> (необязательно полное совпадение). Например, запрос «курс» найдёт и «курсовая работа», и «курсант».</span></p>
+		<p class="rvps4"><span class="rvts11">— Поиск работает на стороне сервера базы данных, что обеспечивает высокую скорость даже при большом количестве записей.</span></p>
+		
+		<!-- СКРИНШОТ: примеры поиска -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Примеры использования:</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Что ввести</th>
+				<th style="width: 70%; background: #d0d0d0; padding: 8px; text-align: left;">Что будет найдено</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Иванов</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Студенты с фамилией Иванов</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">диплом</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Все дипломные работы (в теме, типе документа)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Гр-1</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Студенты из группы «Гр-1а», «Гр-1б» и т.д.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">2022</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Документы, созданные в 2022 году; студенты, поступившие в 2022 году</td>
+			</tr>
+		</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Очистка поиска</b></span></p>
+		
+		<!-- СКРИНШОТ: очистка поля поиска -->
+
+		
+		<p class="rvps4"><span class="rvts11">Чтобы отобразить все записи раздела, просто удалите текст из поля поиска. Таблица автоматически вернётся к полному списку.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Важно:</b> Поиск применяется только к <b>текущему разделу</b>. При переключении между разделами поисковый запрос сбрасывается, и отображаются все записи нового раздела.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Примечание:</b> Поиск работает совместно с фильтрацией (см. следующий раздел 2.1.3). Если активны фильтры по столбцам, поиск будет искать только среди уже отфильтрованных строк.</span></p>
+		
+	</div>
+</body>
+</html>

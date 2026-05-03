@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Добавление нового пользователя</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Создание новой учётной записи пользователя" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3.1.2. Добавление нового пользователя</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="admin_section.htm">Администрирование</a> ›› <a href="admin_users.htm">Управление пользователями</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="admin_users.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="admin_roles.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="admin_user_edit.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Функция <b>«Добавление нового пользователя»</b> доступна только администратору и позволяет создать новую учётную запись для сотрудника.</span></p>
+		
+		<!-- СКРИНШОТ: кнопка Добавить -->
+		<p class="rvps4"><img alt="Кнопка Добавить" style="padding: 1px;" src="lib/user_add_button.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Кнопка «Добавить» в разделе «Пользователи»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Порядок действий</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">1. Перейдите в раздел <b>«Данные → Пользователи»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Добавить»</b> (на панели инструментов, в контекстном меню или внизу окна).</span></p>
+		
+		<!-- СКРИНШОТ: форма добавления пользователя -->
+		<p class="rvps4"><img alt="Форма добавления пользователя" style="padding: 1px;" src="lib/backup_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Форма добавления нового пользователя</p>
+		
+		<p class="rvps4"><span class="rvtsll">3. Заполните поля формы:</span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Поле</th>
+				<th style="width: 15%; background: #d0d0d0; padding: 8px; text-align: center;">Обязательное</th>
+				<th style="width: 60%; background: #d0d0d0; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>ФИО</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">Нет</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Полное имя сотрудника</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Роль</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">Да</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Выбор из выпадающего списка: Admin или Employer</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Логин</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">Да</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Уникальное имя пользователя для входа (например, «Ivanov_II»)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Пароль</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">Да</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Пароль (будет сохранён в зашифрованном виде с помощью SHA-512)</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11">4. Нажмите кнопку <b>«Принять»</b> для сохранения или <b>«Отмена»</b> для отмены.</span></p>
+		
+		<!-- СКРИНШОТ: сообщение об ошибке при пустых полях -->
+		<p class="rvps4"><img alt="Ошибка при пустых полях" style="padding: 1px;" src="lib/user_add_error.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Сообщение об ошибке, если не выбрана роль или не введён логин/пароль</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Проверки при добавлении</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Система выполняет следующие проверки:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Роль:</b> должна быть выбрана (Admin или Employer).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Логин:</b> не должен быть пустым; должен быть уникальным (при попытке создать пользователя с существующим логином возникнет ошибка базы данных).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Пароль:</b> не должен быть пустым при создании нового пользователя.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Хэширование пароля</b></span></p>
+		
+		<!-- СКРИНШОТ: схема хэширования -->
+		<p class="rvps4"><img alt="Хэширование пароля" style="padding: 1px;" src="lib/password_hashing.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Пароль сохраняется в базу данных в виде хэша SHA-512</p>
+		
+		<p class="rvps4"><span class="rvts11">При сохранении пользователя введённый пароль <b>не хранится в открытом виде</b>. Он преобразуется с помощью алгоритма SHA-512, и в базу данных записывается только хэш. Это обеспечивает безопасность — даже при доступе к базе данных пароль невозможно восстановить.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Результат добавления</b></span></p>
+		
+		<!-- СКРИНШОТ: новый пользователь в таблице -->
+		<p class="rvps4"><img alt="Новый пользователь" style="padding: 1px;" src="lib/user_add_result.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Новая учётная запись появилась в таблице</p>
+		
+		<p class="rvps4"><span class="rvts11">После успешного добавления:</span></p>
+		<p class="rvps4"><span class="rvts11">— Новая запись появляется в таблице пользователей.</span></p>
+		<p class="rvps4"><span class="rvts11">— В статусной строке появляется сообщение «Запись добавлена».</span></p>
+		<p class="rvps4"><span class="rvts11">— Новый пользователь может войти в систему, используя указанные логин и пароль.</span></p>
+		
+	</div>
+</body>
+</html>

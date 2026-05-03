@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Авторизация в системе</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Авторизация в приложении Архивный фонд" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>1.5. Авторизация в системе</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="chapter1.htm">Знакомство с приложением</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="chapter1.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="intro_config.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="main_window.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">При запуске приложения первым открывается окно авторизации. Оно предназначено для проверки прав пользователя и предотвращения несанкционированного доступа к архивным данным.</span></p>
+		
+		<!-- СКРИНШОТ: окно авторизации -->
+		<p class="rvps4"><img alt="Окно авторизации" style="padding: 1px;" src="lib/auth_window.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Окно авторизации с полями ввода логина и пароля</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Поля окна авторизации:</b></span></p>
+		
+		<!-- СКРИНШОТ: пояснение элементов окна -->
+
+		
+		
+		<p class="rvps4"><span class="rvts11"><b>Поле «Логин»</b> — предназначено для ввода имени пользователя. Логин чувствителен к регистру.</span></p>
+		<p class="rvps4"><span class="rvts11"><b>Поле «Пароль»</b> — предназначено для ввода пароля. По умолчанию символы скрываются (отображаются в виде точек или звёздочек).</span></p>
+		
+		<!-- СКРИНШОТ: пароль под маской -->
+		<p class="rvps4"><img alt="Пароль скрыт маской" style="padding: 1px;" src="lib/password_masked.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Поле пароля с маской скрытия ввода</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Кнопка «Вход»</b> — после ввода логина и пароля нажмите эту кнопку для выполнения входа.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Процесс авторизации</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">При нажатии кнопки «Вход» программа выполняет следующие действия:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Проверяет, что поле логина не пустое. Если пустое — выводится сообщение: <i>«Не введен логин!»</i>.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Проверяет, что поле пароля не пустое. Если пустое — выводится сообщение: <i>«Не введен пароль!»</i>.</span></p>
+		
+		<!-- СКРИНШОТ: сообщение о пустом логине -->
+		<p class="rvps4"><img alt="Сообщение о пустом логине" style="padding: 1px;" src="lib/empty_login_error.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Сообщение об ошибке при пустом поле логина</span></p>
+		
+		<p class="rvps4"><span class="rvts11">3. Ищет введённый логин в таблице пользователей базы данных.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Если логин не найден — выводится сообщение: <i>«Данный логин не найден!»</i>.</span></p>
+		
+		<!-- СКРИНШОТ: сообщение о ненайденном логине -->
+		<p class="rvps4"><img alt="Логин не найден" style="padding: 1px;" src="lib/login_not_found.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Сообщение об ошибке при ненайденном логине</span></p>
+		
+		<p class="rvps4"><span class="rvts11">5. Хэширует введённый пароль с помощью алгоритма SHA-512.</span></p>
+		<p class="rvps4"><span class="rvts11">6. Сравнивает полученный хэш с хэшем пароля, хранящимся в базе данных.</span></p>
+		<p class="rvps4"><span class="rvts11">7. Если пароли не совпадают — выводится сообщение: <i>«Неверный логин или пароль!»</i>.</span></p>
+		
+		<!-- СКРИНШОТ: сообщение о неверном пароле -->
+		<p class="rvps4"><img alt="Неверный пароль" style="padding: 1px;" src="lib/wrong_password.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Сообщение об ошибке при неверном пароле</span></p>
+		
+		<p class="rvps4"><span class="rvtsll">8. При успешной проверке окно авторизации закрывается, и открывается главное окно программы.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Учётная запись по умолчанию</span></p>
+		
+		<p class="rvps4"><span class="rvts11">При первом запуске (или после создания новой базы данных) в системе уже существует администратор:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Логин:</b> <i>Admin</i></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Пароль:</b> <i>Admin</i></span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Примечание:</b> Для безопасности рекомендуется сменить пароль администратора после первого входа через раздел «Пользователи».</span></p>
+		
+	</div>
+</body>
+</html>

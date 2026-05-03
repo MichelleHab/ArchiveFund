@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>База данных не найдена или не соответствует структуре</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Ошибка базы данных: не найдена или структура не соответствует" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>4.2.3. База данных не найдена или не соответствует структуре</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="support_section.htm">Справка и поддержка</a> ›› <a href="errors.htm">Возможные ошибки</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="errors.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="error_save.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="index.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Эта ошибка возникает при запуске программы, если база данных с указанным в config.ini именем не существует или её структура (набор таблиц) не соответствует ожидаемой.</span></p>
+		
+		<!-- СКРИНШОТ: первое сообщение о БД -->
+		<p class="rvps4"><img alt="База не найдена" style="padding: 1px;" src="lib/error_db_not_found.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Сообщение о том, что база данных не найдена</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Как работает проверка при запуске</b></span></p>
+		
+		<!-- СКРИНШОТ: схема проверки -->
+
+		
+		<p class="rvps4"><span class="rvts11">Программа выполняет следующие проверки:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Читает параметры из <b>config.ini</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Проверяет существование базы данных с указанным именем.</span></p>
+		<p class="rvps4"><span class="rvts11">3. Если база существует — проверяет, содержит ли она все необходимые таблицы: <b>Boxes, DeletedDocuments, DeletedStudentsPersFiles, Documents, DocumentTypes, Group, Student, StudentsPersFiles, User</b>.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Ситуация 1: База данных не найдена</b></span></p>
+		
+		<!-- СКРИНШОТ: создание новой базы -->
+
+		
+		<p class="rvps4"><span class="rvts11">Если база данных не найдена, программа:</span></p>
+		<p class="rvps4"><span class="rvts11">— Показывает сообщение: <b>«База данных с именем, указанным в файле 'config.ini' не найдена. Загружена пустая версия»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">— Выполняет SQL-скрипт из файла <b>ArchiveFund.06.clear.sql</b>, который создаёт новую базу данных со всеми таблицами и начальными данными (пользователь Admin).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Ситуация 2: Структура базы данных не соответствует</b></span></p>
+		
+		<!-- СКРИНШОТ: несоответствие структуры -->
+		<p class="rvps4"><img alt="Несоответствие структуры" style="padding: 1px;" src="lib/error_db_structure.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Сообщение о несоответствии структуры базы данных</p>
+		
+		<p class="rvps4"><span class="rvts11">Если база данных существует, но набор таблиц отличается от ожидаемого, программа:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Показывает сообщение: <b>«Найдена база данных с именем, указанным в файле 'config.ini', не соответствующая табличной структуре. Сохранена в файл "..."»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Сохраняет существующую базу данных в резервный файл с именем: <b>`[имя_базы].дд.мм.гггг-чч.мм.сс.sql`</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">3. Удаляет старую базу данных.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Создаёт новую базу данных со структурой из файла ArchitectureFund.06.Clear.sql</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Ситуация 3: Создание пользователя MySQL</b></span></p>
+		
+		<!-- СКРИНШОТ: создание пользователя -->
+
+		
+		<p class="rvps4"><span class="rvts11">Если в config.ini указан пользователь, которого нет в MySQL, программа автоматически:</span></p>
+		<p class="rvps4"><span class="rvts11">— Создаёт нового пользователя с указанным логином и паролем.</span></p>
+		<p class="rvps4"><span class="rvts11">— Предоставляет ему <b>все привилегии</b> на работу с базой данных ArchiveFund.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Что делать, если данные были потеряны при автоматическом восстановлении?</b></span></p>
+		
+		<!-- СКРИНШОТ: поиск резервной копии -->
+
+		
+		<p class="rvps4"><span class="rvts11">Если программа автоматически создала резервную копию перед пересозданием базы данных, вы можете восстановить её вручную:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Найдите файл с именем <b>ArchiveFund.дд.мм.гггг-чч.мм.сс.sql</b> в папке с программой.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Используйте функцию <b>«Восстановить резервную копию»</b> (раздел 3.2.2) для восстановления данных из этого файла.</span></p>
+		<p class="rvps4"><span class="rvts11">3. <b>Предупреждение:</b> при восстановлении текущие данные будут перезаписаны данными из резервной копии.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Как избежать этой ошибки</b></span></p>
+		
+		<!-- СКРИНШОТ: рекомендации -->
+
+		
+		<p class="rvps4"><span class="rvts11">— <b>Не удаляйте и не переименовывайте таблицы</b> в базе данных вручную.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Используйте только программу</b> для работы с данными, не вносите изменения напрямую через SQL-клиенты, если не уверены в результате.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Регулярно создавайте резервные копии</b> — это защитит данные в случае автоматической перезаписи.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Убедитесь, что файл ArchiveFund.06.clear.sql находится в папке с программой</b> — он необходим для создания базы данных.</span></p>
+		
+	</div>
+</body>
+</html>

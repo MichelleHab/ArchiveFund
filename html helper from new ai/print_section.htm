@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2.5. Раздел «Печати» (формирование отчётов)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Раздел Печати программы Архивный фонд — формирование отчётов" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.5. Раздел «Печати» (формирование отчётов)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="chapter2.htm">Руководство пользователя</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="chapter2.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="document_types.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="print_persfile.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Раздел <b>«Печати»</b> (меню <b>«Печати»</b> в главном окне) предназначен для формирования и вывода на печать различных отчётных документов на основе данных из архива.</span></p>
+		
+		<!-- СКРИНШОТ: меню Печати -->
+		<p class="rvps4"><img alt="Меню Печати" style="padding: 1px;" src="lib/print_menu.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Пункт меню «Печати» и его подменю</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Назначение раздела</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">В разделе «Печати» собраны все функции для создания документов Microsoft Word (формат `.docx`) на основе данных, хранящихся в программе. Сформированные файлы можно сохранить на диск или сразу отправить на печать.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Доступные отчёты</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Пункт меню</th>
+				<th style="width: 55%; background: #d0d0d0; padding: 8px; text-align: left;">Что формируется</th>
+				<th style="width: 20%; background: #d0d0d0; padding: 8px; text-align: left;">Где доступен</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Получить данные по выбранному студенту</b> <br/>(<a href="print_persfile.htm">2.5.1</a>)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Личное дело студента — заполнение шаблона (ФИО, специализация, год поступления, год отчисления, количество документов, срок хранения 75 лет)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Разделы со студентами</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Получить опись по (не удаленным) дипломным работам выбранной группы</b> <br/>(<a href="print_diploma.htm">2.5.2</a>)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Опись дипломных работ для группы (таблица с № п/п, ФИО студента, ФИО руководителя, тема диплома)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Разделы «Группы», «Студенты», «Коробки»</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Составление файла навигации по архиву</b> <br/>(<a href="print_navigation.htm">2.5.3</a>)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Навигационный файл — список документов для физического поиска с указанием стеллажа, полки, группы и года</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Любой раздел (добавление элементов по контексту)</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Общий принцип работы</b></span></p>
+		
+		<!-- СКРИНШОТ: общая схема работы с печатью -->
+
+		
+		<p class="rvps4"><span class="rvts11">Все функции печати работают по единому принципу:</span></p>
+		<p class="rvps4"><span class="rvts11">1. <b>Выделите объект</b> (студента, группу, документ) в соответствующем разделе.</span></p>
+		<p class="rvps4"><span class="rvts11">2. <b>Выберите пункт меню</b> «Печати» → нужный отчёт.</span></p>
+		<p class="rvps4"><span class="rvts11">3. <b>Укажите место сохранения</b> файла в диалоговом окне.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Программа формирует документ Word и сохраняет его.</span></p>
+		<p class="rvps4"><span class="rvts11">5. <b>Подтвердите печать</b> — документ отправится на принтер по умолчанию.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Требования для работы печати</b></span></p>
+		
+		<!-- СКРИНШОТ: значок Word -->
+
+		
+		<p class="rvps4"><span class="rvts11">Для корректной работы функций печати необходимо:</span></p>
+		<p class="rvps4"><span class="rvts11">— Наличие установленного <b>Microsoft Word</b> (или другого приложения, поддерживающего открытие и печать файлов `.docx`).</span></p>
+		<p class="rvps4"><span class="rvts11">— Для печати личного дела студента — наличие файла шаблона <b>«Опись Личные_дела_студентов.DOCX»</b> в папке с программой.</span></p>
+		<p class="rvps4"><span class="rvts11">— Для печати описи дипломных работ — наличие в справочнике типов документов значения <b>«Дипломная работа»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">— Наличие установленного принтера по умолчанию (если требуется автоматическая печать).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Примеры использования</b></span></p>
+		
+		<!-- СКРИНШОТ: пример готового документа -->
+		<p class="rvps4"><img alt="Пример документа" style="padding: 1px;" src="lib/nav_final_file.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Пример сформированного документа (навигационный файл)</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Пример 1:</b> Сотруднику архива нужно найти личное дело отчисленного студента. Он выделяет студента в разделе «Студенты» и формирует навигационный файл, где указано точное место хранения (стеллаж, полка, коробка).</span></p>
+		<p class="rvps4"><span class="rvts11"><b>Пример 2:</b> Перед защитой дипломов нужно подготовить опись для государственной экзаменационной комиссии. Выбирается группа, и программа формирует таблицу со списком всех дипломных работ.</span></p>
+		
+		<div class="rvps4" style="background: #e8f0fe; padding: 10px; margin-top: 20px;">
+			<span class="rvts11"><b>💡 Совет:</b> Для навигационного файла можно комбинировать элементы из разных разделов — добавлять отдельные документы, всех документы студента или целой группы. Это позволяет собрать в одном документе информацию для сложного поиска в архиве.</span>
+		</div>
+		
+		<div class="rvps4" style="background: #fff3e0; padding: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
+			<span class="rvts11"><b>⚠️ Возможные проблемы:</b></span>
+			<p class="rvps4"><span class="rvts11">— Если шаблон для личного дела не найден — проверьте наличие файла <b>«Опись Личные_дела_студентов.DOCX»</b> в папке с программой.</span></p>
+			<p class="rvps4"><span class="rvts11">— Если опись дипломных работ пуста — убедитесь, что в группе есть документы с типом «Дипломная работа».</span></p>
+			<p class="rvps4"><span class="rvts11">— Если не открывается окно печати — проверьте, установлен ли принтер по умолчанию.</span></p>
+		</div>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Навигация по подразделам:</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr style="background: #e0e0e0;">
+				<th style="padding: 8px;">Раздел</th>
+				<th style="padding: 8px;">Описание</th>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"><a href="print_persfile.htm">2.5.1. Печать личного дела студента</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Формирование личного дела по шаблону, заполнение полей данными из БД</td>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"><a href="print_diploma.htm">2.5.2. Печать описи дипломных работ по группе</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Создание таблицы со списком дипломных работ выбранной группы</td>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"><a href="print_navigation.htm">2.5.3. Создание навигационного файла по архиву</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Сбор и генерация документа с информацией о местах хранения документов</td>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"> <a href="navigation_add_document.htm">2.5.3.1. Добавление выбранного документа</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Добавление в отчёт конкретного документа</td>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"> <a href="navigation_add_student.htm">2.5.3.2. Добавление всех документов студента</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Добавление всех документов выбранного студента</td>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"> <a href="navigation_add_group.htm">2.5.3.3. Добавление всех документов группы</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Добавление всех документов всех студентов группы</td>
+			 </tr>
+			 <tr>
+			 	<td style="padding: 5px; border: 1px solid #ccc;"> <a href="navigation_generate.htm">2.5.3.4. Генерация и сохранение файла</a></td>
+			 	<td style="padding: 5px; border: 1px solid #ccc;">Создание итогового документа Word и предложение печати</td>
+			 </tr>
+		</table>
+		
+	</div>
+</body>
+</html>

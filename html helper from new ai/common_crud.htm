@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Добавление, редактирование и удаление записей</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="CRUD операции с записями" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.1.4. Добавление, редактирование и удаление записей</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="common.htm">Общие принципы работы</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="common.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="common_filter.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="common_table.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Для управления записями в любом разделе программы предусмотрены три основных действия: <b>Добавление</b>, <b>Редактирование</b> и <b>Удаление</b>. Выполнить их можно тремя способами:</span></p>
+		<p class="rvps4"><span class="rvts11">— через панель инструментов (иконки вверху);</span></p>
+		<p class="rvps4"><span class="rvts11">— через контекстное меню (правый клик по таблице);</span></p>
+		<p class="rvps4"><span class="rvts11">— через кнопки в нижней части окна.</span></p>
+		
+		<!-- СКРИНШОТ: три способа вызова действий -->
+		<p class="rvps4"><img alt="Способы вызова CRUD операций" style="padding: 1px;" src="lib/crud_ways.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Три способа выполнения операций: панель инструментов, контекстное меню, нижние кнопки</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>1. Добавление новой записи</b></span></p>
+		
+		<!-- СКРИНШОТ: кнопка Добавить активна -->
+		<p class="rvps4"><img alt="Кнопка Добавить" style="padding: 1px;" src="lib/user_add_button.png"></p>
+		
+		<p class="rvps4"><span class="rvts11">Для добавления новой записи:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Убедитесь, что вы находитесь в нужном разделе (отображается таблица).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Добавить»</b> (иконка с плюсом).</span></p>
+		<p class="rvps4"><span class="rvts11">3. Заполните открывшуюся форму (поля, обязательные для заполнения, отмечены звёздочкой *).</span></p>
+		<p class="rvps4"><span class="rvts11">4. Нажмите кнопку <b>«Принять»</b> для сохранения или <b>«Отмена»</b> для отмены.</span></p>
+		
+		<!-- СКРИНШОТ: форма добавления -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>2. Редактирование записи</b></span></p>
+		
+		<!-- СКРИНШОТ: выделение строки для редактирования -->
+		<p class="rvps4"><img alt="Выделение строки" style="padding: 1px;" src="lib/user_edit_select.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Выделите строку с нужной записью (одиночный клик)</p>
+		
+		<p class="rvps4"><span class="rvts11">Для редактирования существующей записи:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Выделите строку с нужной записью в таблице.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Редактировать»</b> (иконка с карандашом).</span></p>
+		<p class="rvps4"><span class="rvts11">3. В открывшейся форме измените нужные поля.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Нажмите <b>«Принять»</b> для сохранения или <b>«Отмена»</b> для отмены.</span></p>
+		
+		<!-- СКРИНШОТ: форма редактирования -->
+		<p class="rvps4"><img alt="Форма редактирования" style="padding: 1px;" src="lib/user_edit_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Пример формы редактирования записи (заголовок «Изменение документа»)</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Важно:</b> Редактирование доступно только при выделении <b>одной строки</b>. Если выделено несколько строк, кнопка «Редактировать» становится неактивной.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>3. Удаление записи</b></span></p>
+		
+		<!-- СКРИНШОТ: выделение для удаления -->
+		<p class="rvps4"><img alt="Выделение для удаления" style="padding: 1px;" src="lib/box_delete_confirm.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Выделите одну или несколько строк для удаления</p>
+		
+		<p class="rvps4"><span class="rvts11">Для удаления записи:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Выделите одну или несколько строк с нужными записями.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Удалить»</b> (иконка с крестиком).</span></p>
+		<p class="rvps4"><span class="rvts11">3. Подтвердите удаление в появившемся диалоговом окне.</span></p>
+		
+		<!-- СКРИНШОТ: диалог подтверждения -->
+		
+		<p class="rvps4"><span class="rvts11"><b>Особенности удаления:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— Можно удалять как одну, так и несколько записей одновременно.</span></p>
+		<p class="rvps4"><span class="rvts11">— При удалении записи также удаляются связанные с ней данные (например, при удалении студента удаляются его личное дело и документы).</span></p>
+		<p class="rvps4"><span class="rvts11">— Некоторые записи защищены от удаления (например, системный администратор с логином «Admin»).</span></p>
+		
+		<!-- СКРИНШОТ: результат удаления -->
+		<p class="rvps4"><img alt="Результат удаления" style="padding: 1px;" src="lib/delete_result.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 7. Сообщение в статусной строке о результате удаления</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Статусная строка и подтверждение операций</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">После выполнения любой операции (добавления, редактирования или удаления) в статусной строке (внизу окна) появляется сообщение:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Запись добавлена»</b> — после успешного добавления.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Запись обновлена»</b> — после успешного редактирования.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Запись(и) удалена(ы) -> X строк»</b> — после успешного удаления (где X — количество удалённых строк).</span></p>
+		
+		<!-- СКРИНШОТ: статусная строка -->
+		
+		<div class="rvps4" style="background: #fff3e0; padding: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
+			<span class="rvts11"><b>⚠️ Примечание:</b></span>
+			<p class="rvps4"><span class="rvts11">— Если при добавлении или редактировании не заполнены обязательные поля (отмеченные звёздочкой *), программа покажет предупреждение и не позволит сохранить запись.</span></p>
+			<p class="rvps4"><span class="rvts11">— При возникновении ошибки базы данных (например, дублирование уникального поля или нарушение внешнего ключа) появится сообщение <b>«Ошибка записи данных!»</b>. Подробнее — в разделе <a href="error_save.htm">4.2.2</a>.</span></p>
+		</div>
+		
+	</div>
+</body>
+</html>

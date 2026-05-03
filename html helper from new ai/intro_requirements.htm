@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Требования к системе</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Системные требования Архивный фонд" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>1.3. Требования к системе</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="chapter1.htm">Знакомство с приложением</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="chapter1.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="intro_features.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="intro_config.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Для корректной работы приложения «Архивный фонд» необходимо обеспечить выполнение следующих требований.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>1. Аппаратные требования</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">— <b>Процессор:</b> 1 ГГц или выше (x86, x64).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Оперативная память:</b> не менее 512 МБ (рекомендуется 1 ГБ и более).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Свободное место на диске:</b> не менее 100 МБ для установки приложения + место для базы данных (зависит от объёма архивных данных).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Разрешение экрана:</b> 1024×768 или выше (рекомендуется 1366×768 и более).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Принтер</b> (опционально) — для печати отчётов.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>2. Программные требования</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Операционная система:</b> Windows 7 / 8 / 10 / 11 (x86 или x64).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Microsoft .NET Framework:</b> версия не ниже 6.0 (или совместимая среда выполнения .NET).</span></p>
+		
+		<!-- СКРИНШОТ: окно установщика .NET -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>3. Требования к серверу базы данных</b></span></p>
+		<p class="rvps4"><span class="rvts11">Программа использует СУБД <b>MySQL</b> версии 8.0 и выше.</span></p>
+		
+		<!-- СКРИНШОТ: логотип MySQL -->
+		<p class="rvps4"><img alt="MySQL" style="padding: 1px;" src="lib/mysql_logo.png"></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Необходимые параметры подключения:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— Сервер (может быть localhost, 127.0.0.1 или IP-адрес удалённого сервера).</span></p>
+		<p class="rvps4"><span class="rvts11">— Порт (по умолчанию 3306).</span></p>
+		<p class="rvps4"><span class="rvts11">— Имя базы данных (по умолчанию — ArchiveFund).</span></p>
+		<p class="rvps4"><span class="rvts11">— Логин и пароль пользователя MySQL с правами на чтение/запись.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>4. Настройка подключения</b></span></p>
+		<p class="rvps4"><span class="rvts11">Параметры подключения хранятся в файле <b>config.ini</b>, который должен находиться в папке с программой.</span></p>
+		
+		<!-- СКРИНШОТ: содержимое config.ini -->
+		<p class="rvps4"><img alt="Пример файла config.ini" style="padding: 1px;" src="lib/config_ini_content.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Пример файла конфигурации config.ini</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Пример содержимого config.ini:</b></span></p>
+		<div class="rvps4" style="background: #f0f0f0; padding: 10px; font-family: monospace;">
+			server=localhost<br/>
+			port=3306<br/>
+			user=root<br/>
+			password=your_password<br/>
+			database=ArchiveFund
+		</div>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>5. Дополнительные замечания</b></span></p>
+		<p class="rvps4"><span class="rvts11">— Программа протестирована в среде Windows с использованием MySQL Server 8.0.</span></p>
+		<p class="rvps4"><span class="rvts11">— Для работы функции печати требуется установленный Microsoft Word (или совместимый процессор, поддерживающий формат .docx).</span></p>
+		<p class="rvps4"><span class="rvts11">— При первом запуске, если база данных не найдена или не соответствует структуре, программа автоматически создаст новую базу из скрипта <b>ArchiveFund.06.clear.sql</b>.</span></p>
+		
+	</div>
+</body>
+</html>

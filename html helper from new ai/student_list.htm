@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Студенты — просмотр и редактирование списка</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Просмотр и редактирование списка студентов" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.2.1. Студенты (просмотр и редактирование списка)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="students_section.htm">Раздел «Студенты»</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="students_section.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="students_section.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="persfiles.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Раздел <b>«Студенты»</b> (меню <b>«Студенты → Студенты»</b>) отображает список всех студентов, когда-либо обучавшихся в учебном заведении. Здесь хранится основная информация о студентах без привязки к срокам хранения.</span></p>
+		
+		<!-- СКРИНШОТ: таблица студентов -->
+		<p class="rvps4"><img alt="Таблица студентов" style="padding: 1px;" src="lib/students_menu.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Таблица раздела «Студенты» с перечнем всех студентов</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Отображаемые поля (колонки таблицы)</b></span></p>
+		
+		<!-- СКРИНШОТ: колонки таблицы -->
+		<p class="rvps4"><img alt="Колонки таблицы студентов" style="padding: 1px;" src="lib/student_columns.png"></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Название колонки</th>
+				<th style="width: 70%; background: #d0d0d0; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>ФИО</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Полное имя студента (фамилия, имя, отчество).</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Группа</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Название учебной группы, к которой прикреплён студент.</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Добавление нового студента</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">При добавлении студента одновременно создаётся запись в таблице студентов и в таблице личных дел (персональных файлов).</span></p>
+		
+		<!-- СКРИНШОТ: форма добавления студента -->
+		<p class="rvps4"><img alt="Форма добавления студента" style="padding: 1px;" src="lib/student_add_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Форма добавления нового студента и личного дела</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Поля формы:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>ФИО студента</b> (обязательное) — вводится полностью.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Группа</b> — выбор из выпадающего списка существующих групп.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Год поступления</b> (обязательное) — выбор года с помощью календаря.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Год вычета</b> — необязательное поле (доступно только если снят чекбокс «Не сохранять»).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Причина вычета</b> — многострочное текстовое поле.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Студента в удаленные?</b> — при установке чекбокса студент будет помещён в архив удалённых.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Редактирование студента</b></span></p>
+		
+		<!-- СКРИНШОТ: выделение строки для редактирования -->
+
+		
+		<p class="rvps4"><span class="rvts11">1. Выделите строку с нужным студентом (одинарный клик по любой ячейке или по серому полю слева).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Редактировать»</b> (на панели инструментов, в контекстном меню или внизу окна).</span></p>
+		<p class="rvps4"><span class="rvts11">3. В открывшейся форме измените нужные данные.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Нажмите <b>«Принять»</b> для сохранения или <b>«Отмена»</b> для отмены.</span></p>
+		
+		<!-- СКРИНШОТ: форма редактирования -->
+		<p class="rvps4"><img alt="Форма редактирования студента" style="padding: 1px;" src="lib/persfiles_edit.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Форма редактирования студента и личного дела</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Удаление студента</b></span></p>
+		
+		<!-- СКРИНШОТ: диалог подтверждения удаления -->
+		<p class="rvps4"><img alt="Подтверждение удаления" style="padding: 1px;" src="lib/document_delete.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Диалог подтверждения удаления</p>
+		
+		<p class="rvps4"><span class="rvts11">1. Выделите одну или несколько строк с нужными студентами.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Удалить»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">3. Подтвердите действие в появившемся диалоговом окне.</span></p>
+		<p class="rvps4"><span class="rvts11">4. При подтверждении студент и все связанные с ним записи (личное дело, документы) будут удалены из активных таблиц.</span></p>
+		
+		<!-- СКРИНШОТ: результат удаления -->
+		<p class="rvps4"><img alt="Результат удаления" style="padding: 1px;" src="lib/destruction_notice.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Сообщение в статусной строке о результате удаления</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Важно:</b> При удалении студента из раздела «Студенты» также удаляются связанные с ним личное дело и документы. Рекомендуется предварительно переместить студента в раздел «Удалённые персональные файлы» и «Удалённые документы», если его данные могут потребоваться в будущем (например, при истечении срока хранения).</span></p>
+		
+	</div>
+</body>
+</html>

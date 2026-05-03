@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3. Администрирование</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Раздел Администрирование программы Архивный фонд" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3. Администрирование</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="index.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="chapter3.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="admin_users.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Раздел <b>«Администрирование»</b> объединяет функции, доступные только пользователям с ролью <b>«Администратор»</b>. Сюда входит управление учётными записями сотрудников, а также резервное копирование и восстановление базы данных.</span></p>
+		
+		<!-- СКРИНШОТ: меню администратора -->
+		<p class="rvps4"><img alt="Меню администратора" style="padding: 1px;" src="lib/admin_menu_full.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Пункт меню «Пользователи» (доступен только администратору)</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Кто имеет доступ к администрированию</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Роль</th>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: center;">Управление пользователями</th>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: center;">Резервное копирование</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Администратор (Admin)</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center; background: #d4edda;">✓ Доступно</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center; background: #d4edda;">✓ Доступно</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Сотрудник (Employer)</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center; background: #f8d7da;">✗ Недоступно</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center; background: #f8d7da;">✗ Недоступно</td>
+			</tr>
+			</table>
+		
+		<!-- СКРИНШОТ: форма администратора -->
+		<p class="rvps4"><img alt="Форма администратора" style="padding: 1px;" src="lib/backup_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Форма управления пользователями (доступна только администратору)</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Содержание раздела</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr style="background: #e0e0e0;">
+				<th style="width: 35%; padding: 8px; text-align: left;">Подраздел</th>
+				<th style="width: 65%; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b><a href="admin_users.htm">3.1. Управление пользователями</a></b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Просмотр списка учётных записей, добавление, редактирование и удаление пользователей, назначение ролей</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"> <a href="admin_roles.htm">3.1.1. Роли пользователей</a></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Различия между правами «Администратора» и «Сотрудника»</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"> <a href="admin_user_add.htm">3.1.2. Добавление нового пользователя</a></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Создание новой учётной записи для сотрудника</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"> <a href="admin_user_edit.htm">3.1.3. Редактирование данных пользователя</a></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Изменение ФИО, логина, роли</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"> <a href="admin_user_edit.htm">3.1.4. Смена пароля</a></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Как изменить пароль пользователя (доступно в форме редактирования)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b><a href="admin_backup.htm">3.2. Резервное копирование и восстановление</a></b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Создание и восстановление резервных копий базы данных</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"> <a href="admin_backup_create.htm">3.2.1. Создание резервной копии (.sql)</a></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Сохранение всей базы данных в файл формата .sql</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"> <a href="admin_backup_restore.htm">3.2.2. Восстановление из копии</a></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Восстановление базы данных из ранее созданного .sql файла</td>
+			</tr>
+		</table>
+		
+		<!-- СКРИНШОТ: таблица пользователей -->
+		<p class="rvps4"><img alt="Таблица пользователей" style="padding: 1px;" src="lib/users_table.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Таблица раздела «Пользователи»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Важные особенности администрирования</b></span></p>
+		
+		<div class="rvps4" style="background: #fff3e0; padding: 10px; margin-top: 10px; border-left: 4px solid #ff9800;">
+			<span class="rvts11"><b>⚠️ Внимание:</b></span>
+			<p class="rvps4"><span class="rvts11">• <b>Системный администратор</b> (логин «Admin», user_id = -1) защищён от удаления через интерфейс программы. Его можно редактировать, но нельзя удалить.</span></p>
+			<p class="rvps4"><span class="rvts11">• При удалении пользователя его учётная запись удаляется из базы данных безвозвратно. Все связанные данные (если они есть) также будут удалены в соответствии с настройками внешних ключей.</span></p>
+			<p class="rvps4"><span class="rvts11">• Перед восстановлением базы данных из резервной копии программа <b>не создаёт</b> автоматическую резервную копию текущего состояния. Рекомендуется сделать это вручную.</span></p>
+		</div>
+		
+		<div class="rvps4" style="background: #e8f0fe; padding: 10px; margin-top: 20px;">
+			<span class="rvts11"><b>💡 Рекомендации для администратора:</b></span>
+			<p class="rvps4"><span class="rvts11">1. <b>Регулярно создавайте резервные копии</b> базы данных (особенно перед массовыми изменениями).</span></p>
+			<p class="rvps4"><span class="rvts11">2. <b>Используйте разные пароли</b> для разных пользователей и меняйте их время от времени.</span></p>
+			<p class="rvps4"><span class="rvts11">3. <b>Не давайте роль «Администратор»</b> сотрудникам, которым не нужен полный доступ к системе.</span></p>
+			<p class="rvps4"><span class="rvts11">4. <b>Храните резервные копии</b> в надёжном месте (отдельная папка на сервере, внешний диск, облачное хранилище).</span></p>
+		</div>
+		
+	</div>
+</body>
+</html>

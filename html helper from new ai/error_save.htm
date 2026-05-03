@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ошибка при сохранении данных</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Ошибка при добавлении, редактировании или удалении данных" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>4.2.2. Ошибка при сохранении данных</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="support_section.htm">Справка и поддержка</a> ›› <a href="errors.htm">Возможные ошибки</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="errors.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="error_connection.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="error_database.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Ошибка при сохранении данных возникает при попытке добавить, изменить или удалить запись. Программа показывает следующее сообщение:</span></p>
+		
+		<!-- СКРИНШОТ: сообщение об ошибке сохранения -->
+		<p class="rvps4"><img alt="Ошибка сохранения" style="padding: 1px;" src="lib/error_save_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Сообщение «Ошибка записи данных!»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Возможные причины и способы устранения</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: left;">Причина</th>
+				<th style="width: 65%; background: #d0d0d0; padding: 8px; text-align: left;">Решение</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Нарушение уникальности (дубликат)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте, что имя коробки, логин пользователя или название группы не повторяются. Эти поля должны быть уникальными</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Обязательные поля не заполнены</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Убедитесь, что все поля, отмеченные звёздочкой (*), заполнены (ФИО студента, тема документа, тип документа и т.д.)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Нарушение внешнего ключа</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте, что выбранные значения из выпадающих списков существуют в справочниках (например, выбранный тип документа должен существовать в справочнике «Типы документов»)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Неверный формат данных</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте, что в числовых полях введены числа, а даты выбраны корректно</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Превышение длины поля</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Уменьшите длину вводимого текста (например, ФИО не более 100 символов, тема документа не более 100 символов)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Отсутствие прав на запись</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Убедитесь, что пользователь MySQL имеет права INSERT, UPDATE, DELETE на таблицы базы данных</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Сервер MySQL недоступен</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте подключение к серверу (раздел 4.2.1)</td>
+			</tr>
+			</tr>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Конкретные примеры ошибок</b></span></p>
+		
+		<!-- СКРИНШОТ: пример ошибки дубликата -->
+		<p class="rvps4"><img alt="Ошибка дубликата" style="padding: 1px;" src="lib/error_save_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Пример ошибки дублирования имени коробки</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Пример: дублирование имени коробки</b></span></p>
+		<p class="rvps4"><span class="rvts11">В таблице «Коробки» поле «box_name» должно быть уникальным. Если вы попытаетесь создать коробку с уже существующим именем, появится ошибка.</span></p>
+		<p class="rvps4"><span class="rvts11"><b>Решение:</b> используйте уникальное имя или отредактируйте существующую коробку.</span></p>
+		
+		<!-- СКРИНШОТ: пример ошибки внешнего ключа -->
+		<p class="rvps4"><img alt="Ошибка внешнего ключа" style="padding: 1px;" src="lib/error_save_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Ошибка внешнего ключа при выборе несуществующего типа документа</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Пример: несуществующий тип документа</b></span></p>
+		<p class="rvps4"><span class="rvts11">Если в выпадающем списке выбран тип документа, который был удалён из справочника после открытия формы, при сохранении возникнет ошибка.</span></p>
+		<p class="rvps4"><span class="rvts11"><b>Решение:</b> обновите форму (закройте и откройте заново) или выберите существующий тип из списка.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Что делать при повторяющихся ошибках</b></span></p>
+		
+		<!-- СКРИНШОТ: совет -->
+
+		
+		<p class="rvps4"><span class="rvts11">1. <b>Проверьте соединение с базой данных</b> — возможно, проблема временная.</span></p>
+		<p class="rvps4"><span class="rvts11">2. <b>Проверьте журнал ошибок MySQL</b> — может содержать дополнительную информацию.</span></p>
+		<p class="rvps4"><span class="rvts11">3. <b>Создайте резервную копию</b> и попробуйте выполнить операцию снова.</span></p>
+		<p class="rvps4"><span class="rvts11">4. <b>Обратитесь к администратору</b> — возможно, требуются права на изменение структуры базы данных.</span></p>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Группы — добавление и изменение</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Управление учебными группами" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.3.1. Группы (добавление, изменение)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="data_section.htm">Раздел «Данные»</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="data_section.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="data_section.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="boxes.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Раздел <b>«Группы»</b> (меню <b>«Данные → Группы»</b>) предназначен для ведения справочника учебных групп. Группы используются для привязки студентов, коробок хранения и формирования отчётов.</span></p>
+		
+		<!-- СКРИНШОТ: таблица групп -->
+		<p class="rvps4"><img alt="Таблица групп" style="padding: 1px;" src="lib/data_menu.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Раздел «Группы» — список всех учебных групп</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Отображаемые поля (колонки таблицы)</b></span></p>
+		
+		<!-- СКРИНШОТ: колонки таблицы групп -->
+		<p class="rvps4"><img alt="Колонки групп" style="padding: 1px;" src="lib/groups_columns.png"></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Название колонки</th>
+				<th style="width: 70%; background: #d0d0d0; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Имя группы</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Название группы (например, «Гр-1а», «П-31б», «СВ-22»).</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Год создания</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Год формирования группы (год поступления набора).</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Специализация</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Направление подготовки или специальность (например, «Экономика и бухгалтерский учёт», «Программирование»).</td>
+			</tr>
+			else
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Добавление новой группы</b></span></p>
+		
+		<!-- СКРИНШОТ: форма добавления группы -->
+		<p class="rvps4"><img alt="Форма добавления группы" style="padding: 1px;" src="lib/group_add_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Форма добавления новой группы</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Поля формы:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Название группы</b> (обязательное) — введите уникальное название группы.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Год формирования</b> (обязательное) — выберите год с помощью календаря (поле со стрелками вверх/вниз).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Специализация</b> (обязательное) — введите или выберите из выпадающего списка направление подготовки.</span></p>
+		<p class="rvps4"><span class="rvts11">— Кнопки <b>«Принять»</b> и <b>«Отмена»</b>.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Особенности поля «Специализация»</b></span></p>
+		
+		<!-- СКРИНШОТ: выпадающий список специализаций -->
+		<p class="rvps4"><img alt="Список специализаций" style="padding: 1px;" src="lib/groups_columns.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Выпадающий список для выбора специализации</p>
+		
+		<p class="rvps4"><span class="rvts11">Поле «Специализация» представляет собой выпадающий список (комбобокс), который автоматически заполняется уникальными значениями из существующих групп. Это позволяет:</span></p>
+		<p class="rvps4"><span class="rvts11">— Выбрать уже существующую специализацию из списка;</span></p>
+		<p class="rvps4"><span class="rvts11">— Ввести новую специализацию вручную (она добавится в список для будущих групп).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Редактирование группы</b></span></p>
+		
+		<!-- СКРИНШОТ: форма редактирования группы -->
+		<p class="rvps4"><img alt="Форма редактирования группы" style="padding: 1px;" src="lib/group_edit_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Форма редактирования группы (заголовок «Изменение группы»)</p>
+		
+		<p class="rvps4"><span class="rvts11">Для редактирования группы:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Выделите строку с нужной группой в таблице.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Редактировать»</b> (панель инструментов, контекстное меню или нижние кнопки).</span></p>
+		<p class="rvps4"><span class="rvts11">3. Внесите изменения в поля формы.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Нажмите <b>«Принять»</b> для сохранения.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Удаление группы</b></span></p>
+		
+		<!-- СКРИНШОТ: диалог подтверждения удаления группы -->
+		<p class="rvps4"><img alt="Подтверждение удаления группы" style="padding: 1px;" src="lib/document_delete.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Диалог подтверждения удаления группы</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Важно:</b> При удалении группы:</span></p>
+		<p class="rvps4"><span class="rvts11">— У студентов, привязанных к этой группе, значение группы станет пустым (согласно настройкам внешнего ключа ON DELETE SET NULL).</span></p>
+		<p class="rvps4"><span class="rvts11">— У коробок, привязанных к этой группе, значение группы также станет пустым.</span></p>
+		<p class="rvps4"><span class="rvts11">— Сама группа будет удалена из справочника.</span></p>
+		
+		<!-- СКРИНШОТ: предупреждение о связанных данных -->
+		<p class="rvps4"><img alt="Предупреждение" style="padding: 1px;" src="lib/document_delete.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 6. Предупреждение при удалении группы, к которой привязаны студенты</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Поиск и фильтрация</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Для раздела «Группы» доступны стандартные механизмы:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Строка поиска</b> — поиск по названию группы и специализации.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Фильтр</b> — можно отфильтровать группы по году формирования или по специализации.</span></p>
+		
+		<!-- СКРИНШОТ: пример фильтрации групп -->
+		<p class="rvps4"><img alt="Фильтрация групп" style="padding: 1px;" src="lib/groups_filter.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 7. Фильтрация групп по специализации</p>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Коробки — места хранения документов</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Учёт коробок хранения документов" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.3.2. Коробки (места хранения документов)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="data_section.htm">Раздел «Данные»</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="data_section.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="groups.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="document_types.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Раздел <b>«Коробки»</b> (меню <b>«Данные → Коробки»</b>) предназначен для учёта физических мест хранения документов в архиве.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Организация физического хранения</b></span></p>
+		
+		<!-- СКРИНШОТ: схема архива (стеллажи, полки, коробки) -->
+		<p class="rvps4"><img alt="Схема архива" style="padding: 1px;" src="lib/archive_schema.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Схема организации хранения: стеллажи → полки → коробки</p>
+		
+		<p class="rvps4"><span class="rvts11">В архиве техникума установлены пронумерованные стеллажи (например, 18 штук), каждый из которых содержит по нескольку полок (например, 6). На полках в коробках хранятся документы.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Отображаемые поля (колонки таблицы)</b></span></p>
+		
+		<!-- СКРИНШОТ: таблица коробок -->
+		<p class="rvps4"><img alt="Таблица коробок" style="padding: 1px;" src="lib/boxes_table.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Раздел «Коробки» — список всех мест хранения</p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Название колонки</th>
+				<th style="width: 70%; background: #d0d0d0; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Имя</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Уникальное имя коробки (например, «Box:1-1», «А10», «Н1»).</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Номер стеллажа</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Номер стеллажа, на котором стоит коробка.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Номер полки</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Номер полки на стеллаже.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Группа</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Учебная группа, к которой относятся документы в коробке.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Тип хранимых документов</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Тип документов, находящихся в коробке (курсовые, дипломы, отчёты по практике).</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>Год работы</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Год, к которому относятся документы в коробке.</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Добавление новой коробки</b></span></p>
+		
+		<!-- СКРИНШОТ: форма добавления коробки -->
+		<p class="rvps4"><img alt="Форма добавления коробки" style="padding: 1px;" src="lib/box_add_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Форма добавления новой коробки</p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Поля формы:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Номер стеллажа</b> — числовое поле со стрелками (счётчик).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Номер полки</b> — числовое поле со стрелками (счётчик).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Имя</b> — текстовое поле. <u>Автозаполнение:</u> если номер стеллажа и полки больше 0, а имя пустое, при получении фокуса полем автоматически подставляется «Box:1-1» (где 1 и 1 — номера стеллажа и полки).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Целевая группа</b> — выпадающий список со всеми учебными группами.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Целевой тип</b> (обязательное) — выпадающий список с типами документов (из справочника).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Год работы</b> — календарь для выбора года. Рядом — чекбокс <b>«Не сохранять»</b>: если установлен, год не записывается в базу.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Редактирование коробки</b></span></p>
+		
+		<!-- СКРИНШОТ: форма редактирования коробки -->
+		<p class="rvps4"><img alt="Форма редактирования коробки" style="padding: 1px;" src="lib/box_edit_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Форма редактирования коробки (заголовок «Изменение коробки»)</p>
+		
+		<p class="rvps4"><span class="rvts11">Для редактирования коробки:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Выделите строку с нужной коробкой в таблице.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Редактировать»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">3. Форма откроется с уже заполненными полями.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Внесите изменения и нажмите <b>«Принять»</b>.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Удаление коробки</b></span></p>
+		
+		<!-- СКРИНШОТ: диалог подтверждения удаления коробки -->
+		<p class="rvps4"><img alt="Подтверждение удаления коробки" style="padding: 1px;" src="lib/box_delete_confirm.png"></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Важно:</b> При удалении коробки:</span></p>
+		<p class="rvps4"><span class="rvts11">— У документов, привязанных к этой коробке, значение коробки станет пустым (ON DELETE SET NULL).</span></p>
+		<p class="rvps4"><span class="rvts11">— Сама коробка будет удалена из справочника.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Практический пример использования</b></span></p>
+		
+		<!-- СКРИНШОТ: пример заполнения -->
+		<p class="rvps4"><img alt="Пример коробки" style="padding: 1px;" src="lib/box_example.png"></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Пример:</b> Коробка «Box:3-2» находится на стеллаже №3, полка №2. В ней хранятся курсовые работы группы «ИП3» за 2023 год.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Поиск и фильтрация</span></p>
+		
+		<p class="rvps4"><span class="rvts11">Для раздела «Коробки» доступны:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Строка поиска</b> — поиск по имени коробки, группе, типу документов.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Фильтр по столбцам</b> — можно отфильтровать коробки по номеру стеллажа, группе или типу документов.</span></p>
+		
+		<!-- СКРИНШОТ: фильтрация коробок -->
+		<p class="rvps4"><img alt="Фильтрация коробок" style="padding: 1px;" src="lib/boxes_filter.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Фильтрация коробок по типу хранимых документов</p>
+		
+	</div>
+</body>
+</html>

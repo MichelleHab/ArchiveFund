@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Работа с таблицей (сортировка, выделение)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Работа с таблицей данных: сортировка и выделение строк" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.1.5. Работа с таблицей (сортировка, выделение)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="chapter2.htm">Руководство пользователя</a> ›› <a href="common.htm">Общие принципы работы</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="common.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="common_crud.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="student_list.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Таблица данных — основная рабочая область программы. В этом разделе описаны способы сортировки данных и выделения строк для выполнения операций.</span></p>
+		
+		<!-- СКРИНШОТ: таблица с выделением -->
+		<p class="rvps4"><img alt="Таблица с выделением" style="padding: 1px;" src="lib/table_selection.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Таблица данных с выделенными строками</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Сортировка данных</b></span></p>
+		
+		<!-- СКРИНШОТ: сортировка по столбцу -->
+		<p class="rvps4"><img alt="Сортировка" style="padding: 1px;" src="lib/boxes_filter.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Сортировка таблицы по выбранному столбцу</p>
+		
+		<p class="rvps4"><span class="rvts11">Для сортировки данных по столбцу:</span></p>
+		<p class="rvps4"><span class="rvts11">1. <b>Одинарный клик</b> по заголовку столбца — сортировка по возрастанию (от А до Я, от меньшего к большему).</span></p>
+		<p class="rvps4"><span class="rvts11">2. <b>Повторный клик</b> по тому же заголовку — сортировка по убыванию (от Я до А, от большего к меньшему).</span></p>
+		<p class="rvps4"><span class="rvts11">3. Направление сортировки отображается маленькой стрелкой рядом с названием столбца (▲ — возрастание, ▼ — убывание).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Особенности сортировки в разных типах данных:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Текстовые столбцы</b> (ФИО, тема документа) — сортируются в алфавитном порядке.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Числовые столбцы</b> (номера стеллажей, полок) — сортируются по числовому значению.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Столбцы с годами</b> (год поступления, год создания) — сортируются хронологически.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Выделение строк</b></span></p>
+		
+		<!-- СКРИНШОТ: множественный выбор -->
+		<p class="rvps4"><img alt="Множественный выбор" style="padding: 1px;" src="lib/table_multiselect.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Множественное выделение строк с помощью Ctrl и Shift</p>
+		
+		<p class="rvps4"><span class="rvts11">Для выполнения операций (редактирование, удаление) необходимо выделить строки в таблице:</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Выделение одной строки:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— Левым кликом мыши по любому месту строки.</span></p>
+		<p class="rvps4"><span class="rvts11">— Выделенная строка меняет цвет фона (обычно на более тёмный или контрастный).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Выделение нескольких строк:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Ctrl + клик</b> — добавляет строку к выделению или убирает её из выделения (поочерёдный выбор).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Shift + клик</b> — выделяет все строки между текущей выделенной и той, по которой кликнули (диапазон).</span></p>
+		
+		<!-- СКРИНШОТ: выделение диапазона -->
+
+		
+		<p class="rvps4"><span class="rvts11"><b>Клавиши для работы с выделением:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Ctrl + A</b> — выделить все строки в таблице.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Delete</b> — удалить выделенные строки (аналог кнопки «Удалить»).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Стрелки вверх/вниз</b> — перемещение выделения по строкам.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Что происходит при выделении строк</b></span></p>
+		
+		<!-- СКРИНШОТ: активация кнопок -->
+
+		
+		<p class="rvps4"><span class="rvts11">При выделении строк в таблице меняется состояние кнопок:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Если выделена хотя бы одна строка</b> — активируется кнопка «Удалить» (и соответствующие пункты меню).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Если выделена ровно одна строка</b> — дополнительно активируется кнопка «Редактировать».</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Если выделено несколько строк</b> — кнопка «Редактировать» становится неактивной (нельзя редактировать несколько записей одновременно).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Автоматическое изменение размеров таблицы</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">После загрузки данных таблица автоматически подстраивает ширину столбцов под содержимое (функция AutoResizeColumns). При переключении между разделами ширина столбцов пересчитывается заново.</span></p>
+		
+		<!-- СКРИНШОТ: автоподбор ширины -->
+
+		
+		<p class="rvps4"><span class="rvts11">При необходимости пользователь может вручную изменить ширину любого столбца, перетаскивая границу между заголовками столбцов.</span></p>
+		
+	</div>
+</body>
+</html>

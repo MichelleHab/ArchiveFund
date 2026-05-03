@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Фильтрация данных (контекстное меню «Фильтр»)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Фильтрация данных через контекстное меню" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.1.3. Фильтрация данных (контекстное меню «Фильтр»)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="common.htm">Общие принципы работы</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="common.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="common_search.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="common_crud.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Для более точного отбора записей, чем простой поиск, используется <b>фильтрация по значениям столбцов</b>. Фильтр вызывается из <b>контекстного меню</b> (правый клик мыши по таблице) через пункт <b>«Фильтр»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: вызов контекстного меню и пункт Фильтр -->
+		<p class="rvps4"><img alt="Вызов фильтра" style="padding: 1px;" src="lib/filter_menu_call.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Правый клик по таблице -> пункт «Фильтр»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Структура меню фильтрации</b></span></p>
+		
+		<!-- СКРИНШОТ: раскрытое меню фильтра -->
+		<p class="rvps4"><img alt="Меню фильтрации" style="padding: 1px;" src="lib/123.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Меню фильтрации со списком столбцов и доступными значениями</p>
+		
+		<p class="rvps4"><span class="rvts11">Меню фильтрации имеет следующую структуру:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Сбросить все фильтры»</b> — полностью отключает все активные фильтры (подсвечивается красным, если есть активные фильтры).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Разделитель</b> — отделяет служебные пункты от списка столбцов.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Список столбцов</b> — каждый столбец таблицы представлен отдельным подменю. Если столбец имеет активный фильтр, его название подсвечивается зелёным.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Фильтрация по конкретному столбцу</b></span></p>
+		
+		<!-- СКРИНШОТ: подменю столбца -->
+		
+		<p class="rvps4"><span class="rvts11">В подменю каждого столбца доступны:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Все»</b> — отключает фильтр по данному столбцу (подсвечивается зелёным, если фильтр был активен).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Разделитель</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Список уникальных значений</b> — все значения, которые встречаются в данном столбце (отсортированы, пустые значения отображаются как «(пусто)»).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Как установить фильтр</b></span></p>
+		
+		<!-- СКРИНШОТ: выбор конкретного значения -->
+		<p class="rvps4"><img alt="Выбор значения фильтра" style="padding: 1px;" src="lib/filter_select_value.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Выбор конкретной роли для фильтрации</p>
+		
+		<p class="rvps4"><span class="rvts11">1. Наведите курсор на название нужного столбца в меню «Фильтр».</span></p>
+		<p class="rvps4"><span class="rvts11">2. В открывшемся подменю выберите конкретное значение, по которому хотите отфильтровать.</span></p>
+		<p class="rvps4"><span class="rvts11">3. Таблица моментально перестроится, отображая только строки, где значение в выбранном столбце совпадает с указанным.</span></p>
+		<p class="rvps4"><span class="rvts11">4. Выбранный пункт в меню подсветится зелёным, а название столбца также станет зелёным — это индикаторы активного фильтра.</span></p>
+		
+		<!-- СКРИНШОТ: результат фильтрации -->
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Особенности работы фильтров</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">— <b>Множественные фильтры</b> — можно установить фильтры одновременно по нескольким столбцам. Будут показаны строки, удовлетворяющие всем условиям (логическое «И»).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Совместимость с поиском</b> — если в строке поиска уже есть текст, фильтрация будет применяться к уже отфильтрованному поиском результату.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Сброс всех фильтров</b> — выберите пункт «Сбросить все фильтры» в корне меню «Фильтр». После этого зелёная подсветка пропадёт, и таблица покажет все записи раздела.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Сброс фильтра по одному столбцу</b> — откройте подменю нужного столбца и выберите пункт «Все».</span></p>
+		
+		<!-- СКРИНШОТ: сброс фильтров -->
+		<p class="rvps4"><img alt="Сброс фильтров" style="padding: 1px;" src="lib/filter_reset.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Пункт «Сбросить все фильтры» для быстрой очистки</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Когда фильтрация недоступна</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Пункт меню «Фильтр» становится неактивным (серым) в следующих случаях:</span></p>
+		<p class="rvps4"><span class="rvts11">— Когда не выбран ни один раздел (таблица пуста).</span></p>
+		<p class="rvps4"><span class="rvts11">— Если в текущей таблице все значения в столбцах уникальны или их слишком мало для осмысленной фильтрации (например, столбец с идентификаторами).</span></p>
+		
+		<!-- СКРИНШОТ: фильтр недоступен -->
+		
+	</div>
+</body>
+</html>

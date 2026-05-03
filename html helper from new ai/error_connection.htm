@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ошибка подключения к серверу</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Ошибка подключения к серверу MySQL и способы её устранения" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>4.2.1. Ошибка подключения к серверу</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="support_section.htm">Справка и поддержка</a> ›› <a href="errors.htm">Возможные ошибки</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="errors.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="errors.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="error_save.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Ошибка подключения к серверу возникает, когда программа не может установить соединение с сервером MySQL. Это одна из самых частых проблем при первом запуске или после изменения конфигурации сети.</span></p>
+		
+		<!-- СКРИНШОТ: сообщение об ошибке подключения -->
+		<p class="rvps4"><img alt="Ошибка подключения" style="padding: 1px;" src="lib/error_connection_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Сообщение об ошибке подключения к серверу</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Возможные причины и способы устранения</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: left;">Причина</th>
+				<th style="width: 65%; background: #d0d0d0; padding: 8px; text-align: left;">Решение</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Сервер MySQL не запущен</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Запустите сервер MySQL (через службы Windows, XAMPP, WAMP или командную строку)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Неверный адрес сервера в config.ini</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте параметр <b>server</b> в файле config.ini (localhost, 127.0.0.1 или IP-адрес)</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Неверный порт</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте параметр <b>port</b> (по умолчанию 3306). Если сервер использует другой порт, укажите его</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Брандмауэр блокирует порт</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Добавьте порт MySQL (3306) в исключения брандмауэра</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Неверный логин или пароль</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте параметры <b>user</b> и <b>password</b> в config.ini</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Сервер недоступен по сети</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте сетевое подключение, выполните ping до сервера</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Слишком маленький таймаут подключения</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">В коде программы ConnectionTimeout установлен в 1 секунду — при медленном соединении может не хватать. При повторной попытке таймаут сбрасывается</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Диалог обработки ошибки подключения</b></span></p>
+		
+		<!-- СКРИНШОТ: диалог с вариантами -->
+		<p class="rvps4"><img alt="Диалог ошибки" style="padding: 1px;" src="lib/error_connection_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Диалоговое окно с вариантами действий при ошибке подключения</p>
+		
+		<p class="rvps4"><span class="rvts11">При возникновении ошибки подключения программа показывает диалог с тремя вариантами:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Отмена»</b> — завершить работу приложения.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Повторить»</b> — попытаться подключиться снова (таймаут сбрасывается на 1 секунду).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Продолжить»</b> — продолжить работу с настройками по умолчанию (локальный сервер, база данных ArchiveFund). <b>Используйте с осторожностью!</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Проверка подключения к MySQL</b></span></p>
+		
+		<!-- СКРИНШОТ: командная строка для проверки -->
+
+		
+		<p class="rvps4"><span class="rvts11">Для диагностики можно выполнить проверку подключения вручную:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Откройте командную строку (cmd).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Выполните команду: <b>`mysql -h [сервер] -P [порт] -u [пользователь] -p`</b></span></p>
+		<p class="rvps4"><span class="rvts11">3. Введите пароль. Если подключение успешно, вы увидите приглашение MySQL.</span></p>
+		
+		<!-- СКРИНШОТ: успешное подключение -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>После исправления ошибки</b></span></p>
+		<p class="rvps4"><span class="rvts11">После устранения причины ошибки перезапустите программу. Если проблема сохраняется, проверьте файл config.ini и убедитесь, что сервер MySQL действительно запущен.</span></p>
+		
+	</div>
+</body>
+</html>

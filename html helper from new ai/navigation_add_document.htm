@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Добавление в отчёт выбранного документа</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Добавление выбранного документа в навигационный файл" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.5.3.1. Добавление в отчёт выбранного документа</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="print_section.htm">Раздел «Печати»</a> ›› <a href="print_navigation.htm">Создание навигационного файла</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="print_navigation.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="print_navigation.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="navigation_add_student.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Функция <b>«Добавить выбранный документ»</b> позволяет включить в навигационный файл информацию о конкретном документе, который вы выделили в таблице. Это полезно, когда нужно найти в архиве один или несколько конкретных документов.</span></p>
+		
+		<!-- СКРИНШОТ: подменю с выделенным пунктом -->
+		<p class="rvps4"><img alt="Подменю добавления документа" style="padding: 1px;" src="lib/nav_add_document_menu.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Пункт «Добавить выбранный документ» в подменю навигации</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Где доступна эта функция</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Пункт меню <b>«Добавить выбранный документ»</b> становится доступным (активным) только при нахождении в следующих разделах:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Документы работ</b> (раздел 2.2.4) — обычные документы</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Удалённые документы</b> (раздел 2.2.5) — документы с истёкшим сроком хранения</span></p>
+		
+		<!-- СКРИНШОТ: выделение документа в таблице -->
+		<p class="rvps4"><img alt="Выделение документа" style="padding: 1px;" src="lib/nav_select_document.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Выделите нужный документ в таблице (один или несколько)</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Порядок действий</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">1. Перейдите в раздел <b>«Документы работ»</b> или <b>«Удалённые документы»</b> через главное меню.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Выделите одну или несколько строк с нужными документами (для множественного выбора используйте клавишу <b>Ctrl</b> или <b>Shift</b>).</span></p>
+		
+		<!-- СКРИНШОТ: множественный выбор -->
+
+		
+		<p class="rvps4"><span class="rvts11">3. В главном меню выберите <b>«Печати → Составление файла навигации по архиву → Добавить выбранный документ»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: подтверждение добавления -->
+
+		
+		<p class="rvps4"><span class="rvts11">4. После добавления в статусной строке появится сообщение (неявное, сам факт добавления). Пункты меню <b>«Сгенерировать»</b> и <b>«Отчистить документ»</b> станут активными.</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Что добавляется в навигационный файл</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Для каждого добавленного документа в итоговый файл будет включена следующая информация:</span></p>
+		
+		<!-- СКРИНШОТ: пример строки в навигационном файле -->
+		<p class="rvps4"><img alt="Пример строки документа" style="padding: 1px;" src="lib/nav_document_line.png"></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Поле</th>
+				<th style="width: 70%; background: #d0d0d0; padding: 8px; text-align: left;">Пример значения</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Тема документа</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">«Анализ финансовой отчётности предприятия»</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Тип документа</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Дипломная работа</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Студент</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Иванов Иван Иванович</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Стеллаж</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">3</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Полка</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">2</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Название коробки</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Box:3-2</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Дата сохранения</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">15.06.2023</td>
+			</tr>
+			</tr>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Повторное добавление</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Один и тот же документ можно добавить в навигационный файл несколько раз. При генерации он появится в документе столько раз, сколько был добавлен. Это может быть полезно, если нужно отметить документ как требующий особого внимания.</span></p>
+		
+		<!-- СКРИНШОТ: дублирование документа -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Визуальная индикация</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">В подменю навигации активность пунктов меняется в зависимости от контекста:</span></p>
+		
+		<!-- СКРИНШОТ: состояние меню -->
+		<p class="rvps4"><img alt="Состояние меню" style="padding: 1px;" src="lib/nav_menu_states.png"></p>
+		
+		<p class="rvps4"><span class="rvts11">— Если навигационный файл пуст (ничего не добавлено), пункты <b>«Сгенерировать»</b> и <b>«Отчистить документ»</b> неактивны (серые).</span></p>
+		<p class="rvps4"><span class="rvts11">— Как только добавлен хотя бы один элемент, эти пункты становятся активными.</span></p>
+		<p class="rvps4"><span class="rvts11">— Пункт <b>«Добавить выбранный документ»</b> активен только в разделах «Документы работ» и «Удалённые документы».</span></p>
+		
+	</div>
+</body>
+</html>

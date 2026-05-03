@@ -1,0 +1,58 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=helper.chm
+Contents file=Table of Contents.hhc
+Display compile progress=No
+Language=0x419 Русский (Россия)
+
+
+[FILES]
+admin_backup.htm
+admin_backup_create.htm
+admin_backup_restore.htm
+admin_roles.htm
+admin_section.htm.htm
+admin_user_add.htm
+admin_user_edit.htm
+admin_users.htm
+authorization.htm
+boxes.htm
+chapter1.htm
+chapter2.htm
+chapter3.htm
+chapter4.htm
+common_crud.htm
+common_filter.htm
+common_navigation.htm
+common_search.htm
+common_table.htm
+del_documents.htm
+del_persfiles.htm
+document_types.htm
+documents.htm
+error_connection.htm
+error_database.htm
+error_save.htm
+errors.htm
+faq.htm
+groups.htm
+guide_section.htm
+index.htm
+intro_config.htm
+intro_features.htm
+intro_purpose.htm
+intro_requirements.htm
+main_window.htm
+navigation_add_document.htm
+navigation_add_group.htm
+navigation_add_student.htm
+navigation_generate.htm
+persfiles.htm
+print_diploma.htm
+print_navigation.htm
+print_persfile.htm
+print_section.htm
+student_list.htm
+
+[INFOTYPES]
+

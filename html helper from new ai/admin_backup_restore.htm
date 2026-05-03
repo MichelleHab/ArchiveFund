@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Восстановление базы данных из резервной копии</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Восстановление базы данных из файла .sql" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3.2.2. Восстановление базы данных из копии</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="admin_section.htm">Администрирование</a> ›› <a href="admin_backup.htm">Резервное копирование</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="admin_backup.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="admin_backup_create.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="faq.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Функция <b>«Восстановить резервную копию»</b> позволяет восстановить базу данных из ранее созданного файла `.sql`. <b>Внимание:</b> эта операция <b>заменяет</b> все текущие данные на данные из резервной копии.</span></p>
+		
+		<!-- СКРИНШОТ: выделенная кнопка восстановления -->
+		<p class="rvps4"><img alt="Кнопка восстановления" style="padding: 1px;" src="lib/backup_restore_button.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Кнопка «Восстановить резервную копию»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Порядок действий</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">1. Откройте форму управления пользователями (раздел «Пользователи» → кнопка «Добавить» или «Редактировать»).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Восстановить резервную копию»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: диалог выбора файла -->
+		<p class="rvps4"><img alt="Выбор файла" style="padding: 1px;" src="lib/backup_open_dialog.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Диалог выбора файла .sql для восстановления</p>
+		
+		<p class="rvps4"><span class="rvts11">3. В появившемся диалоговом окне выберите файл резервной копии (.sql) и нажмите <b>«Открыть»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: предупреждение о замене данных -->
+		<p class="rvps4"><img alt="Предупреждение" style="padding: 1px;" src="lib/backup_restore_warning.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Предупреждение о перезаписи текущих данных</p>
+		
+		<p class="rvps4"><span class="rvts11">4. Подтвердите восстановление, нажав <b>«Да»</b>. Будьте внимательны: <b>все текущие данные будут перезаписаны</b> данными из выбранной резервной копии.</span></p>
+		
+		<!-- СКРИНШОТ: процесс восстановления -->
+		
+		<p class="rvps4"><span class="rvts11">5. Дождитесь завершения процесса. При успешном завершении появится сообщение:</span></p>
+		
+		<!-- СКРИНШОТ: сообщение об успехе -->
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Что происходит при восстановлении</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">При восстановлении программа последовательно выполняет все SQL-команды из выбранного файла.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>При этом:</b></span></p>
+		<p class="rvps4"><span class="rvts11">— Существующие таблицы с такими же именами будут <b>перезаписаны</b> (удалены и созданы заново).</span></p>
+		<p class="rvps4"><span class="rvts11">— Все текущие данные будут <b>утрачены</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">— Восстанавливаются также хранимые процедуры и функции.</span></p>
+		
+		<!-- СКРИНШОТ: сообщение об ошибке -->
+		<p class="rvps4"><img alt="Ошибка восстановления" style="padding: 1px;" src="lib/backup_restore_error.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Сообщение об ошибке при восстановлении</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Возможные ошибки и их решения</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: left;">Ошибка</th>
+				<th style="width: 65%; background: #d0d0d0; padding: 8px; text-align: left;">Решение</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Файл не выбран</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Убедитесь, что вы выбрали файл .sql в диалоговом окне</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Файл повреждён или имеет неверный формат</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Используйте другую резервную копию; убедитесь, что файл создан этой же программой</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Недостаточно прав</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Убедитесь, что пользователь MySQL имеет права на создание и удаление таблиц</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Ошибка подключения к БД</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверьте параметры подключения в файле config.ini</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Недостаточно места на диске</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Освободите место на диске, где установлен MySQL сервер</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Важные рекомендации</b></span></p>
+		
+		<!-- СКРИНШОТ: чек-лист перед восстановлением -->
+		
+		<p class="rvps4"><span class="rvts11">Перед восстановлением базы данных обязательно:</span></p>
+		<p class="rvps4"><span class="rvts11">1. <b>Создайте свежую резервную копию</b> текущей базы данных (на случай, если потребуется откатить изменения).</span></p>
+		<p class="rvps4"><span class="rvts11">2. <b>Убедитесь</b>, что выбранный файл — это правильная резервная копия нужной базы данных.</span></p>
+		<p class="rvps4"><span class="rvts11">3. <b>Предупредите пользователей</b> о временной недоступности системы.</span></p>
+		<p class="rvps4"><span class="rvts11">4. После восстановления <b>проверьте целостность данных</b> (откройте несколько разделов, убедитесь, что данные отображаются корректно).</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Примечание:</b> Восстановление может занять некоторое время в зависимости от размера файла и производительности сервера. Не закрывайте приложение до появления сообщения об успешном завершении.</span></p>
+		
+	</div>
+</body>
+</html>

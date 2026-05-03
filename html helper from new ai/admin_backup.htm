@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Резервное копирование и восстановление базы данных</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Создание резервной копии и восстановление базы данных" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3.2. Резервное копирование и восстановление</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="admin_section.htm">Администрирование</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="admin_section.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="admin_user_edit.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="admin_backup_create.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">В системе предусмотрены функции резервного копирования и восстановления базы данных. Эти функции <b>доступны только администратору</b> и находятся в форме управления пользователями.</span></p>
+		
+		<!-- СКРИНШОТ: форма с кнопками бэкапа -->
+		<p class="rvps4"><img alt="Форма с кнопками бэкапа" style="padding: 1px;" src="lib/backup_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Кнопки «Создать резервную копию» и «Восстановить» в форме управления пользователями</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Где находятся функции бэкапа</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Функции резервного копирования и восстановления расположены в <b>форме управления пользователями</b>. Чтобы получить к ним доступ:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Перейдите в раздел <b>«Данные → Пользователи»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Добавить»</b> или <b>«Редактировать»</b> — откроется форма.</span></p>
+		<p class="rvps4"><span class="rvts11">3. В правой части формы находятся две кнопки (они видны <b>только администратору</b>).</span></p>
+		
+		<!-- СКРИНШОТ: кнопки крупным планом -->
+		<p class="rvps4"><img alt="Кнопки бэкапа" style="padding: 1px;" src="lib/backup_buttons.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Кнопки «Создать резервную копию» и «Восстановить резервную копию»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Доступность функций</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 30%; background: #d0d0d0; padding: 8px; text-align: left;">Пользователь</th>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: center;">Создание резервной копии</th>
+				<th style="width: 35%; background: #d0d0d0; padding: 8px; text-align: center;">Восстановление из копии</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Администратор (Admin)</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Сотрудник (Employer)</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✗</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✗</td>
+			</tr>
+			</table>
+		
+	</div>
+</body>
+</html>

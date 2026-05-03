@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Настройка подключения к базе данных</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Настройка подключения к базе данных через файл config.ini" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>1.4. Настройка подключения к базе данных (файл config.ini)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="chapter1.htm">Знакомство с приложением</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="chapter1.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="intro_requirements.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="authorization.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Для подключения приложения к серверу баз данных MySQL используется конфигурационный файл <b>config.ini</b>. Этот файл должен находиться в той же папке, что и исполняемый файл программы.</span></p>
+		
+		<!-- СКРИНШОТ: расположение файла config.ini в папке с программой -->
+		<p class="rvps4"><img alt="Расположение файла config.ini" style="padding: 1px;" src="lib/config_location.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Файл config.ini должен находиться в папке с программой</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/></span></p>
+		<p class="rvps4"><span class="rvts11"><b>Структура файла config.ini</b></span></p>
+		
+		<!-- СКРИНШОТ: пример содержимого config.ini -->
+		<p class="rvps4"><img alt="Содержимое config.ini" style="padding: 1px;" src="lib/config_ini_content.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Пример заполненного файла config.ini</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Файл состоит из пар <b>ключ=значение</b>, каждая с новой строки. Доступны следующие параметры:</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Параметр</th>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Значение по умолчанию</th>
+				<th style="width: 50%; background: #d0d0d0; padding: 8px; text-align: left;">Описание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>server</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">localhost</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Адрес сервера MySQL (localhost, 127.0.0.1, IP-адрес или доменное имя).</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>port</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">3306</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Порт для подключения к MySQL.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>user</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">(пусто)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Имя пользователя MySQL.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>password</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">(пусто)</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Пароль пользователя MySQL.</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;"><b>database</b></td>
+				<td style="padding: 5px; border: 1px solid #ccc;">ArchiveFund</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Имя базы данных, с которой будет работать приложение.</td>
+			</tr>
+		</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/></span></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Пример заполнения:</b></span></p>
+		<div class="rvps4" style="background: #f0f0f0; padding: 10px; font-family: monospace; margin: 10px 0;">
+			server=192.168.1.100<br/>
+			port=3306<br/>
+			user=archive_user<br/>
+			password=secure_password<br/>
+			database=ArchiveFund
+		</div>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Как работает поиск и проверка базы данных при запуске</b></span></p>
+		
+		<!-- СКРИНШОТ: процесс проверки БД -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/></span></p>
+		
+		<p class="rvps4"><span class="rvts11">При запуске программа выполняет следующие проверки:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Считывает параметры из файла <b>config.ini</b>. Если файл отсутствует — используются стандартные настройки (localhost, порт 3306, база ArchiveFund).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Проверяет существование базы данных с указанным именем.</span></p>
+		<p class="rvps4"><span class="rvts11">3. Проверяет соответствие табличной структуры (наличие всех необходимых таблиц).</span></p>
+		<p class="rvps4"><span class="rvts11">4. Если база данных не найдена или структура не соответствует — создаётся новая база из встроенного скрипта <b>ArchiveFund.06.clear.sql</b>. Старая база (при несовпадении структуры) сохраняется в резервную копию с отметкой времени.</span></p>
+		<p class="rvps4"><span class="rvts11">5. Проверяет существование указанного пользователя MySQL. Если его нет — создаёт нового с необходимыми привилегиями.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Возможные ошибки подключения</b></span></p>
+		
+		<!-- СКРИНШОТ: сообщение об ошибке подключения -->
+		<p class="rvps4"><img alt="Ошибка подключения" style="padding: 1px;" src="lib/error_connection_message.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Сообщение об ошибке подключения к серверу</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Если при запуске произошла ошибка подключения, программа предложит:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Отмена»</b> — завершить работу приложения.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Повторить»</b> — ещё раз попытаться подключиться.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>«Продолжить»</b> — продолжить работу с настройками по умолчанию (может привести к нестабильной работе).</span></p>
+		
+	</div>
+</body>
+</html>

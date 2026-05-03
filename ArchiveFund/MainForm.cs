@@ -119,6 +119,17 @@
                             newRow[columnName] = DBNull.Value;
                         }
                     }
+                    else if (columnName.Contains("password"))
+                    {
+                        if (oldRow[columnName] != DBNull.Value)
+                        {
+                            newRow[columnName] = "?????????";
+                        }
+                        else
+                        {
+                            newRow[columnName] = DBNull.Value;
+                        }
+                    }
                     else
                     {
                         newRow[columnName] = oldRow[columnName];
@@ -887,10 +898,22 @@
 
         private void MenuItemAbout_Click(object sender, EventArgs e)
         {
-            Process process = new Process();
-            process.StartInfo.FileName = "new_helper.chm";
-            process.StartInfo.UseShellExecute = true;
-            process.Start();
+            try
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = "helper.chm";
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
+            }
+            catch
+            {
+                MessageBox.Show("файл справки не найден", "Ошибка открытия справки!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void HelperMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuItemAbout_Click(sender, e);
         }
     }
 }

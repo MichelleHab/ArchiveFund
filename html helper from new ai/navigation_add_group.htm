@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Добавление всех документов группы</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Добавление всех документов выбранной группы в навигационный файл" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>2.5.3.3. Добавление всех документов группы</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="print_section.htm">Раздел «Печати»</a> ›› <a href="print_navigation.htm">Создание навигационного файла</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="print_navigation.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="navigation_add_student.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="navigation_generate.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Функция <b>«- выбранной группы»</b> позволяет одним действием добавить в навигационный файл <b>все документы всех студентов</b> выбранной учебной группы. Это самый мощный инструмент для массового добавления документов.</span></p>
+		
+		<!-- СКРИНШОТ: подменю с пунктом группы -->
+		<p class="rvps4"><img alt="Пункт добавления документов группы" style="padding: 1px;" src="lib/nav_add_group_menu.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Пункт «- выбранной группы» в подменю навигации</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Где доступна эта функция</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Пункт меню <b>«- выбранной группы»</b> становится доступным (активным) только в разделе:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Группы</b> (раздел 2.3.1)</span></p>
+		
+		<p class="rvps4"><span class="rvts11">Также функция может быть доступна, если вы находитесь в других разделах, но выбрали элемент, принадлежащий группе, однако по коду приложения активность проверяется только для раздела «Группы».</span></p>
+		
+		<!-- СКРИНШОТ: выделение группы -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Порядок действий</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">1. Перейдите в раздел <b>«Группы»</b> через главное меню (<b>«Данные → Группы»</b>).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Выделите строку с нужной группой.</span></p>
+		<p class="rvps4"><span class="rvts11">3. В главном меню выберите <b>«Печати → Составление файла навигации по архиву → - выбранной группы»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: процесс добавления -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Какие документы добавляются</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">При выборе этого пункта программа выполняет следующие действия:</span></p>
+		<p class="rvps4"><span class="rvts11">1. Находит всех студентов, принадлежащих выбранной группе.</span></p>
+		<p class="rvps4"><span class="rvts11">2. Для каждого студента находит <b>все документы</b> из раздела «Документы работ».</span></p>
+		<p class="rvps4"><span class="rvts11">3. Для каждого студента находит <b>все документы</b> из раздела «Удалённые документы».</span></p>
+		<p class="rvps4"><span class="rvts11">4. Добавляет все найденные документы в навигационный файл.</span></p>
+		
+		<!-- СКРИНШОТ: визуализация охвата группы -->
+
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Пример</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Если в группе «Гр-1а» учатся 5 студентов, и у каждого в среднем по 3 документа, то после использования функции «- выбранной группы» в навигационный файл будут добавлены <b>около 15 документов</b> (или больше, с учётом удалённых).</span></p>
+		
+		<!-- СКРИНШОТ: пример в файле -->
+		<p class="rvps4"><img alt="Пример файла для группы" style="padding: 1px;" src="lib/nav_group_result.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Фрагмент навигационного файла со всеми документами группы</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Особенности и предупреждения</b></span></p>
+		
+		<!-- СКРИНШОТ: предупреждение -->
+
+		
+		<p class="rvps4"><span class="rvts11">— <b>Большой объём:</b> при добавлении документов всей группы навигационный файл может стать очень большим. Рекомендуется использовать эту функцию, когда действительно нужно собрать документы целой группы.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Время выполнения:</b> если в группе много студентов и документов, операция может занять несколько секунд.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Пустая группа:</b> если в группе нет студентов или у студентов нет документов, в навигационный файл ничего не добавится.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Сравнение способов добавления</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="background: #d0d0d0; padding: 8px; text-align: left;">Способ</th>
+				<th style="background: #d0d0d0; padding: 8px; text-align: left;">Охват</th>
+				<th style="background: #d0d0d0; padding: 8px; text-align: left;">Типичное использование</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Добавить выбранный документ</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">1 или несколько конкретных документов</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Поиск конкретных работ</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Все документы студента</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Все документы одного студента</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Проверка полного портфолио студента</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Все документы группы</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Все документы всех студентов группы</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Массовая проверка, инвентаризация</td>
+			</tr>
+			</table>
+		
+	</div>
+</body>
+</html>

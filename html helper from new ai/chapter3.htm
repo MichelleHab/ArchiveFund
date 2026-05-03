@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3. Администрирование</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Администрирование Архивный фонд" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3. Администрирование</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="index.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="chapter2.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="admin_users.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Этот раздел предназначен для администраторов системы. Здесь описаны все функции по управлению пользователями, резервному копированию и восстановлению базы данных.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><b>Внимание:</b> доступ к функциям администрирования имеют только пользователи с ролью <b>«Администратор»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: форма администратора -->
+		<p class="rvps4"><img alt="Администрирование" style="padding: 1px;" src="lib/backup_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Форма управления пользователями и резервного копирования</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Содержание раздела:</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr style="background: #e0e0e0;">
+				<th colspan="3" style="padding: 8px; text-align: left;">3.1. Управление пользователями</th>
+			</tr>
+			<tr><td style="padding: 5px; border: 1px solid #ccc;">3.1.1</td><td style="padding: 5px; border: 1px solid #ccc;"><a href="admin_roles.htm">Роли пользователей: «Администратор» и «Сотрудник»</a></td><td style="padding: 5px; border: 1px solid #ccc;">Различия в правах доступа</td></tr>
+			<tr><td style="padding: 5px; border: 1px solid #ccc;">3.1.2</td><td style="padding: 5px; border: 1px solid #ccc;"><a href="admin_user_add.htm">Добавление нового пользователя</a></td><td style="padding: 5px; border: 1px solid #ccc;">Создание учётной записи</td></tr>
+			<tr><td style="padding: 5px; border: 1px solid #ccc;">3.1.3</td><td style="padding: 5px; border: 1px solid #ccc;"><a href="admin_user_edit.htm">Редактирование данных пользователя</a></td><td style="padding: 5px; border: 1px solid #ccc;">Изменение ФИО, логина, роли</td></tr>
+			<tr><td style="padding: 5px; border: 1px solid #ccc;">3.1.4</td><td style="padding: 5px; border: 1px solid #ccc;"><a href="admin_user_edit.htm">Смена пароля</a></td><td style="padding: 5px; border: 1px solid #ccc;">Как изменить пароль пользователя</td></tr>
+			
+			<tr style="background: #e0e0e0;">
+				<th colspan="3" style="padding: 8px; text-align: left;">3.2. Резервное копирование и восстановление</th>
+			</tr>
+			<tr><td>3.2.1</td><td><a href="admin_backup_create.htm">Создание резервной копии базы данных (.sql)</a></td><td>Сохранение всей базы в файл</td></tr>
+			<tr><td>3.2.2</td><td><a href="admin_backup_restore.htm">Восстановление базы данных из копии</a></td><td>Восстановление данных из файла .sql</td></tr>
+		</table>
+		
+		<div class="rvps4" style="background: #fff3e0; padding: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
+			<span class="rvts11"><b>⚠️ Важно для администратора:</b></span>
+			<p class="rvps4"><span class="rvts11">— Храните резервные копии в надёжном месте.</span></p>
+			<p class="rvps4"><span class="rvts11">— Регулярно меняйте пароли пользователей.</span></p>
+			<p class="rvps4"><span class="rvts11">— Не удаляйте системного администратора (user_id = -1).</span></p>
+			<p class="rvps4"><span class="rvts11">— Перед восстановлением из копии создайте резервную копию текущей базы.</span></p>
+		</div>
+		
+	</div>
+</body>
+</html>

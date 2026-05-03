@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Роли пользователей: Администратор и Сотрудник</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Роли пользователей и их права" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3.1.1. Роли пользователей: «Администратор» и «Сотрудник»</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="admin_section.htm">Администрирование</a> ›› <a href="admin_users.htm">Управление пользователями</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="admin_users.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="admin_users.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="admin_user_add.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">В системе предусмотрены две роли пользователей: <b>«Администратор» (Admin)</b> и <b>«Сотрудник» (Employer)</b>. Роль определяет набор доступных функций в программе.</span></p>
+		
+		<!-- СКРИНШОТ: выбор роли в форме -->
+		<p class="rvps4"><img alt="Выбор роли" style="padding: 1px;" src="lib/role_selection.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Выбор роли при создании или редактировании пользователя</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Сравнение ролей</b></span></p>
+		
+		<table class="rvps7" style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Функция</th>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: center;">Администратор</th>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: center;">Сотрудник</th>
+				<th style="width: 25%; background: #d0d0d0; padding: 8px; text-align: left;">Примечание</th>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Просмотр всех разделов</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Оба видят данные</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Добавление/редактирование/удаление данных</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Оба могут изменять данные</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Управление пользователями</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✗</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Только для администратора</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; border: 1px solid #ccc;">Резервное копирование и восстановление</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✓</td>
+				<td style="padding: 5px; border: 1px solid #ccc; text-align: center;">✗</td>
+				<td style="padding: 5px; border: 1px solid #ccc;">Только для администратора</td>
+			</tr>
+			</table>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Роль «Администратор» (Admin)</b></span></p>
+		
+		<!-- СКРИНШОТ: меню администратора -->
+		<p class="rvps4"><img alt="Меню администратора" style="padding: 1px;" src="lib/admin_menu_full.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Меню для пользователя с ролью «Администратор»</p>
+		
+		<p class="rvps4"><span class="rvts11">Пользователь с ролью <b>«Администратор»</b> имеет полный доступ ко всем функциям системы:</span></p>
+		<p class="rvps4"><span class="rvts11">— Просмотр, добавление, редактирование и удаление данных во всех разделах.</span></p>
+		<p class="rvps4"><span class="rvts11">— Доступ к разделу <b>«Пользователи»</b> (создание, редактирование, удаление учётных записей).</span></p>
+		<p class="rvps4"><span class="rvts11">— Доступ к функциям резервного копирования и восстановления базы данных.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Роль «Сотрудник» (Employer)</b></span></p>
+		
+		<!-- СКРИНШОТ: меню сотрудника -->
+		<p class="rvps4"><img alt="Меню сотрудника" style="padding: 1px;" src="lib/employer_menu.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Меню для пользователя с ролью «Сотрудник» (нет пункта «Пользователи»)</p>
+		
+		<p class="rvps4"><span class="rvts11">Пользователь с ролью <b>«Сотрудник»</b> имеет ограниченный доступ:</span></p>
+		<p class="rvps4"><span class="rvts11">— Просмотр, добавление, редактирование и удаление данных во всех разделах, <b>кроме раздела «Пользователи»</b>.</span></p>
+		<p class="rvps4"><span class="rvts11">— Не имеет доступа к резервному копированию и восстановлению.</span></p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Как определить свою роль</b></span></p>
+		
+		<!-- СКРИНШОТ: заголовок окна с ролью -->
+		<p class="rvps4"><img alt="Заголовок окна" style="padding: 1px;" src="lib/window_title_role.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. В заголовке главного окна отображается логин и ФИО текущего пользователя</p>
+		
+		<p class="rvps4"><span class="rvts11">Текущий пользователь может определить свою роль:</span></p>
+		<p class="rvps4"><span class="rvts11">— По наличию пункта меню <b>«Данные → Пользователи»</b> (есть только у администратора).</span></p>
+		<p class="rvps4"><span class="rvts11">— По наличию кнопок <b>«Создать резервную копию»</b> и <b>«Восстановить»</b> в форме управления пользователями (только у администратора).</span></p>
+		
+		<!-- СКРИНШОТ: форма администратора с кнопками -->
+		<p class="rvps4"><img alt="Форма администратора" style="padding: 1px;" src="lib/backup_form.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Форма «Пользователи» (доступна только Admin) — здесь есть кнопки бэкапа</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Рекомендации по назначению ролей</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">— <b>Администратор</b> — должен быть один или несколько ответственных сотрудников, которые управляют учётными записями и выполняют резервное копирование.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Сотрудник</b> — все остальные работники архива, которые работают с данными, но не должны иметь доступ к администрированию.</span></p>
+		
+	</div>
+</body>
+</html>

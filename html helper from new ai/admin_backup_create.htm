@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Создание резервной копии базы данных</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Создание резервной копии базы данных в файл .sql" />
+	<meta name="generator" content="HelpNDoc Personal Edition 9.1.0.198" />
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	
+	<style type="text/css">
+		#topic_header { background-color: #EFEFEF; }
+	</style>
+	
+	<script type="text/javascript" src="js/chmRelative.js"></script>
+</head>
+
+<body>
+	<div id="topic_header">
+		<div id="topic_header_content">
+			<h1>3.2.1. Создание резервной копии базы данных (.sql)</h1>
+			<div id="topic_breadcrumb">
+				<a href="index.htm">Содержание</a> ›› <a href="admin_section.htm">Администрирование</a> ›› <a href="admin_backup.htm">Резервное копирование</a> ››
+			</div>
+		</div>
+		<div id="topic_header_nav">
+			<a href="admin_backup.htm"><img width="20" height="20" src="img/arrow_up.png" alt="Родитель"/></a>
+			<a href="admin_backup.htm"><img width="20" height="20" src="img/arrow_left.png" alt="Назад"/></a>
+			<a href="admin_backup_restore.htm"><img width="20" height="20" src="img/arrow_right.png" alt="Далее"/></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="topic_content">
+		
+		<p class="rvps4"><span class="rvts11">Функция <b>«Создать резервную копию»</b> позволяет сохранить всю базу данных в файл формата `.sql`. Этот файл можно использовать для восстановления данных в случае сбоя или для переноса базы на другой сервер.</span></p>
+		
+		<!-- СКРИНШОТ: выделенная кнопка создания копии -->
+		<p class="rvps4"><img alt="Кнопка создания копии" style="padding: 1px;" src="lib/backup_create_button.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 1. Кнопка «Создать резервную копию»</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Порядок действий</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">1. Откройте форму управления пользователями (раздел «Пользователи» → кнопка «Добавить» или «Редактировать»).</span></p>
+		<p class="rvps4"><span class="rvts11">2. Нажмите кнопку <b>«Создать резервную копию»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: диалог сохранения файла -->
+		<p class="rvps4"><img alt="Диалог сохранения" style="padding: 1px;" src="lib/backup_save_dialog.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 2. Диалог выбора места сохранения файла (.sql)</p>
+		
+		<p class="rvps4"><span class="rvts11">3. В появившемся диалоговом окне:</span></p>
+		<p class="rvps4"><span class="rvts11">   — Выберите папку для сохранения.</span></p>
+		<p class="rvps4"><span class="rvts11">   — Имя файла формируется автоматически по шаблону: <b>`backup_ГГГГММДД_ЧЧММСС.sql`</b> (например, «backup_20260124_143052.sql»).</span></p>
+		<p class="rvps4"><span class="rvts11">   — При необходимости можно изменить имя файла.</span></p>
+		<p class="rvps4"><span class="rvts11">   — Нажмите кнопку <b>«Сохранить»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: подтверждение создания копии -->
+		<p class="rvps4"><img alt="Подтверждение" style="padding: 1px;" src="lib/backup_confirm.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 3. Диалог подтверждения перед созданием копии</p>
+		
+		<p class="rvps4"><span class="rvts11">4. Подтвердите создание резервной копии, нажав <b>«Да»</b>.</span></p>
+		
+		<!-- СКРИНШОТ: процесс создания копии -->
+		
+		
+		<p class="rvps4"><span class="rvtsll">5. Дождитесь завершения процесса. При успешном завершении появится сообщение:</span></p>
+		
+		<!-- СКРИНШОТ: сообщение об успехе -->
+		<p class="rvps4"><img alt="Успешное создание" style="padding: 1px;" src="lib/backup_success.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 4. Сообщение об успешном создании резервной копии</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Что сохраняется в резервную копию</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">Резервная копия включает:</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Структуру всех таблиц</b> (CREATE TABLE).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Все данные</b> из всех таблиц (INSERT INTO).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Хранимые процедуры и функции</b> (например, `GetBoxCountByType`, `HasActiveDocuments`, `ArchiveStudent`).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Параметры кодировки</b> и настройки базы данных.</span></p>
+		
+		<!-- СКРИНШОТ: пример содержимого .sql файла -->
+		<p class="rvps4"><img alt="Содержимое SQL файла" style="padding: 1px;" src="lib/backup_file_content.png"></p>
+		<p class="rvps4" style="text-align: center; font-style: italic;">Рис. 5. Пример содержимого созданного .sql файла</p>
+		
+		<p class="rvps4"><span class="rvts11"><br/><b>Рекомендации по регулярному резервному копированию</b></span></p>
+		
+		<p class="rvps4"><span class="rvts11">— <b>Периодичность:</b> рекомендуется создавать резервную копию <b>ежедневно</b> или <b>еженедельно</b>, в зависимости от интенсивности работы.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Хранение:</b> храните копии в надёжном месте (отдельная папка на сервере, внешний диск, облачное хранилище).</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Именование:</b> автоматическое именование по дате и времени помогает отслеживать актуальность копий.</span></p>
+		<p class="rvps4"><span class="rvts11">— <b>Перед важными операциями:</b> всегда создавайте резервную копию перед массовым удалением или редактированием данных.</span></p>
+		
+		<!-- СКРИНШОТ: папка с копиями -->
+
+		
+	</div>
+</body>
+</html>
