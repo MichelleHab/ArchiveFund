@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ArchiveFund</string>
+    
+    <!-- Общие строки -->
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="logout">Выйти</string>
+    
+    <!-- Меню навигации -->
+    <string name="nav_boxes">Коробки</string>
+    <string name="nav_groups">Группы</string>
+    <string name="nav_students">Студенты</string>
+    <string name="nav_documents">Документы</string>
+    <string name="nav_document_types">Типы документов</string>
+    <string name="nav_persfiles">Личные дела</string>
+    <string name="nav_users">Пользователи</string>
+    
+    <!-- Ошибки -->
+    <string name="error_login_empty">Не введен логин!</string>
+    <string name="error_password_empty">Не введен пароль!</string>
+    <string name="error_auth_failed">Ошибка авторизации</string>
+    <string name="error_connection">Ошибка подключения к базе данных</string>
+    
+    <!-- Статусы -->
+    <string name="status_rows_received">Получено %d строк</string>
+</resources>
