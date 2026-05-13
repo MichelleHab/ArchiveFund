@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Основные цвета из оригинального приложения -->
+    <color name="wheat">#F5DEB3</color>           <!-- Основной фон полей -->
+    <color name="sandy_brown">#F4A460</color>     <!-- Ячейки таблицы -->
+    <color name="peru">#CD853F</color>            <!-- Заголовки таблицы -->
+    <color name="salmon">#FA8072</color>          <!-- Строки таблицы (альтернативный) -->
+    <color name="light_coral">#F08080</color>     <!-- Меню и контекстное меню -->
+    <color name="purple_300">#FFBB86FC</color>
+    <color name="teal_300">#FF03DAC5</color>
+    <!-- Дополнительные цвета для UI -->
+    <color name="dark_text">#333333</color>
+    <color name="light_text">#666666</color>
+
+    <!-- Material Design цвета для акцентов -->
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <!-- Полупрозрачные цвета для фонов -->
+    <color name="semi_transparent">#64C8C8C8</color>
+    <color name="transparent_wheat">#80F5DEB3</color>  <!-- Прозрачный Wheat -->
+</resources>

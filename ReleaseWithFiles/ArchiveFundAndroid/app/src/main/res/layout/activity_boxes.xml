@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BoxesActivity"
+    android:orientation="vertical"
+    android:background="@drawable/bg_wheat_gradient"
+    android:fitsSystemWindows="true"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/peru"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Номер стеллажа -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRackNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Номер стеллажа"
+                    android:inputType="number"
+                    android:text="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Номер полки -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etShelfNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Номер полки"
+                    android:inputType="number"
+                    android:text="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Имя коробки -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etBoxName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Имя коробки"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Группа -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <Spinner
+                    android:id="@+id/spinnerGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:padding="12dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Тип документов -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <Spinner
+                    android:id="@+id/spinnerType"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:padding="12dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Год работы с чекбоксом "Не сохранять" -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Год работы:"
+                    android:textColor="@color/dark_text"
+                    android:textSize="14sp"/>
+
+                <CheckBox
+                    android:id="@+id/cbNoSaveDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Не сохранять"
+                    android:checked="true"
+                    android:textColor="@color/dark_text" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etYearWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Год работы"
+                    android:inputType="number"
+                    android:enabled="false"
+                    android:text="2024" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Кнопки -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Отмена"
+                    android:backgroundTint="@color/wheat"
+                    android:textColor="@color/dark_text"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Сохранить"
+                    android:backgroundTint="@color/peru" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

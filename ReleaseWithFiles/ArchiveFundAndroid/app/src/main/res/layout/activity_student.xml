@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_wheat_gradient"
+    android:fitsSystemWindows="true"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/peru"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ФИО студента -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="*ФИО студента"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Группа -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <Spinner
+                    android:id="@+id/spinnerGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:padding="12dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Год поступления (DatePicker) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Год поступления:"
+                android:textColor="@color/dark_text"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <DatePicker
+                android:id="@+id/dpAdmissionYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                android:layout_marginBottom="16dp"
+                android:background="@color/wheat"/>
+
+            <!-- Год отчисления с чекбоксом "Не сохранять" -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Год отчисления:"
+                    android:textColor="@color/dark_text"
+                    android:textSize="14sp"/>
+
+                <CheckBox
+                    android:id="@+id/cbNoDeductionDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Не сохранять"
+                    android:checked="true"
+                    android:textColor="@color/dark_text" />
+
+            </LinearLayout>
+
+            <DatePicker
+                android:id="@+id/dpDeductionYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                android:enabled="false"
+                android:layout_marginBottom="16dp"
+                android:background="@color/wheat"/>
+
+            <!-- Причина отчисления -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="@color/wheat"
+                app:boxStrokeColor="@color/peru"
+                app:hintTextColor="@color/peru">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etReason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Причина отчисления"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Чекбокс "В удаленные" -->
+            <CheckBox
+                android:id="@+id/cbIsDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Студента в удаленные?"
+                android:textColor="@color/dark_text"
+                android:textSize="14sp" />
+
+            <!-- Кнопки -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Отмена"
+                    android:backgroundTint="@color/wheat"
+                    android:textColor="@color/dark_text"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Сохранить"
+                    android:backgroundTint="@color/peru" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

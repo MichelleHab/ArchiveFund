@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_users"
+        android:title="Пользователи"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_students"
+        android:title="Студенты"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_personal_files"
+        android:title="Личные дела"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_deleted_personal_files"
+        android:title="Удаленные личные дела"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_groups"
+        android:title="Группы"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_documents"
+        android:title="Документы"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_deleted_documents"
+        android:title="Удаленные документы"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_boxes"
+        android:title="Коробки"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_document_types"
+        android:title="Типы документов"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_backup"
+        android:title="Резервная копия"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_restore"
+        android:title="Восстановить"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_exit"
+        android:title="Выход"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:showAsAction="never"/>
+
+</menu>
