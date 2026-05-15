@@ -37,7 +37,7 @@
             }
         }
         private bool flag_is_update = false;
-        private void ShowTable()
+        public void ShowTable()
         {
             contextFilterItem.Enabled = true;
             grid.DataSource = null;
@@ -399,7 +399,7 @@
                     break;
                 case Table.User:
                     form = new UserForm();
-                    if (form.ShowDialog() != DialogResult.OK)
+                    if (form.ShowDialog(this) != DialogResult.OK)
                     {
                         ShowTable();
                         return;
@@ -533,7 +533,7 @@
                         return;
                     form = new UserForm(Sql.Query("select * from `User` where user_id = @id",
                         [new MySqlParameter("@id", id)])?.Rows[0].ItemArray ?? throw new ArgumentNullException());
-                    if (form.ShowDialog() != DialogResult.OK)
+                    if (form.ShowDialog(this) != DialogResult.OK)
                     {
                         ShowTable();
                         return;
@@ -914,6 +914,11 @@
         private void HelperMenuItem_Click(object sender, EventArgs e)
         {
             MenuItemAbout_Click(sender, e);
+        }
+
+        private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

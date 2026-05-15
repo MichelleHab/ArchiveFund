@@ -88,6 +88,7 @@ namespace ArchiveFund
                 using var mySqlBackup = new MySqlBackup(conn.CreateCommand());
                 mySqlBackup.ExportInfo.AddCreateDatabase = true;
                 conn.Open();
+                QueryNonReturns($"ALTER DATABASE {ConnectionStringBuilding.Database} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
                 mySqlBackup.ExportToFile(filePath);
                 return true;
             }
@@ -147,7 +148,8 @@ namespace ArchiveFund
             UserID = "root",
             Password = "",
             Database = "mysql",
-            ConnectionTimeout = 5
+            ConnectionTimeout = 5,
+            CharacterSet = "utf8mb4"
         };
     }
 }

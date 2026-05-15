@@ -110,7 +110,7 @@ namespace ArchiveFund
 
                 if (result == DialogResult.Yes)
                 {
-                    bool success = Sql.QueryNonReturns(File.ReadAllText(openDialog.FileName));
+                    bool success = Sql.ImportFromFile(openDialog.FileName);
 
                     if (success)
                     {
@@ -119,6 +119,8 @@ namespace ArchiveFund
                             "Успех",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
+                        if (this.Owner is not null) 
+                            ((MainForm)this.Owner).ShowTable();
                     }
                     else
                     {
