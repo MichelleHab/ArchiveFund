@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity
 
         backupManager = new BackupManager(this);
         dbHelper = new DatabaseHelper(this);
+
         sessionManager = new SessionManager(this);
 
         setupToolbar();
