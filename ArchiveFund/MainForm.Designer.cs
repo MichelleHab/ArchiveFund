@@ -111,7 +111,7 @@
             // 
             HelperMenuItem.BackColor = Color.LightCoral;
             HelperMenuItem.Name = "HelperMenuItem";
-            HelperMenuItem.Size = new Size(180, 26);
+            HelperMenuItem.Size = new Size(147, 26);
             HelperMenuItem.Text = "Справка";
             HelperMenuItem.Click += HelperMenuItem_Click;
             // 
@@ -119,7 +119,7 @@
             // 
             exitMenuItem.BackColor = Color.LightCoral;
             exitMenuItem.Name = "exitMenuItem";
-            exitMenuItem.Size = new Size(180, 26);
+            exitMenuItem.Size = new Size(147, 26);
             exitMenuItem.Text = "Выход";
             exitMenuItem.Click += ExitMenuItem_Click;
             // 

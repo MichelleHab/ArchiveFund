@@ -35,7 +35,7 @@ namespace ArchiveFund
                             MessageBox.Show("База данных с именем, указанным в файле 'config.ini' не найдена. " +
                                 "Загружена пустая версия", "Проверка файла конфигурации 'config.ini'",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Sql.QueryNonReturns(File.ReadAllText("ArchiveFund.06.clear.sql"));
+                            Sql.ImportFromFile(("ArchiveFund.06.clear.sql"));
                         }
                         var tableStruct = "Boxes, DeletedDocuments, DeletedStudentsPersFiles, Documents, DocumentTypes, Group, Student, StudentsPersFiles, User";
                         if (!Convert.ToBoolean(Sql.QueryOneReturn("select @tableStruct = (select GROUP_CONCAT(DISTINCT `TABLE_NAME` " +
@@ -72,10 +72,10 @@ namespace ArchiveFund
                         if (!string.IsNullOrEmpty(config["database"]) && config["database"].All(c => char.IsLetterOrDigit(c) || c == '_'))
                             Sql.ConnectionStringBuilding.Database = config["database"];
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         switch (MessageBox.Show("Возникло исключение при попытке обработать/собрать файл конфигурации 'config.ini'.\n" +
-                            "Возможно, сервер закрыт или данные повреждены. Дальнейшая работа в приложении опасна!",
+                            $"Возможно, сервер закрыт или данные повреждены. Дальнейшая работа в приложении опасна!\nMessage: {ex.Message}",
                             "Проверка файла конфигурации 'config.ini'", MessageBoxButtons.CancelTryContinue, MessageBoxIcon.Information))
                         {
                             case DialogResult.Cancel:
