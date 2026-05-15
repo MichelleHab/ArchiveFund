@@ -1,0 +1,171 @@
+-- ==================== Таблица User ====================
+CREATE TABLE "User" (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FIO TEXT,
+    role TEXT,
+    login TEXT UNIQUE,
+    password TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ==================== Таблица Groups ====================
+CREATE TABLE "Groups" (
+    group_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_name TEXT NOT NULL,
+    formation_year INTEGER,
+    specialization TEXT
+);
+
+-- ==================== Таблица Student ====================
+CREATE TABLE "Student" (
+    student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    full_name TEXT NOT NULL,
+    group_id INTEGER,
+    FOREIGN KEY(group_id) REFERENCES "Groups"(group_id) ON DELETE SET NULL
+);
+
+-- ==================== Таблица DocumentTypes ====================
+CREATE TABLE "DocumentTypes" (
+    type_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type_name TEXT NOT NULL
+);
+
+-- ==================== Таблица Boxes ====================
+CREATE TABLE "Boxes" (
+    box_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    box_name TEXT,
+    rack_number INTEGER,
+    shelf_number INTEGER,
+    group_id INTEGER,
+    type_id INTEGER,
+    year_work INTEGER,
+    FOREIGN KEY(group_id) REFERENCES "Groups"(group_id) ON DELETE SET NULL,
+    FOREIGN KEY(type_id) REFERENCES "DocumentTypes"(type_id)
+);
+
+-- ==================== Таблица Documents ====================
+CREATE TABLE "Documents" (
+    doc_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    document_subject TEXT NOT NULL,
+    start_data INTEGER,
+    type_id INTEGER,
+    Supervisor_full_name TEXT,
+    student_id INTEGER,
+    box_id INTEGER,
+    FOREIGN KEY(type_id) REFERENCES "DocumentTypes"(type_id),
+    FOREIGN KEY(student_id) REFERENCES "Student"(student_id) ON DELETE CASCADE,
+    FOREIGN KEY(box_id) REFERENCES "Boxes"(box_id)
+);
+
+-- ==================== Таблица DeletedDocuments ====================
+CREATE TABLE "DeletedDocuments" (
+    doc_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    document_subject TEXT NOT NULL,
+    start_data INTEGER,
+    type_id INTEGER,
+    Supervisor_full_name TEXT,
+    student_id INTEGER,
+    box_id INTEGER
+);
+
+-- ==================== Таблица StudentsPersFiles ====================
+CREATE TABLE "StudentsPersFiles" (
+    pers_file_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    admission_year INTEGER,
+    deduction_year INTEGER,
+    reason TEXT,
+    student_id INTEGER,
+    FOREIGN KEY(student_id) REFERENCES "Student"(student_id) ON DELETE CASCADE
+);
+
+-- ==================== Таблица DeletedStudentsPersFiles ====================
+CREATE TABLE "DeletedStudentsPersFiles" (
+    pers_file_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    admission_year INTEGER,
+    deduction_year INTEGER,
+    reason TEXT,
+    student_id INTEGER
+);
+
+INSERT INTO User VALUES ('1','Администратор','Admin','admin','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+INSERT INTO User VALUES ('2','Сотрудник','Employer','user','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+INSERT INTO User VALUES ('3','Скрыльников Дмитрий Константинович','Admin','derector_sdk','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+INSERT INTO User VALUES ('4','Федусева Элла Юрьевна','Employer','fedusia_eu','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+INSERT INTO User VALUES ('5','Мартыненко Вадим Алексеевич','Admin','martinenko_cool','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+INSERT INTO User VALUES ('6','Истомина Анна Николаевна','Admin','upravlauszh_an','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+INSERT INTO User VALUES ('7','Павлов Андрей','Admin','very_developer','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413','2026-05-12 17:53:22');
+
+INSERT INTO Groups VALUES ('1','ИП3','2023','09.02.07 Информационные системы и программирование');
+INSERT INTO Groups VALUES ('2','ИС3-Б','2023','09.02.07 Разработка веб и мультимедийных приложений');
+INSERT INTO Groups VALUES ('3','Ф3-А','2023','33.02.01 Фармация (на базе 9 классов)');
+INSERT INTO Groups VALUES ('4','Ф3-Б','2023','33.02.07 Фармация (на базе 11 классов)');
+INSERT INTO Groups VALUES ('5','Э3','2023','38.02.01 Экономика и бухгалтерский учет');
+INSERT INTO Groups VALUES ('6','ПД3-Г','2023','40.02.02 Правоохранительная деятельность');
+INSERT INTO Groups VALUES ('7','Т3-А','2023','43.02.13 Технология парикмахерского искусства');
+INSERT INTO Groups VALUES ('8','Д3-В','2023','44.02.02 Дошкольное образование');
+INSERT INTO Groups VALUES ('9','Н3-Д','2023','44.02.02 Преподавание в начальных классах');
+
+INSERT INTO Student VALUES ('1','Иванов А.С.','1');
+INSERT INTO Student VALUES ('2','Петров Б.В.','2');
+INSERT INTO Student VALUES ('3','Сидорова Е.М.','3');
+INSERT INTO Student VALUES ('4','Козлов Д.И.','4');
+INSERT INTO Student VALUES ('5','Новикова О.П.','5');
+INSERT INTO Student VALUES ('6','Смирнов К.Л.','6');
+INSERT INTO Student VALUES ('7','Васильева Н.Т.','7');
+INSERT INTO Student VALUES ('8','Морозов Р.Ю.','8');
+INSERT INTO Student VALUES ('9','Лебедева Т.А.','9');
+
+INSERT INTO DocumentTypes VALUES ('1','Дипломная работа');
+INSERT INTO DocumentTypes VALUES ('2','Курсовая работа');
+INSERT INTO DocumentTypes VALUES ('3','Отчет по практике');
+
+INSERT INTO Boxes VALUES ('1','А1','1','1','1','1','2024');
+INSERT INTO Boxes VALUES ('2','А2','1','2','2','2','2024');
+INSERT INTO Boxes VALUES ('3','А3','1','3','3','3','2024');
+INSERT INTO Boxes VALUES ('4','Б1','2','1','4','1','2024');
+INSERT INTO Boxes VALUES ('5','Б2','2','2','5','1','2024');
+INSERT INTO Boxes VALUES ('6','Б3','2','3','6','2','2024');
+INSERT INTO Boxes VALUES ('7','В1','3','1','7','3','2024');
+INSERT INTO Boxes VALUES ('8','В2','3','2','8','1','2024');
+INSERT INTO Boxes VALUES ('9','В3','3','3','9','1','2024');
+
+INSERT INTO Documents VALUES ('1','Разработка веб-приложения','2022','1','Скрыльников Дмитрий Константинович','1','1');
+INSERT INTO Documents VALUES ('2','Анализ алгоритмов','2023','2','Нуралиева Ирина Евгеньевна','2','2');
+INSERT INTO Documents VALUES ('3','Отчет ООО "Техно"','2024','3','Федусева Элла Юрьевна','3','3');
+INSERT INTO Documents VALUES ('4','История права','2023','1','Нуралиев Арсен Абдулжалилович','4','4');
+INSERT INTO Documents VALUES ('5','Машинное обучение','2023','1','Стрельцова Анна Федоровна','5','5');
+INSERT INTO Documents VALUES ('6','Квантовая физика','2023','2','Ермольчев Константин Васильевич','6','6');
+INSERT INTO Documents VALUES ('7','Органический синтез','2023','2','Кирюхина Оксана Юрьевна','7','7');
+INSERT INTO Documents VALUES ('8','Генетика человека','2023','3','Дудник Наталья Борисовна','8','8');
+INSERT INTO Documents VALUES ('9','Археология Гуси','2023','2','Попова Вероника Владимировна','9','9');
+
+INSERT INTO DeletedDocuments VALUES ('1','Старая версия диплома','2022','1','Скрыльников Дмитрий Константинович','1','1');
+INSERT INTO DeletedDocuments VALUES ('2','курсовая 1','2023','2','Нуралиева Ирина Евгеньевна','2','2');
+INSERT INTO DeletedDocuments VALUES ('3','Предварительный отчет','2024','3','Федусева Элла Юрьевна','3','3');
+INSERT INTO DeletedDocuments VALUES ('4','Неактуальный реферат','2023','2','Нуралиев Арсен Абдулжалилович','4','4');
+INSERT INTO DeletedDocuments VALUES ('5','Дубликат диплома','2023','2','Стрельцова Анна Федоровна','5','5');
+INSERT INTO DeletedDocuments VALUES ('6','Устаревшая статья н11','2023','3','Ермольчев Константин Васильевич','6','6');
+INSERT INTO DeletedDocuments VALUES ('7','Отклоненный патент','2023','2','Кирюхина Оксана Юрьевна','7','7');
+INSERT INTO DeletedDocuments VALUES ('8','свидетельство о рождения','2023','1','Дудник Наталья Борисовна','8','8');
+INSERT INTO DeletedDocuments VALUES ('9','Просроченный сертификат','2023','1','Попова Вероника Владимировна','9','9');
+
+INSERT INTO StudentsPersFiles VALUES ('1','2024','0','','1');
+INSERT INTO StudentsPersFiles VALUES ('2','2024',NULL,NULL,'2');
+INSERT INTO StudentsPersFiles VALUES ('3','2024',NULL,NULL,'3');
+INSERT INTO StudentsPersFiles VALUES ('4','2021','2023','Окончание','4');
+INSERT INTO StudentsPersFiles VALUES ('5','2024',NULL,NULL,'5');
+INSERT INTO StudentsPersFiles VALUES ('6','2023',NULL,NULL,'6');
+INSERT INTO StudentsPersFiles VALUES ('7','2021','2023','Окончание','7');
+INSERT INTO StudentsPersFiles VALUES ('8','2023',NULL,NULL,'8');
+INSERT INTO StudentsPersFiles VALUES ('9','2023','0','','9');
+
+INSERT INTO DeletedStudentsPersFiles VALUES ('1','2020','2022','Отчисление','1');
+INSERT INTO DeletedStudentsPersFiles VALUES ('2','2021','2023','Перевод','2');
+INSERT INTO DeletedStudentsPersFiles VALUES ('3','2020','2022','Академический','3');
+INSERT INTO DeletedStudentsPersFiles VALUES ('4','2019','2023','Окончание','4');
+INSERT INTO DeletedStudentsPersFiles VALUES ('5','2021','2023','Отчисление','5');
+INSERT INTO DeletedStudentsPersFiles VALUES ('6','2020','2023','Окончание','6');
+INSERT INTO DeletedStudentsPersFiles VALUES ('7','2019','2022','Перевод','7');
+INSERT INTO DeletedStudentsPersFiles VALUES ('8','2021','2023','Окончание','8');
+INSERT INTO DeletedStudentsPersFiles VALUES ('9','2020','2023','Академический','9');
+

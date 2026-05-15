@@ -3,6 +3,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
@@ -10,10 +11,16 @@ import androidx.annotation.Nullable;
 import android.content.ContentValues;
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,7 +31,7 @@ import java.util.Locale;
 import com.example.archivefund.*;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "archive_fund.db";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 14;
 
     // Таблицы
     public static final String TABLE_USER = "User";
@@ -43,109 +50,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
+    private static final String ASSETS_DB_SCRIPT = "archive_fund.sql";
+    private void executeSqlScript(SQLiteDatabase db) {
+        try (InputStream inputStream = context.getAssets().open(ASSETS_DB_SCRIPT);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
+            StringBuilder sql = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sql.append(line).append("\n");
+            }
+
+            String[] statements = sql.toString().split(";");
+            for (String statement : statements) {
+                String trimmed = statement.trim();
+                if (!trimmed.isEmpty()) {
+                    db.execSQL(trimmed);
+                }
+            }
+            Log.d("DatabaseHelper", "SQL-скрипт успешно выполнен");
+
+        } catch (IOException e) {
+            Log.e("DatabaseHelper", "Ошибка чтения SQL-скрипта: " + e.getMessage(), e);
+        } catch (SQLiteException e) {
+            Log.e("DatabaseHelper", "Ошибка выполнения SQL: " + e.getMessage(), e);
+        }
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Создание таблицы User
-        String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
-                + "user_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "FIO TEXT,"
-                + "role TEXT,"
-                + "login TEXT UNIQUE,"
-                + "password TEXT,"
-                + KEY_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP"
-                + ")";
-        db.execSQL(CREATE_USER_TABLE);
-
-        // Создание таблицы Group
-        String CREATE_GROUP_TABLE = "CREATE TABLE " + TABLE_GROUP + "("
-                + "group_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "group_name TEXT NOT NULL,"
-                + "formation_year INTEGER,"
-                + "specialization TEXT"
-                + ")";
-        db.execSQL(CREATE_GROUP_TABLE);
-
-        // Создание таблицы Student
-        String CREATE_STUDENT_TABLE = "CREATE TABLE " + TABLE_STUDENT + "("
-                + "student_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "full_name TEXT NOT NULL,"
-                + "group_id INTEGER,"
-                + "FOREIGN KEY(group_id) REFERENCES " + TABLE_GROUP + "(group_id) ON DELETE SET NULL"
-                + ")";
-        db.execSQL(CREATE_STUDENT_TABLE);
-
-        // Создание таблицы DocumentTypes
-        String CREATE_DOCUMENT_TYPES_TABLE = "CREATE TABLE " + TABLE_DOCUMENT_TYPES + "("
-                + "type_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "type_name TEXT NOT NULL"
-                + ")";
-        db.execSQL(CREATE_DOCUMENT_TYPES_TABLE);
-
-        // Создание таблицы Boxes
-        String CREATE_BOXES_TABLE = "CREATE TABLE " + TABLE_BOXES + "("
-                + "box_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "box_name TEXT,"
-                + "rack_number INTEGER,"
-                + "shelf_number INTEGER,"
-                + "group_id INTEGER,"
-                + "type_id INTEGER,"
-                + "year_work INTEGER,"
-                + "FOREIGN KEY(group_id) REFERENCES " + TABLE_GROUP + "(group_id) ON DELETE SET NULL,"
-                + "FOREIGN KEY(type_id) REFERENCES " + TABLE_DOCUMENT_TYPES + "(type_id)"
-                + ")";
-        db.execSQL(CREATE_BOXES_TABLE);
-
-        // Создание таблицы Documents
-        String CREATE_DOCUMENTS_TABLE = "CREATE TABLE " + TABLE_DOCUMENTS + "("
-                + "doc_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "document_subject TEXT NOT NULL,"
-                + "start_data INTEGER,"
-                + "type_id INTEGER,"
-                + "Supervisor_full_name TEXT,"
-                + "student_id INTEGER,"
-                + "box_id INTEGER,"
-                + "FOREIGN KEY(type_id) REFERENCES " + TABLE_DOCUMENT_TYPES + "(type_id),"
-                + "FOREIGN KEY(student_id) REFERENCES " + TABLE_STUDENT + "(student_id) ON DELETE CASCADE,"
-                + "FOREIGN KEY(box_id) REFERENCES " + TABLE_BOXES + "(box_id)"
-                + ")";
-        db.execSQL(CREATE_DOCUMENTS_TABLE);
-
-        // Создание таблицы DeletedDocuments
-        String CREATE_DELETED_DOCUMENTS_TABLE = "CREATE TABLE " + TABLE_DELETED_DOCUMENTS + "("
-                + "doc_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "document_subject TEXT NOT NULL,"
-                + "start_data INTEGER,"
-                + "type_id INTEGER,"
-                + "Supervisor_full_name TEXT,"
-                + "student_id INTEGER,"
-                + "box_id INTEGER"
-                + ")";
-        db.execSQL(CREATE_DELETED_DOCUMENTS_TABLE);
-
-        // Создание таблицы StudentsPersFiles
-        String CREATE_STUDENTS_PERS_FILES_TABLE = "CREATE TABLE " + TABLE_STUDENTS_PERS_FILES + "("
-                + "pers_file_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "admission_year INTEGER,"
-                + "deduction_year INTEGER,"
-                + "reason TEXT,"
-                + "student_id INTEGER,"
-                + "FOREIGN KEY(student_id) REFERENCES " + TABLE_STUDENT + "(student_id) ON DELETE CASCADE"
-                + ")";
-        db.execSQL(CREATE_STUDENTS_PERS_FILES_TABLE);
-
-        // Создание таблицы DeletedStudentsPersFiles
-        String CREATE_DELETED_STUDENTS_PERS_FILES_TABLE = "CREATE TABLE " + TABLE_DELETED_STUDENTS_PERS_FILES + "("
-                + "pers_file_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "admission_year INTEGER,"
-                + "deduction_year INTEGER,"
-                + "reason TEXT,"
-                + "student_id INTEGER"
-                + ")";
-        db.execSQL(CREATE_DELETED_STUDENTS_PERS_FILES_TABLE);
-
-        // Вставка начальных данных
-        insertInitialData(db);
+        executeSqlScript(db);
+        Log.d("DatabaseHelper", "База данных создана из SQL-скрипта");
     }
 
     private void insertInitialData(SQLiteDatabase db) {
@@ -382,6 +316,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // При обновлении удаляем старые таблицы и создаём заново
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_GROUP);
@@ -392,6 +327,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENTS_PERS_FILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELETED_STUDENTS_PERS_FILES);
         onCreate(db);
+        Log.d("DatabaseHelper", "База данных обновлена");
     }
 
     // ==================== CRUD операции для User ====================
